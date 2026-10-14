@@ -1,0 +1,179 @@
+<title>Mở khóa Kinh Thánh</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap">
+<style>
+/* Layout: thư viện tra cứu — dải đầu màu mực, thanh mục lục dính bên trái, cột đọc ~68ch, bảng tra 66 sách nhóm theo 8 tập */
+:root{
+  --bg:#F4F5F7; --surface:#FFFFFF; --ink:#18202E; --muted:#596373; --rule:#DCE0E7;
+  --accent:#94560A; --accent-soft:#F4E8D6; --band:#1C2840; --band-ink:#EEF0F4; --band-muted:#AEB8CA; --band-accent:#E7B062; --mark:#FBE3A6;
+  --f-display:"Literata", Georgia, "Times New Roman", serif;
+  --f-body:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gut-l:max(16px, env(safe-area-inset-left, 0px)); --gut-r:max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F131A; --surface:#161B24; --ink:#E5E8ED; --muted:#9BA4B3; --rule:#283040;
+  --accent:#E3A957; --accent-soft:#2D2415; --band:#0A0E15; --band-ink:#EEF0F4; --band-muted:#97A2B6; --mark:#5A4415; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F131A; --surface:#161B24; --ink:#E5E8ED; --muted:#9BA4B3; --rule:#283040;
+  --accent:#E3A957; --accent-soft:#2D2415; --band:#0A0E15; --band-ink:#EEF0F4; --band-muted:#97A2B6; --mark:#5A4415; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg); color:var(--ink); font:16px/1.7 var(--f-body)}
+a{color:var(--accent); text-underline-offset:3px}
+a:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px}
+
+.band{background:var(--band); color:var(--band-ink)}
+.band-in{max-width:1180px; margin:0 auto; padding-left:var(--gut-l); padding-right:var(--gut-r); padding-block:56px 44px}
+.eyebrow{font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--band-muted); margin:0 0 14px}
+.band h1{font-family:var(--f-display); font-weight:700; font-size:clamp(2.2rem, 6vw, 3.6rem); line-height:1.08; margin:0 0 18px; text-wrap:balance}
+.band h1 em{font-style:normal; color:var(--band-accent)}
+.lede{max-width:68ch; color:var(--band-muted); margin:0}
+.facts{display:flex; flex-wrap:wrap; gap:10px 28px; margin:26px 0 0; padding:0; list-style:none; font-variant-numeric:tabular-nums}
+.facts b{font-family:var(--f-display); font-size:1.5rem; color:var(--band-ink); margin-right:6px}
+.facts li{color:var(--band-muted)}
+
+.wrap{max-width:1180px; margin:0 auto; padding-left:var(--gut-l); padding-right:var(--gut-r); padding-block:32px 80px;
+  display:grid; grid-template-columns:240px minmax(0,1fr); gap:48px}
+aside{position:sticky; top:calc(env(safe-area-inset-top, 0px) + 20px); align-self:start; max-height:calc(100vh - 40px); overflow:auto}
+.side-h{font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:6px 0 10px}
+.toc{list-style:none; margin:0; padding:0; display:grid; gap:2px}
+.toc a{display:flex; gap:10px; padding:6px 10px; border-radius:6px; color:var(--ink); text-decoration:none; font-size:.92rem; line-height:1.4}
+.toc a:hover{background:var(--accent-soft)}
+.toc a.on{background:var(--accent-soft); color:var(--accent); font-weight:600}
+.toc .n{color:var(--muted); font-variant-numeric:tabular-nums; min-width:1.2em}
+.toc a.on .n{color:var(--accent)}
+
+main{min-width:0}
+main a{overflow-wrap:anywhere}
+.finder{background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:22px 22px 18px; margin-bottom:12px}
+.finder h2{font-family:var(--f-display); font-size:1.35rem; margin:0 0 4px}
+.finder p{margin:0 0 14px; color:var(--muted); font-size:.92rem}
+.search{display:flex; gap:8px; margin-bottom:18px}
+.search input{flex:1; min-width:0; font:inherit; padding:10px 14px; border:1px solid var(--rule); border-radius:8px; background:var(--bg); color:var(--ink)}
+.vols{display:grid; grid-template-columns:repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap:18px 24px}
+.vol-h{display:flex; gap:8px; align-items:baseline; border-bottom:1px solid var(--rule); padding-bottom:4px; margin-bottom:8px}
+.vol-n{font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); font-weight:600; white-space:nowrap}
+.vol-t{font-size:.84rem; color:var(--muted); line-height:1.3}
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{font-size:.86rem; padding:3px 10px; border:1px solid var(--rule); border-radius:999px; color:var(--ink); text-decoration:none; background:var(--surface)}
+.chip:hover{border-color:var(--accent); color:var(--accent)}
+.chip.dim{opacity:.28}
+.chip.hit{border-color:var(--accent); background:var(--accent-soft); color:var(--accent)}
+.vol.none{display:none}
+.empty{color:var(--muted); font-size:.9rem}
+
+.sec{padding-top:28px; border-top:1px solid var(--rule); margin-top:36px}
+.sec:first-of-type{border-top:0; margin-top:12px}
+main h2{font-family:var(--f-display); font-weight:700; font-size:clamp(1.55rem, 3.4vw, 2rem); line-height:1.2; margin:0 0 18px; text-wrap:balance; scroll-margin-top:20px}
+main h3{font-family:var(--f-display); font-weight:500; font-size:1.25rem; line-height:1.3; margin:34px 0 10px; text-wrap:balance; scroll-margin-top:20px}
+main p, main li{max-width:70ch}
+main ul, main ol{padding-left:1.3em}
+main li{margin:4px 0}
+main blockquote{margin:0}
+p.book{scroll-margin-top:20px; padding:14px 0 14px 18px; border-left:2px solid var(--rule); margin:18px 0}
+p.book > strong:first-child{display:block; font-family:var(--f-display); font-weight:700; font-size:1.12rem; color:var(--accent); margin-bottom:2px}
+p.book:target{border-left-color:var(--accent); background:linear-gradient(90deg, var(--accent-soft), transparent 70%)}
+p.book + ul{margin-top:-10px; padding-left:calc(18px + 1.3em); border-left:2px solid var(--rule); margin-left:0; padding-bottom:6px}
+.tbl{overflow-x:auto; margin:16px 0; border:1px solid var(--rule); border-radius:8px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:.92rem; line-height:1.55}
+th,td{text-align:left; vertical-align:top; padding:10px 14px; border-bottom:1px solid var(--rule)}
+tr:last-child td{border-bottom:0}
+th{font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:600; background:var(--bg)}
+td:first-child{font-weight:600; white-space:nowrap}
+@media (max-width:640px){td:first-child{white-space:normal}}
+mark{background:var(--mark); color:inherit; border-radius:2px}
+.note{margin:0 0 8px; padding:14px 18px; background:var(--accent-soft); border-radius:8px; font-size:.92rem; color:var(--ink)}
+.foot{color:var(--muted); font-size:.85rem; margin-top:48px; border-top:1px solid var(--rule); padding-top:16px}
+.top{position:fixed; right:calc(16px + env(safe-area-inset-right, 0px)); bottom:calc(16px + env(safe-area-inset-bottom, 0px)); font:inherit; font-size:.85rem;
+  padding:8px 14px; border-radius:999px; border:1px solid var(--rule); background:var(--surface); color:var(--ink); cursor:pointer}
+
+.mtoc{display:none}
+@media (max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr); gap:0}
+  aside{display:none}
+  .mtoc{display:block; background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:10px 14px; margin-bottom:16px}
+  .mtoc summary{cursor:pointer; font-weight:600}
+  .mtoc .toc{margin-top:8px}
+  .band-in{padding-block:40px 32px}
+}
+</style>
+
+<header class="band">
+  <div class="band-in">
+    <p class="eyebrow">David Pawson · Unlocking the Bible · Tuyển tập tiếng Việt</p>
+    <h1>Mở khóa <em>Kinh Thánh</em></h1>
+    <p class="lede">Chuỗi bài giảng đi qua từng sách trong 66 sách Kinh Thánh của mục sư David Pawson, tổng hợp bằng tiếng Việt: tác giả, phương pháp, cấu trúc 8 tập, tóm lược từng sách và những quan điểm đặc trưng của ông.</p>
+    <ul class="facts">
+      <li><b>8</b>tập sách</li>
+      <li><b>98</b>bài giảng podcast</li>
+      <li><b>66</b>sách Kinh Thánh</li>
+    </ul>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside aria-label="Mục lục">
+    <p class="side-h">Mục lục</p>
+    <ol class="toc" id="toc">{{NAV}}</ol>
+  </aside>
+  <main>
+    <details class="mtoc"><summary>Mục lục</summary><ol class="toc">{{NAV}}</ol></details>
+
+    <div class="finder" id="tra-sach">
+      <h2>Tra nhanh theo sách</h2>
+      <p>Gõ tên sách (có dấu hay không đều được) rồi nhấn Enter để nhảy tới phần tóm lược.</p>
+      <div class="search">
+        <input id="q" type="search" placeholder="Ví dụ: Ru-tơ, giang, khai huyen" autocomplete="off" aria-label="Tìm sách">
+      </div>
+      <div class="vols" id="vols">{{INDEX}}</div>
+      <p class="empty" id="empty" hidden>Không có sách nào khớp. Thử gõ ngắn hơn, ví dụ "co rinh".</p>
+    </div>
+
+    <blockquote class="note">{{INTRO}}</blockquote>
+
+    {{BODY}}
+
+    <p class="foot">Bản tổng hợp từ mô tả chính thức 98 tập podcast "Unlocking the Bible" của David Pawson Ministry, đối chiếu với mô tả nhà xuất bản và tiểu sử công khai. Không phải bản dịch nguyên văn.</p>
+  </main>
+</div>
+<button class="top" id="top" type="button" hidden>Lên đầu trang</button>
+
+<script>
+(function(){
+  var norm = function(s){ return s.toLowerCase().replace(/đ/g,'d').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim(); };
+  var q = document.getElementById('q'), chips = [].slice.call(document.querySelectorAll('.chip')), vols = [].slice.call(document.querySelectorAll('.vol')), empty = document.getElementById('empty');
+  function filter(){
+    var t = norm(q.value), any = false;
+    vols.forEach(function(v){
+      var hit = false;
+      v.querySelectorAll('.chip').forEach(function(c){
+        var ok = !t || c.dataset.name.indexOf(t) !== -1;
+        c.classList.toggle('dim', !!t && !ok); c.classList.toggle('hit', !!t && ok);
+        if (ok) hit = true;
+      });
+      v.classList.toggle('none', !!t && !hit); if (hit) any = true;
+    });
+    empty.hidden = any;
+  }
+  q.addEventListener('input', filter);
+  q.addEventListener('keydown', function(e){
+    if (e.key === 'Enter'){ var c = document.querySelector('.chip.hit'); if (c){ e.preventDefault(); location.hash = c.getAttribute('href').slice(1); } }
+  });
+
+  var links = [].slice.call(document.querySelectorAll('#toc a'));
+  var secs = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  var topBtn = document.getElementById('top');
+  function spy(){
+    var y = window.scrollY + 120, cur = -1;
+    secs.forEach(function(s,i){ if (s && s.offsetTop <= y) cur = i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i === cur); });
+    topBtn.hidden = window.scrollY < 800;
+  }
+  window.addEventListener('scroll', spy, {passive:true}); spy();
+  topBtn.addEventListener('click', function(){ window.scrollTo({top:0}); });
+  document.querySelectorAll('.mtoc a').forEach(function(a){ a.addEventListener('click', function(){ a.closest('details').open = false; }); });
+})();
+</script>

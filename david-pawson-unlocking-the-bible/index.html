@@ -1,0 +1,623 @@
+<title>Mở khóa Kinh Thánh</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap">
+<style>
+/* Layout: thư viện tra cứu — dải đầu màu mực, thanh mục lục dính bên trái, cột đọc ~68ch, bảng tra 66 sách nhóm theo 8 tập */
+:root{
+  --bg:#F4F5F7; --surface:#FFFFFF; --ink:#18202E; --muted:#596373; --rule:#DCE0E7;
+  --accent:#94560A; --accent-soft:#F4E8D6; --band:#1C2840; --band-ink:#EEF0F4; --band-muted:#AEB8CA; --band-accent:#E7B062; --mark:#FBE3A6;
+  --f-display:"Literata", Georgia, "Times New Roman", serif;
+  --f-body:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gut-l:max(16px, env(safe-area-inset-left, 0px)); --gut-r:max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F131A; --surface:#161B24; --ink:#E5E8ED; --muted:#9BA4B3; --rule:#283040;
+  --accent:#E3A957; --accent-soft:#2D2415; --band:#0A0E15; --band-ink:#EEF0F4; --band-muted:#97A2B6; --mark:#5A4415; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F131A; --surface:#161B24; --ink:#E5E8ED; --muted:#9BA4B3; --rule:#283040;
+  --accent:#E3A957; --accent-soft:#2D2415; --band:#0A0E15; --band-ink:#EEF0F4; --band-muted:#97A2B6; --mark:#5A4415; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg); color:var(--ink); font:16px/1.7 var(--f-body)}
+a{color:var(--accent); text-underline-offset:3px}
+a:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px}
+
+.band{background:var(--band); color:var(--band-ink)}
+.band-in{max-width:1180px; margin:0 auto; padding-left:var(--gut-l); padding-right:var(--gut-r); padding-block:56px 44px}
+.eyebrow{font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--band-muted); margin:0 0 14px}
+.band h1{font-family:var(--f-display); font-weight:700; font-size:clamp(2.2rem, 6vw, 3.6rem); line-height:1.08; margin:0 0 18px; text-wrap:balance}
+.band h1 em{font-style:normal; color:var(--band-accent)}
+.lede{max-width:68ch; color:var(--band-muted); margin:0}
+.facts{display:flex; flex-wrap:wrap; gap:10px 28px; margin:26px 0 0; padding:0; list-style:none; font-variant-numeric:tabular-nums}
+.facts b{font-family:var(--f-display); font-size:1.5rem; color:var(--band-ink); margin-right:6px}
+.facts li{color:var(--band-muted)}
+
+.wrap{max-width:1180px; margin:0 auto; padding-left:var(--gut-l); padding-right:var(--gut-r); padding-block:32px 80px;
+  display:grid; grid-template-columns:240px minmax(0,1fr); gap:48px}
+aside{position:sticky; top:calc(env(safe-area-inset-top, 0px) + 20px); align-self:start; max-height:calc(100vh - 40px); overflow:auto}
+.side-h{font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:6px 0 10px}
+.toc{list-style:none; margin:0; padding:0; display:grid; gap:2px}
+.toc a{display:flex; gap:10px; padding:6px 10px; border-radius:6px; color:var(--ink); text-decoration:none; font-size:.92rem; line-height:1.4}
+.toc a:hover{background:var(--accent-soft)}
+.toc a.on{background:var(--accent-soft); color:var(--accent); font-weight:600}
+.toc .n{color:var(--muted); font-variant-numeric:tabular-nums; min-width:1.2em}
+.toc a.on .n{color:var(--accent)}
+
+main{min-width:0}
+main a{overflow-wrap:anywhere}
+.finder{background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:22px 22px 18px; margin-bottom:12px}
+.finder h2{font-family:var(--f-display); font-size:1.35rem; margin:0 0 4px}
+.finder p{margin:0 0 14px; color:var(--muted); font-size:.92rem}
+.search{display:flex; gap:8px; margin-bottom:18px}
+.search input{flex:1; min-width:0; font:inherit; padding:10px 14px; border:1px solid var(--rule); border-radius:8px; background:var(--bg); color:var(--ink)}
+.vols{display:grid; grid-template-columns:repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap:18px 24px}
+.vol-h{display:flex; gap:8px; align-items:baseline; border-bottom:1px solid var(--rule); padding-bottom:4px; margin-bottom:8px}
+.vol-n{font-size:.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); font-weight:600; white-space:nowrap}
+.vol-t{font-size:.84rem; color:var(--muted); line-height:1.3}
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{font-size:.86rem; padding:3px 10px; border:1px solid var(--rule); border-radius:999px; color:var(--ink); text-decoration:none; background:var(--surface)}
+.chip:hover{border-color:var(--accent); color:var(--accent)}
+.chip.dim{opacity:.28}
+.chip.hit{border-color:var(--accent); background:var(--accent-soft); color:var(--accent)}
+.vol.none{display:none}
+.empty{color:var(--muted); font-size:.9rem}
+
+.sec{padding-top:28px; border-top:1px solid var(--rule); margin-top:36px}
+.sec:first-of-type{border-top:0; margin-top:12px}
+main h2{font-family:var(--f-display); font-weight:700; font-size:clamp(1.55rem, 3.4vw, 2rem); line-height:1.2; margin:0 0 18px; text-wrap:balance; scroll-margin-top:20px}
+main h3{font-family:var(--f-display); font-weight:500; font-size:1.25rem; line-height:1.3; margin:34px 0 10px; text-wrap:balance; scroll-margin-top:20px}
+main p, main li{max-width:70ch}
+main ul, main ol{padding-left:1.3em}
+main li{margin:4px 0}
+main blockquote{margin:0}
+p.book{scroll-margin-top:20px; padding:14px 0 14px 18px; border-left:2px solid var(--rule); margin:18px 0}
+p.book > strong:first-child{display:block; font-family:var(--f-display); font-weight:700; font-size:1.12rem; color:var(--accent); margin-bottom:2px}
+p.book:target{border-left-color:var(--accent); background:linear-gradient(90deg, var(--accent-soft), transparent 70%)}
+p.book + ul{margin-top:-10px; padding-left:calc(18px + 1.3em); border-left:2px solid var(--rule); margin-left:0; padding-bottom:6px}
+.tbl{overflow-x:auto; margin:16px 0; border:1px solid var(--rule); border-radius:8px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:.92rem; line-height:1.55}
+th,td{text-align:left; vertical-align:top; padding:10px 14px; border-bottom:1px solid var(--rule)}
+tr:last-child td{border-bottom:0}
+th{font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:600; background:var(--bg)}
+td:first-child{font-weight:600; white-space:nowrap}
+@media (max-width:640px){td:first-child{white-space:normal}}
+mark{background:var(--mark); color:inherit; border-radius:2px}
+.note{margin:0 0 8px; padding:14px 18px; background:var(--accent-soft); border-radius:8px; font-size:.92rem; color:var(--ink)}
+.foot{color:var(--muted); font-size:.85rem; margin-top:48px; border-top:1px solid var(--rule); padding-top:16px}
+.top{position:fixed; right:calc(16px + env(safe-area-inset-right, 0px)); bottom:calc(16px + env(safe-area-inset-bottom, 0px)); font:inherit; font-size:.85rem;
+  padding:8px 14px; border-radius:999px; border:1px solid var(--rule); background:var(--surface); color:var(--ink); cursor:pointer}
+
+.mtoc{display:none}
+@media (max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr); gap:0}
+  aside{display:none}
+  .mtoc{display:block; background:var(--surface); border:1px solid var(--rule); border-radius:10px; padding:10px 14px; margin-bottom:16px}
+  .mtoc summary{cursor:pointer; font-weight:600}
+  .mtoc .toc{margin-top:8px}
+  .band-in{padding-block:40px 32px}
+}
+</style>
+
+<header class="band">
+  <div class="band-in">
+    <p class="eyebrow">David Pawson · Unlocking the Bible · Tuyển tập tiếng Việt</p>
+    <h1>Mở khóa <em>Kinh Thánh</em></h1>
+    <p class="lede">Chuỗi bài giảng đi qua từng sách trong 66 sách Kinh Thánh của mục sư David Pawson, tổng hợp bằng tiếng Việt: tác giả, phương pháp, cấu trúc 8 tập, tóm lược từng sách và những quan điểm đặc trưng của ông.</p>
+    <ul class="facts">
+      <li><b>8</b>tập sách</li>
+      <li><b>98</b>bài giảng podcast</li>
+      <li><b>66</b>sách Kinh Thánh</li>
+    </ul>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside aria-label="Mục lục">
+    <p class="side-h">Mục lục</p>
+    <ol class="toc" id="toc"><li><a href="#1-ve-tac-gia"><span class="n">1</span>Về tác giả</a>
+</li>
+<li><a href="#2-loat-bai-unlocking-the-bible-la-gi"><span class="n">2</span>Loạt bài "Unlocking the Bible" là gì</a>
+</li>
+<li><a href="#3-phuong-phap-doc-kinh-thanh-cua-pawson"><span class="n">3</span>Phương pháp đọc Kinh Thánh của Pawson</a>
+</li>
+<li><a href="#4-cau-truc-8-tap"><span class="n">4</span>Cấu trúc 8 tập</a>
+</li>
+<li><a href="#5-tom-luoc-tung-sach-cuu-uoc"><span class="n">5</span>Tóm lược từng sách: Cựu Ước</a>
+</li>
+<li><a href="#6-tom-luoc-tung-sach-tan-uoc"><span class="n">6</span>Tóm lược từng sách: Tân Ước</a>
+</li>
+<li><a href="#7-cac-chu-de-va-quan-diem-xuyen-suot"><span class="n">7</span>Các chủ đề và quan điểm xuyên suốt</a>
+</li>
+<li><a href="#8-nhung-cau-noi-dang-nho"><span class="n">8</span>Những câu nói đáng nhớ</a>
+</li>
+<li><a href="#9-goi-y-cach-hoc-theo-bo-bai-giang"><span class="n">9</span>Gợi ý cách học theo bộ bài giảng</a>
+</li>
+<li><a href="#10-tai-nguyen-va-nguon-tham-khao"><span class="n">10</span>Tài nguyên và nguồn tham khảo</a>
+</li></ol>
+  </aside>
+  <main>
+    <details class="mtoc"><summary>Mục lục</summary><ol class="toc"><li><a href="#1-ve-tac-gia"><span class="n">1</span>Về tác giả</a>
+</li>
+<li><a href="#2-loat-bai-unlocking-the-bible-la-gi"><span class="n">2</span>Loạt bài "Unlocking the Bible" là gì</a>
+</li>
+<li><a href="#3-phuong-phap-doc-kinh-thanh-cua-pawson"><span class="n">3</span>Phương pháp đọc Kinh Thánh của Pawson</a>
+</li>
+<li><a href="#4-cau-truc-8-tap"><span class="n">4</span>Cấu trúc 8 tập</a>
+</li>
+<li><a href="#5-tom-luoc-tung-sach-cuu-uoc"><span class="n">5</span>Tóm lược từng sách: Cựu Ước</a>
+</li>
+<li><a href="#6-tom-luoc-tung-sach-tan-uoc"><span class="n">6</span>Tóm lược từng sách: Tân Ước</a>
+</li>
+<li><a href="#7-cac-chu-de-va-quan-diem-xuyen-suot"><span class="n">7</span>Các chủ đề và quan điểm xuyên suốt</a>
+</li>
+<li><a href="#8-nhung-cau-noi-dang-nho"><span class="n">8</span>Những câu nói đáng nhớ</a>
+</li>
+<li><a href="#9-goi-y-cach-hoc-theo-bo-bai-giang"><span class="n">9</span>Gợi ý cách học theo bộ bài giảng</a>
+</li>
+<li><a href="#10-tai-nguyen-va-nguon-tham-khao"><span class="n">10</span>Tài nguyên và nguồn tham khảo</a>
+</li></ol></details>
+
+    <div class="finder" id="tra-sach">
+      <h2>Tra nhanh theo sách</h2>
+      <p>Gõ tên sách (có dấu hay không đều được) rồi nhấn Enter để nhảy tới phần tóm lược.</p>
+      <div class="search">
+        <input id="q" type="search" placeholder="Ví dụ: Ru-tơ, giang, khai huyen" autocomplete="off" aria-label="Tìm sách">
+      </div>
+      <div class="vols" id="vols"><div class="vol"><div class="vol-h"><span class="vol-n">Tập 1</span><span class="vol-t">Lời chỉ dẫn của Đấng Tạo Hóa</span></div><div class="chips"><a class="chip" href="#sach-sang-the-ky" data-name="sang the ky">Sáng Thế Ký</a><a class="chip" href="#sach-xuat-e-dip-to-ky" data-name="xuat e dip to ky">Xuất Ê-díp-tô Ký</a><a class="chip" href="#sach-le-vi-ky" data-name="le vi ky">Lê-vi Ký</a><a class="chip" href="#sach-dan-so-ky" data-name="dan so ky">Dân Số Ký</a><a class="chip" href="#sach-phuc-truyen-luat-le-ky" data-name="phuc truyen luat le ky">Phục Truyền Luật Lệ Ký</a></div></div>
+<div class="vol"><div class="vol-h"><span class="vol-n">Tập 2</span><span class="vol-t">Một miền đất và một vương quốc</span></div><div class="chips"><a class="chip" href="#sach-gio-sue" data-name="gio sue">Giô-suê</a><a class="chip" href="#sach-cac-quan-xet-va-ru-to" data-name="cac quan xet va ru to">Các Quan Xét và Ru-tơ</a><a class="chip" href="#sach-1-2-sa-mu-en" data-name="1 2 sa mu en">1–2 Sa-mu-ên</a><a class="chip" href="#sach-1-2-cac-vua" data-name="1 2 cac vua">1–2 Các Vua</a></div></div>
+<div class="vol"><div class="vol-h"><span class="vol-n">Tập 3</span><span class="vol-t">Thi ca thờ phượng và khôn ngoan</span></div><div class="chips"><a class="chip" href="#sach-thi-ca-he-bo-ro" data-name="thi ca he bo ro">Thi ca Hê-bơ-rơ</a><a class="chip" href="#sach-giop" data-name="giop">Gióp</a><a class="chip" href="#sach-thi-thien" data-name="thi thien">Thi Thiên</a><a class="chip" href="#sach-cham-ngon" data-name="cham ngon">Châm Ngôn</a><a class="chip" href="#sach-truyen-dao" data-name="truyen dao">Truyền Đạo</a><a class="chip" href="#sach-nha-ca" data-name="nha ca">Nhã Ca</a></div></div>
+<div class="vol"><div class="vol-h"><span class="vol-n">Tập 4 và 5</span><span class="vol-t">Các tiên tri, thời lưu đày và hồi hương</span></div><div class="chips"><a class="chip" href="#sach-e-sai" data-name="e sai">Ê-sai</a><a class="chip" href="#sach-gie-re-mi" data-name="gie re mi">Giê-rê-mi</a><a class="chip" href="#sach-ca-thuong" data-name="ca thuong">Ca Thương</a><a class="chip" href="#sach-e-xe-chi-en" data-name="e xe chi en">Ê-xê-chi-ên</a><a class="chip" href="#sach-da-ni-en" data-name="da ni en">Đa-ni-ên</a><a class="chip" href="#sach-o-se" data-name="o se">Ô-sê</a><a class="chip" href="#sach-ap-dia" data-name="ap dia">Áp-đia</a><a class="chip" href="#sach-gio-en" data-name="gio en">Giô-ên</a><a class="chip" href="#sach-a-mot" data-name="a mot">A-mốt</a><a class="chip" href="#sach-gio-na" data-name="gio na">Giô-na</a><a class="chip" href="#sach-mi-che" data-name="mi che">Mi-chê</a><a class="chip" href="#sach-na-hum" data-name="na hum">Na-hum</a><a class="chip" href="#sach-ha-ba-cuc" data-name="ha ba cuc">Ha-ba-cúc</a><a class="chip" href="#sach-so-pho-ni" data-name="so pho ni">Sô-phô-ni</a><a class="chip" href="#sach-1-2-su-ky" data-name="1 2 su ky">1–2 Sử Ký</a><a class="chip" href="#sach-e-xo-ra-va-ne-he-mi" data-name="e xo ra va ne he mi">E-xơ-ra và Nê-hê-mi</a><a class="chip" href="#sach-e-xo-te" data-name="e xo te">Ê-xơ-tê</a><a class="chip" href="#sach-a-ghe" data-name="a ghe">A-ghê</a><a class="chip" href="#sach-xa-cha-ri" data-name="xa cha ri">Xa-cha-ri</a><a class="chip" href="#sach-ma-la-chi" data-name="ma la chi">Ma-la-chi</a></div></div>
+<div class="vol"><div class="vol-h"><span class="vol-n">Tập 6</span><span class="vol-t">Bản lề của lịch sử</span></div><div class="chips"><a class="chip" href="#sach-nhap-de-ve-cac-sach-phuc-am" data-name="nhap de ve cac sach phuc am">Nhập đề về các sách Phúc Âm</a><a class="chip" href="#sach-ma-thi-o" data-name="ma thi o">Ma-thi-ơ</a><a class="chip" href="#sach-mac" data-name="mac">Mác</a><a class="chip" href="#sach-lu-ca" data-name="lu ca">Lu-ca</a><a class="chip" href="#sach-giang" data-name="giang">Giăng</a><a class="chip" href="#sach-cong-vu" data-name="cong vu">Công Vụ</a></div></div>
+<div class="vol"><div class="vol-h"><span class="vol-n">Tập 7</span><span class="vol-t">Sứ đồ thứ mười ba</span></div><div class="chips"><a class="chip" href="#sach-phao-lo-va-cac-thu-tin" data-name="phao lo va cac thu tin">Phao-lô và các thư tín</a><a class="chip" href="#sach-ro-ma" data-name="ro ma">Rô-ma</a><a class="chip" href="#sach-1-2-co-rinh-to" data-name="1 2 co rinh to">1–2 Cô-rinh-tô</a><a class="chip" href="#sach-ga-la-ti" data-name="ga la ti">Ga-la-ti</a><a class="chip" href="#sach-e-phe-so" data-name="e phe so">Ê-phê-sô</a><a class="chip" href="#sach-phi-lip-va-phi-le-mon" data-name="phi lip va phi le mon">Phi-líp và Phi-lê-môn</a><a class="chip" href="#sach-co-lo-se" data-name="co lo se">Cô-lô-se</a><a class="chip" href="#sach-1-2-te-sa-lo-ni-ca" data-name="1 2 te sa lo ni ca">1–2 Tê-sa-lô-ni-ca</a><a class="chip" href="#sach-1-2-ti-mo-the-va-tit" data-name="1 2 ti mo the va tit">1–2 Ti-mô-thê và Tít</a></div></div>
+<div class="vol"><div class="vol-h"><span class="vol-n">Tập 8</span><span class="vol-t">Qua khổ nạn đến vinh hiển</span></div><div class="chips"><a class="chip" href="#sach-he-bo-ro" data-name="he bo ro">Hê-bơ-rơ</a><a class="chip" href="#sach-gia-co" data-name="gia co">Gia-cơ</a><a class="chip" href="#sach-1-2-phi-e-ro" data-name="1 2 phi e ro">1–2 Phi-e-rơ</a><a class="chip" href="#sach-1-3-giang" data-name="1 3 giang">1–3 Giăng</a><a class="chip" href="#sach-giu-de" data-name="giu de">Giu-đe</a><a class="chip" href="#sach-khai-huyen" data-name="khai huyen">Khải Huyền</a></div></div></div>
+      <p class="empty" id="empty" hidden>Không có sách nào khớp. Thử gõ ngắn hơn, ví dụ "co rinh".</p>
+    </div>
+
+    <blockquote class="note">Bản tổng hợp tiếng Việt về chuỗi bài giảng khám phá từng sách trong Kinh Thánh của David Pawson: tác giả, lịch sử hình thành, phương pháp, cấu trúc 8 tập, tóm lược 66 sách theo cách ông trình bày, các quan điểm đặc trưng và cách dùng bộ bài giảng. Nội dung tóm lược từng sách dựa chủ yếu trên mô tả chính thức của 98 tập podcast do David Pawson Ministry phát hành, đối chiếu với mô tả của nhà xuất bản và tiểu sử công khai. Đây là bản tổng hợp, không phải bản dịch nguyên văn; khi cần trích dẫn chính xác, hãy đối chiếu sách hoặc bản ghi âm gốc.</blockquote>
+
+    <section class="sec"><h2 id="1-ve-tac-gia">1. Về tác giả</h2>
+<p><strong>J. David Pawson</strong> (25/2/1930 – 21/5/2020) là một mục sư và giáo sư Kinh Thánh người Anh, được xem là một trong những người giảng dạy Kinh Thánh có ảnh hưởng rộng nhất trong giới Tin Lành nói tiếng Anh nửa sau thế kỷ 20.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Mốc</th>
+<th>Sự kiện</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1930</td>
+<td>Sinh ở đông bắc nước Anh, trong gia đình có truyền thống nông nghiệp và truyền đạo Giám Lý (cha là Henry Cecil Pawson, trưởng khoa nông nghiệp Đại học Durham, phó chủ tịch Hội nghị Giám Lý).</td>
+</tr>
+<tr>
+<td>Học vấn</td>
+<td>Cử nhân nông nghiệp tại Đại học Durham; cử nhân và thạc sĩ thần học tại Wesley House, Cambridge.</td>
+</tr>
+<tr>
+<td>1956–1959</td>
+<td>Tuyên úy Không quân Hoàng gia Anh (RAF), phục vụ tại Aden (bán đảo Ả Rập). Lời mở đầu sách <em>Unlocking the Bible</em> viết: "Tôi nghĩ mọi chuyện bắt đầu ở Ả Rập, năm 1957."</td>
+</tr>
+<tr>
+<td>Sau 1959</td>
+<td>Mục sư Giám Lý; vì ngày càng phản đối phép báp-têm cho trẻ sơ sinh nên tự nguyện rời hệ phái.</td>
+</tr>
+<tr>
+<td>1961–1968</td>
+<td>Mục sư Hội thánh Báp-tít Gold Hill (Buckinghamshire).</td>
+</tr>
+<tr>
+<td>Sau đó</td>
+<td>Mục sư Hội thánh Báp-tít Guildford ("Millmead"), nơi ông tham gia thiết kế nhà thờ; hội thánh trở thành một trong những hội thánh Báp-tít lớn nhất nước Anh. Băng giảng ban đầu được thu cho người già và người bệnh trong hội thánh, sau lan ra khắp thế giới.</td>
+</tr>
+<tr>
+<td>1979/1981</td>
+<td>Rời Millmead (các nguồn ghi khác nhau: 1979 hoặc 1981) để làm giáo sư Kinh Thánh lưu động, chủ yếu dạy hội thảo cho người lãnh đạo hội thánh ở châu Á, châu Úc, châu Phi, châu Âu và Mỹ.</td>
+</tr>
+<tr>
+<td>Di sản</td>
+<td>Hơn 90 đầu sách, hơn 300 video giảng dạy, hơn 1.600 bài giảng ghi âm; tài liệu lan đến hơn 120 quốc gia.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Một số sách tiêu biểu khác: <em>The Normal Christian Birth</em> (1989), <em>The Road to Hell</em> (1992), <em>When Jesus Returns</em> (1995), <em>Once Saved, Always Saved?</em> (1996), <em>Jesus Baptises in One Holy Spirit</em> (1997), <em>Word and Spirit Together</em> (trước đây tên <em>The Fourth Wave</em>), <em>Defending Christian Zionism</em> (2008).</p>
+
+</section><section class="sec"><h2 id="2-loat-bai-unlocking-the-bible-la-gi">2. Loạt bài "Unlocking the Bible" là gì</h2>
+<p><strong>Ý tưởng cốt lõi:</strong> thay vì học Kinh Thánh theo từng câu hay từng đoạn (dễ bị tách khỏi ngữ cảnh), Pawson dạy <strong>từng sách một, trọn vẹn</strong>, bằng cách trả lời hai câu hỏi: sách này được viết <strong>vì sao</strong> và <strong>cho ai</strong>. Với mỗi sách ông trình bày bối cảnh, mục đích, ý nghĩa và sự liên hệ với ngày nay. Đây là một cái nhìn tổng quan, không phải chú giải từng câu.</p>
+<p><strong>Nguồn gốc:</strong> nền móng được xây trong thập niên 1960–1970, khi Pawson dạy hội thánh ở Guildford gần một nửa Cựu Ước và toàn bộ Tân Ước theo lối đi từng dòng. Về sau ông chắt lọc thành các bài tổng quan từng sách, giảng nhiều nơi và thu thành video.</p>
+<p><strong>Các định dạng:</strong></p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Định dạng</th>
+<th>Chi tiết</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sách 8 tập</td>
+<td>Do Andy Peck chuyển lời giảng thành văn viết, xuất bản riêng từng tập.</td>
+</tr>
+<tr>
+<td>Sách gộp một cuốn</td>
+<td>HarperCollins (Collins) xuất bản năm 2003, khoảng 1.340–1.380 trang (ISBN 9780007166664); bản ebook 2012 (ISBN 9780007378920).</td>
+</tr>
+<tr>
+<td>Bản có biểu đồ</td>
+<td>Bản kèm sơ đồ, biểu đồ do Anchor Recordings phát hành năm 2017.</td>
+</tr>
+<tr>
+<td>Video, audio</td>
+<td>Có trên DVD, CD, YouTube và miễn phí tại trang của David Pawson Ministry.</td>
+</tr>
+<tr>
+<td>Podcast</td>
+<td>"David Pawson – Unlocking the Bible Podcast", 98 tập, từ "Tổng quan Cựu Ước" đến "Khải Huyền phần 6".</td>
+</tr>
+<tr>
+<td>Bản dịch</td>
+<td>Đã có bản tiếng Hoa phồn thể (chia Cựu Ước, Tân Ước) và được phát trên GOOD TV. Tôi không tìm thấy bản tiếng Việt chính thức.</td>
+</tr>
+</tbody>
+</table></div>
+
+</section><section class="sec"><h2 id="3-phuong-phap-doc-kinh-thanh-cua-pawson">3. Phương pháp đọc Kinh Thánh của Pawson</h2>
+<p>Đây là phần "chìa khóa" thật sự của bộ bài giảng, vì những nguyên tắc này lặp lại ở hầu hết mọi sách.</p>
+<h3 id="3-1-dung-thanh-nguoi-cua-cau-goc-text-people">3.1. Đừng thành "người của câu gốc" (text people)</h3>
+<p>Số chương và số câu được thêm vào rất lâu sau khi Kinh Thánh được viết (hội thánh đã đọc Kinh Thánh cả nghìn năm mà không có chúng). Pawson cho rằng việc chia nhỏ khiến người ta rút một câu ra khỏi ngữ cảnh và hiểu sai. Ví dụ ông hay dùng: trong sách Gióp, bạn có thể đang trích lời của một người bạn của Gióp, những người mà cuối sách Đức Chúa Trời phán là đã nói sai. Vì vậy "phải biết trọn một sách".</p>
+<h3 id="3-2-moi-cau-nam-trong-ngu-canh-cua-sach-moi-sach-nam-trong-ngu-canh-lich-su">3.2. Mỗi câu nằm trong ngữ cảnh của sách, mỗi sách nằm trong ngữ cảnh lịch sử</h3>
+<p>Kinh Thánh là sách của lịch sử và địa lý chứ không chỉ là tư tưởng. Đức Chúa Trời phán vào những hoàn cảnh cụ thể, nên thời gian và nơi chốn cho câu văn ý nghĩa của nó. Cựu Ước là một "thư viện" 39 sách viết trong khoảng 1.000 năm, phủ khoảng 2.000 năm lịch sử, xoay quanh cuộc giằng co giữa các cường quốc ở Trung Đông cổ đại.</p>
+<h3 id="3-3-viet-vi-ly-do-con-nguoi-bien-tap-vi-ly-do-thieng-lieng">3.3. Viết vì lý do con người, "biên tập" vì lý do thiêng liêng</h3>
+<p>Kinh Thánh có khoảng 40 tác giả con người và một "Biên tập viên" thiêng liêng. Các tác giả vẫn giữ cá tính riêng. Vì vậy Pawson thường xem xét mặt con người trước (ai viết, viết cho ai, hoàn cảnh gì), rồi mới đến mặt thiêng liêng (vì sao sách được đặt trong Kinh Thánh).</p>
+<h3 id="3-4-tu-duy-he-bo-ro-va-tu-duy-hy-lap">3.4. Tư duy Hê-bơ-rơ và tư duy Hy Lạp</h3>
+<p>Một chủ đề Pawson nhắc đi nhắc lại: người Hy Lạp tách thuộc linh khỏi thể xác, thiêng liêng khỏi thế tục, đời đời khỏi tạm thời; phương Tây và hội thánh đã thừa hưởng lối nghĩ đó. Tư duy Hê-bơ-rơ thì xem một Đức Chúa Trời tạo nên cả thể xác lẫn tâm linh, và thể xác là tốt. Điều này giải thích vì sao Nhã Ca nằm trong Kinh Thánh, vì sao Phao-lô phải dạy người Cô-rinh-tô rằng thân thể là đền thờ Thánh Linh, và vì sao Giăng phải nhấn mạnh Chúa Giê-xu vừa là Đức Chúa Trời vừa là người thật. Ông nói: "Trước mặt Đức Chúa Trời, không có gì là thế tục ngoại trừ tội lỗi."</p>
+<h3 id="3-5-van-xuoi-va-tho">3.5. Văn xuôi và thơ</h3>
+<p>Khi Đức Chúa Trời nói bằng văn xuôi, Ngài truyền đạt <strong>ý nghĩ</strong> từ tâm trí Ngài đến tâm trí ta; khi Ngài nói bằng thơ, Ngài truyền đạt <strong>cảm xúc</strong> từ lòng Ngài đến lòng ta. Thơ Hê-bơ-rơ không dùng vần mà dùng nhịp và nhất là sự lặp lại theo cặp câu (câu thứ hai lặp lại, đẩy ý xa hơn, hoặc nói ý ngược lại). Vì thế nên dùng bản Kinh Thánh trình bày rõ phần thơ, và nên đọc to. Ví dụ ngược lại: sách Ma-la-chi toàn văn xuôi, điều Pawson hiểu là dấu hiệu Đức Chúa Trời đã "cạn cảm xúc" với dân Ngài, dù giao ước không bị hủy.</p>
+<h3 id="3-6-sau-cap-do-doc-mot-cau-chuyen-kinh-thanh-bai-giang-2-sa-mu-en">3.6. Sáu cấp độ đọc một câu chuyện Kinh Thánh (bài giảng 2 Sa-mu-ên)</h3>
+<ol>
+<li>Giai thoại: chỉ là một câu chuyện hay.</li>
+<li>Tĩnh nguyện: tìm một lời riêng cho mình.</li>
+<li>Nghiên cứu nhân vật: học từ những người như An-ne, A-bi-ga-in, Đa-vít.</li>
+<li>Lịch sử Israel: dân tộc phát triển ra sao.</li>
+<li>Phê bình: lối phê bình kinh văn cao cấp mà ông cho là đã "lây nhiễm" cả thế giới.</li>
+<li>Thần học: tìm hiểu về Đức Chúa Trời, nhân vật chính của mọi câu chuyện. Đây là cấp độ Pawson muốn người đọc đạt tới.</li>
+</ol>
+<h3 id="3-7-bon-cap-do-hoc-lich-su-bai-giang-cac-quan-xet-va-ru-to">3.7. Bốn cấp độ học lịch sử (bài giảng Các Quan Xét và Ru-tơ)</h3>
+<ol>
+<li>Những nhân vật quan trọng. 2. Các quốc gia, chính trị. 3. Các khuôn mẫu, chu kỳ thịnh suy. 4. Mục đích, cốt truyện. Lịch sử là "HIS-story", câu chuyện của Ngài, và Ngài đang dẫn nó đến kết cục đã định. Các Quan Xét cho thấy một đời sống xa Chúa thành "vòng luẩn quẩn"; Ru-tơ cho thấy sự cứu chuộc đưa ta ra khỏi vòng quay và đặt lên một "đường thẳng" có đích đến.</li>
+</ol>
+<h3 id="3-8-cach-sap-xep-cuu-uoc-cua-nguoi-do-thai">3.8. Cách sắp xếp Cựu Ước của người Do Thái</h3>
+<p>Pawson nhắc rằng người Do Thái nhóm các sách khác Cơ Đốc nhân, và điều đó giúp hiểu đúng: năm sách đầu là <strong>Torah</strong> (sự dạy dỗ), "hiến pháp" của Israel; sáu sách tiếp (Giô-suê đến Các Vua) người ta gọi là "lịch sử" nhưng người Do Thái gọi là <strong>tiên tri</strong>, vì là lịch sử nhìn từ quan điểm của Đức Chúa Trời; còn Sử Ký thì được xếp vào nhóm khác (góc nhìn thầy tế lễ). Năm sách đầu là lời hứa, sáu sách sau là sự ứng nghiệm theo luật nhân quả.</p>
+<h3 id="3-9-di-tim-hinh-dang-cua-sach">3.9. Đi tìm "hình dạng" của sách</h3>
+<p>Pawson khuyên chia sách thành từng phần để thấy cấu trúc, vì cấu trúc là chìa khóa hiểu sách. Hầu như bài nào ông cũng đưa ra một dàn ý gọn, thường bằng những từ cùng chữ cái đầu (trong tiếng Anh) để dễ nhớ.</p>
+
+</section><section class="sec"><h2 id="4-cau-truc-8-tap">4. Cấu trúc 8 tập</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tập</th>
+<th>Tên tiếng Anh</th>
+<th>Tạm dịch</th>
+<th>Nội dung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>The Maker's Instructions</td>
+<td>Lời chỉ dẫn của Đấng Tạo Hóa</td>
+<td>Năm sách Luật pháp: Sáng Thế Ký → Phục Truyền Luật Lệ Ký</td>
+</tr>
+<tr>
+<td>2</td>
+<td>A Land and a Kingdom</td>
+<td>Một miền đất và một vương quốc</td>
+<td>Giô-suê, Các Quan Xét, Ru-tơ, 1–2 Sa-mu-ên, 1–2 Các Vua</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Poems of Worship and Wisdom</td>
+<td>Thi ca thờ phượng và khôn ngoan</td>
+<td>Thi Thiên, Nhã Ca, Châm Ngôn, Truyền Đạo, Gióp</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Decline and Fall of an Empire</td>
+<td>Suy tàn và sụp đổ của một vương quốc</td>
+<td>Ê-sai, Giê-rê-mi và các tiên tri trước thời lưu đày</td>
+</tr>
+<tr>
+<td>5</td>
+<td>The Struggle to Survive</td>
+<td>Cuộc vật lộn để tồn tại</td>
+<td>Sử Ký và các tiên tri thời lưu đày, hồi hương</td>
+</tr>
+<tr>
+<td>6</td>
+<td>The Hinge of History</td>
+<td>Bản lề của lịch sử</td>
+<td>Ma-thi-ơ, Mác, Lu-ca, Giăng, Công Vụ</td>
+</tr>
+<tr>
+<td>7</td>
+<td>The Thirteenth Apostle</td>
+<td>Sứ đồ thứ mười ba</td>
+<td>Phao-lô và các thư tín của ông</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Through Suffering to Glory</td>
+<td>Qua khổ nạn đến vinh hiển</td>
+<td>Hê-bơ-rơ, Gia-cơ, Phi-e-rơ, Giăng, Giu-đe, Khải Huyền</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ghi chú: mô tả của nhà xuất bản chỉ nêu tiêu biểu "Ê-sai, Giê-rê-mi và các tiên tri khác" cho tập 4 và "Sử Ký và các tiên tri thời lưu đày" cho tập 5. Thứ tự podcast (dưới đây) nhóm Sử Ký, E-xơ-ra, Nê-hê-mi, Ê-xơ-tê ngay sau Các Vua, rồi đến sách thơ, rồi các tiên tri. Nếu cần chính xác sách nào thuộc tập nào, hãy đối chiếu mục lục bản in.</p>
+<p><strong>Thứ tự 98 tập podcast:</strong> 1 Tổng quan Cựu Ước · 2–7 Sáng Thế Ký (6 phần) · 8–9 Xuất Ê-díp-tô Ký · 10–11 Lê-vi Ký · 12–13 Dân Số Ký · 14–15 Phục Truyền · 16–17 Giô-suê · 18–19 Các Quan Xét và Ru-tơ · 20–21 Sa-mu-ên · 22–23 Các Vua · 24 Sử Ký · 25–26 E-xơ-ra và Nê-hê-mi · 27 Ê-xơ-tê · 28–29 Gióp · 30 Thi ca Hê-bơ-rơ · 31–32 Thi Thiên · 33–34 Châm Ngôn · 35 Truyền Đạo · 36 Nhã Ca · 37–38 Ê-sai · 39–40 Giê-rê-mi · 41 Ca Thương · 42–44 Ê-xê-chi-ên · 45–46 Đa-ni-ên · 47 Ô-sê · 48–49 Áp-đia và Giô-ên · 50 A-mốt · 51 Giô-na · 52 Mi-chê · 53 Na-hum · 54 Ha-ba-cúc · 55 Sô-phô-ni · 56 A-ghê · 57–58 Xa-cha-ri · 59–60 Ma-la-chi · 61–62 Ma-thi-ơ · 63 Mác · 64 Lu-ca · 65–66 Giăng · 67–68 Công Vụ · 69–70 Rô-ma · 71–72 Cô-rinh-tô · 73–74 Ga-la-ti · 75 Ê-phê-sô · 76–77 Phi-líp và Phi-lê-môn · 78 Cô-lô-se · 79–80 Tê-sa-lô-ni-ca · 81–82 Ti-mô-thê và Tít · 83–84 Hê-bơ-rơ · 85–86 Gia-cơ · 87–88 Phi-e-rơ · 89 Phao-lô và các thư tín · 90–91 Các thư của Giăng · 92 Giu-đe · 93–98 Khải Huyền (6 phần).</p>
+
+</section><section class="sec"><h2 id="5-tom-luoc-tung-sach-cuu-uoc">5. Tóm lược từng sách: Cựu Ước</h2>
+<p>Mỗi sách gồm: bối cảnh và mục đích, cấu trúc hoặc thông điệp chính, và điểm nhấn riêng của Pawson.</p>
+<h3 id="tong-quan-cuu-uoc">Tổng quan Cựu Ước</h3>
+<p>Cựu Ước là thư viện 39 sách. Năm sách Luật pháp là quan trọng nhất vì là nền móng giúp hiểu phần còn lại. Mọi giáo lý đều rải rác khắp Kinh Thánh, nên phải đọc mỗi câu trong ngữ cảnh sách và mỗi sách trong ngữ cảnh lịch sử.</p>
+<h3 id="tap-1-loi-chi-dan-cua-dang-tao-hoa">Tập 1: Lời chỉ dẫn của Đấng Tạo Hóa</h3>
+<p class="book" id="sach-sang-the-ky"><strong>Sáng Thế Ký (6 bài).</strong> Sách nền tảng, "chìa khóa mở phần còn lại của Kinh Thánh", được Chúa Giê-xu liên tục xác nhận. Sáng Thế Ký cho biết thế giới hỏng ở đâu; phần còn lại của Kinh Thánh cho biết Đức Chúa Trời sửa lại thế nào. Sách nói về Đấng Tạo Hóa hơn là về sự sáng tạo: Ngài có ngôi vị, quyền năng, tự hữu, sáng tạo, ba ngôi, tốt lành, yêu thương, hằng sống, biết nói, giống ta mà cũng khác ta.
+- Nguồn gốc: phần lớn sách là chuyện anh hùng và gia phả, theo Pawson là ký ức truyền khẩu Môi-se thu thập từ dân nô lệ ở Ai Cập; riêng 1:1–2:3 mang dấu ấn được Đức Chúa Trời trực tiếp truyền cho Môi-se.
+- Khoa học và Kinh Thánh: có ba cách xử lý (bác bỏ, tách riêng, hòa hợp); Pawson chọn hòa hợp, xem hai bên là hai vòng tròn giao nhau, nhắc rằng quan điểm khoa học lẫn cách giải nghĩa truyền thống đều thay đổi. Ông liệt kê năm cách hiểu "ngày" sáng tạo (24 giờ, một thời kỳ, huyền thoại, ngày Môi-se được dạy, "ngày của Đức Chúa Trời").
+- Tạo vật và tiến hóa: Pawson phản bác việc con người có quan hệ thể chất trực tiếp với loài vật, và cho rằng ý tưởng "kẻ mạnh sống sót" áp vào con người đã gây ra nhiều đau khổ nhất trong lịch sử.
+- Từ Ê-đen đến Ba-by-lôn: Sa-tan xuyên tạc lời Chúa bằng thêm, bớt, sửa; chiến lược của nó là khiến ta nghi ngờ bằng trí, ham muốn bằng lòng, bất tuân bằng ý chí. Ba sự kiện chính của chương 4–11: Ca-in, Nô-ê, Nim-rốt.
+- Áp-ra-ham, Y-sác, Gia-cốp: Kinh Thánh không phải câu trả lời của Đức Chúa Trời cho vấn đề của ta, mà là câu trả lời cho vấn đề của Ngài: làm gì với một dòng giống không muốn biết, yêu, vâng phục Ngài? Ngài bắt đầu sáng tạo bằng một người và bắt đầu cứu chuộc bằng một người. "Đức Chúa Trời thà có một người tin hơn là một người tốt."
+- Giô-sép và Chúa Giê-xu: bốn tầng của câu chuyện Giô-sép (con người, góc nhìn Đức Chúa Trời, tính cách, hình bóng Chúa Giê-xu). Áp-ra-ham, Y-sác, Gia-cốp là mẫu mực đức tin; Giô-sép là mẫu mực cho cách Đức Chúa Trời đáp lại đức tin.</p>
+<p class="book" id="sach-xuat-e-dip-to-ky"><strong>Xuất Ê-díp-tô Ký (2 bài).</strong> Cuộc đào thoát lớn nhất lịch sử, sách trung tâm của Cựu Ước như thập tự giá là trung tâm Tân Ước. Nửa đầu là điều Đức Chúa Trời làm (ân điển giải cứu), nửa sau là điều Ngài phán (sống thế nào khi đã được tự do): được cứu chuộc trước, rồi mới được dạy sống đúng; được tự do để phục vụ Chúa, không phải để làm theo ý mình. Mười Điều Răn dựa trên ba nguyên tắc: tôn trọng, trách nhiệm, thưởng phạt. Đức Chúa Trời chỉ làm cứng lòng Pha-ra-ôn sau khi ông nhiều lần tự làm cứng lòng mình.</p>
+<p class="book" id="sach-le-vi-ky"><strong>Lê-vi Ký (2 bài).</strong> Khó đọc nhưng chứa nhiều lời trực tiếp của Đức Chúa Trời nhất. Nửa đầu là con đường đến với Chúa, nửa sau là bước đi với Chúa. Xuất Ê-díp-tô nói Chúa cứu dân Ngài thế nào; Lê-vi nói họ phải phục vụ Ngài thế nào. Hai câu then chốt lặp lại trong Tân Ước: "Hãy nên thánh vì Ta là thánh" và "Hãy yêu người lân cận như mình". Hai sự chuyển dịch sang Tân Ước: sự thánh khiết chuyển từ vật chất sang đạo đức, và thưởng phạt chuyển từ đời này sang đời sau.</p>
+<p class="book" id="sach-dan-so-ky"><strong>Dân Số Ký (2 bài).</strong> Mở và kết bằng cuộc kiểm tra dân số khoảng 600.000 người nam, dấu hiệu Chúa không ban phước. Hai phần ba sách "lẽ ra không bao giờ xảy ra": một thế hệ sống cả đời trưởng thành trong đồng vắng vì không tin (10 trong 12 thám tử). Luật pháp chỉ ra điều đúng nhưng không giúp được con người làm điều đúng, nên sau này Thánh Linh được ban. Bài học về lãnh đạo: cả ba người lãnh đạo đều thất bại; Môi-se không được vào đất hứa.</p>
+<p class="book" id="sach-phuc-truyen-luat-le-ky"><strong>Phục Truyền Luật Lệ Ký (2 bài).</strong> Ba bài diễn văn của Môi-se trong tuần cuối đời, như người cha sắp mất nói với con. Hai cụm từ then chốt: "xứ mà Giê-hô-va Đức Chúa Trời ngươi ban cho" (quà không xứng đáng) và "hãy vào và nhận lấy xứ" (phải hành động mới nhận được). <strong>Quyền sở hữu là vô điều kiện, quyền cư ngụ là có điều kiện.</strong> Đây là sách nền tảng nhất của cả Cựu Ước: mọi tiên tri đều quy chiếu về nó. "Yêu là vâng lời, vì trước mặt Đức Chúa Trời, tình yêu là lòng trung thành."</p>
+<h3 id="tap-2-mot-mien-dat-va-mot-vuong-quoc">Tập 2: Một miền đất và một vương quốc</h3>
+<p class="book" id="sach-gio-sue"><strong>Giô-suê (2 bài).</strong> Không có luật mới; đây là sự ứng nghiệm của lời hứa. Sách bao quát đời Giô-suê từ 80 đến 120 tuổi: chiếm xứ, rồi chia xứ. Lòng can đảm của người lãnh đạo và tinh thần của dân là yếu tố thắng trận ("tinh thần và đạo đức là điều Chúa đòi hỏi ở người lãnh đạo"). Giê-ri-cô (thắng lớn) và A-hi (thua lớn) vì tự tin thái quá và tội của một người. Giô-suê không chỉ định người kế vị mà giao cho trưởng lão từng chi phái. "Mỗi thế hệ phải tự mình khám phá lại Đức Chúa Trời."</p>
+<p class="book" id="sach-cac-quan-xet-va-ru-to"><strong>Các Quan Xét và Ru-tơ (2 bài).</strong> Trong Kinh Thánh Hê-bơ-rơ hai sách vốn là một và thuộc về nhau. Các Quan Xét: vòng luẩn quẩn "mỗi người làm theo ý mình cho là phải" vì không có vua; các "quan xét" thật ra là người giải cứu, và Quan Xét thật là Đức Chúa Trời hành động qua những con người yếu đuối. Ru-tơ là lời đáp cho Các Quan Xét: một chuyện tình cho biết vị vua sẽ đến từ đâu; Ru-tơ chọn đúng lúc và trở thành tổ tiên của Đấng Christ. "Tình yêu không có lòng trung thành không phải là tình yêu thật." Hôn nhân Bô-ô và Ru-tơ là hình ảnh Đấng Christ và cô dâu dân ngoại.</p>
+<p class="book" id="sach-1-2-sa-mu-en"><strong>1–2 Sa-mu-ên (2 bài).</strong> Vốn là một sách, bị chia vì độ dài; lịch sử tiên tri 150 năm, mang tên vị tiên tri chi phối câu chuyện. Pawson chia lịch sử Israel thành các giai đoạn khoảng 500 năm: tổ phụ, tiên tri, vua, thầy tế lễ. Khác biệt giữa Sau-lơ và Đa-vít: Đa-vít biết tôn trọng người thành công, Sau-lơ thì ghen tị. Tội của Đa-vít mở đầu dốc trượt của Israel. Giao ước Đa-vít (nhà và ngôi đời đời) ứng nghiệm nghìn năm sau nơi Chúa Giê-xu, "Con vua Đa-vít".</p>
+<p class="book" id="sach-1-2-cac-vua"><strong>1–2 Các Vua (2 bài).</strong> Từ đỉnh vinh quang đến chia đôi, lưu đày. Với người Hê-bơ-rơ, vương quốc là <strong>thẩm quyền</strong> chứ không phải nơi chốn, nên Nước Đức Chúa Trời là quyền năng chứ không phải địa điểm. Các vua được đánh giá tốt hay xấu theo việc tôn kính Đức Chúa Trời; mọi vua phương bắc đều xấu, phương nam có vua tốt (Ê-xê-chia, Giô-si-a) nên tồn tại lâu hơn khoảng 140 năm. Sa-lô-môn có khôn ngoan cho mọi người trừ chính mình. Bài học chính: điều này có thể xảy ra với hội thánh nếu pha trộn tôn giáo, lối sống, đạo đức khác.</p>
+<h3 id="tap-3-thi-ca-tho-phuong-va-khon-ngoan">Tập 3: Thi ca thờ phượng và khôn ngoan</h3>
+<p class="book" id="sach-thi-ca-he-bo-ro"><strong>Thi ca Hê-bơ-rơ (1 bài).</strong> Bài nhập môn: xem mục 3.5. Thơ chạm đến những phần của ta mà văn xuôi không chạm tới, đọng lâu trong trí nhớ và thách thức ý chí.</p>
+<p class="book" id="sach-giop"><strong>Gióp (2 bài).</strong> Gióp là nhân vật có thật; tác giả đã viết lại câu chuyện thật dưới dạng thơ. Sách gồm hai cuộc tranh luận, một trên trời, một dưới đất; trong bất kỳ trường hợp đau khổ nào, không ai thấy toàn cảnh. Câu hỏi thật không phải là "vì sao có đau khổ không đáng", mà là "có thể tiếp tục tin một Đức Chúa Trời tốt lành khi mọi thứ đổ vỡ không". Nỗi đau thật của Gióp là mất liên lạc với Chúa. Các bạn ông tốt khi ngồi im, hỏng khi mở miệng ép trường hợp của Gióp vào khuôn định kiến. "Điều quan trọng không phải là tìm được câu trả lời cho mọi câu hỏi, mà là đạt đến mối quan hệ với Chúa ở đó bạn không cần chúng nữa."</p>
+<p class="book" id="sach-thi-thien"><strong>Thi Thiên (2 bài).</strong> Sách thánh ca của người Do Thái, chia năm quyển, viết trong khoảng nghìn năm; sách Cựu Ước được trích nhiều nhất trong Tân Ước. Ba thái độ chính: <strong>Xin, Cảm ơn, Xin lỗi</strong> (than thở, tạ ơn, ăn năn), mỗi loại có khuôn mẫu riêng. Các nhóm thi thiên nên đọc cùng nhau: 22–24 (Đấng Cứu Rỗi, Đấng Chăn Giữ, Đấng Tể Trị: "chưa đến thập tự giá nhận Ngài là Cứu Chúa thì chưa có quyền xem Ngài là Đấng Chăn Giữ"), 96–99 (Chúa là Vua), 113–118 (hát trong Lễ Vượt Qua; "hô-sa-na" là lời đòi giải phóng, "xin cứu"), 120–134 (bài ca lên đền), 146–150 (Ha-lê-lu-gia). Bốn thể loại: thi thiên hoàng gia, thi thiên về Đấng Mê-si, thi thiên khôn ngoan, thi thiên rủa sả (họ thành thật và để sự báo thù cho Chúa).</p>
+<p class="book" id="sach-cham-ngon"><strong>Châm Ngôn (2 bài).</strong> Thoạt nhìn là mớ tục ngữ, nhưng là "chìa khóa của đời sống tốt đẹp" hiểu theo nghĩa đạo đức chứ không phải vật chất. Sa-lô-môn sưu tầm (có câu gốc Ả Rập, Ai Cập, đặt vào khung có Đức Chúa Trời) và tự viết. Cách đọc: nhận ra chính mình trong đó. Châm Ngôn nói về điều ta được cứu <strong>để làm</strong>, không phải điều ta được cứu <strong>bởi</strong>. Chủ đề: lười biếng, bạn bè, láng giềng, vay nợ, cái lưỡi, gia đình, hơn 70 câu về kẻ ngu dại. Lưu ý quan trọng: <strong>một câu châm ngôn không phải là một lời hứa.</strong> "Đấng Christ đã trở nên sự khôn ngoan từ Đức Chúa Trời cho chúng ta."</p>
+<p class="book" id="sach-truyen-dao"><strong>Truyền Đạo (1 bài).</strong> Tác giả ở cuối đời, thất vọng, vỡ mộng, trầm uất; ta không phải đồng ý với mọi điều ông nói, và không có nghĩa Đức Chúa Trời có cùng thái độ. Hai giới hạn của Sa-lô-môn: chỉ nhìn "dưới mặt trời" (thiếu góc nhìn từ trên cao) và chỉ nhìn đời này. Phải tìm được ý nghĩa cuộc đời trước, rồi mới thật sự tận hưởng được những điều khác. Kết luận: kính sợ Chúa và vâng giữ điều răn Ngài; đời sống có thể đáng sống.</p>
+<p class="book" id="sach-nha-ca"><strong>Nhã Ca (1 bài).</strong> Không nhắc tên Chúa, vậy mà các ra-bi xem là rất thánh. Vì với người Hê-bơ-rơ, thể xác là tốt: "Ở đây Kinh Thánh khẳng định tình yêu giữa một người nam và một người nữ." Pawson ghép lại các mảnh của câu chuyện tình Sa-lô-môn. Toàn bộ Kinh Thánh là câu chuyện Đức Chúa Trời đi tìm cô dâu cho Con Ngài; mối quan hệ với Chúa không mang tính dục tình nhưng có cảm xúc.</p>
+<h3 id="tap-4-va-5-cac-tien-tri-thoi-luu-day-va-hoi-huong">Tập 4 và 5: Các tiên tri, thời lưu đày và hồi hương</h3>
+<p>Bối cảnh chung (bài Áp-đia và Giô-ên): "tiểu tiên tri" là nói về độ dài sách, không phải tầm vóc thông điệp. Các tiên tri viết sách đều liên quan đến cuộc lưu đày: cảnh báo trước, an ủi khi đang ở đó, hoặc khích lệ khi trở về. Tiên tri nói thay Đức Chúa Trời nên trước hết phải nghe từ Ngài: cần sự nhạy bén để nghe và can đảm để nói. Chúa thường sai tiên tri khi có điều sai trái, và việc Ngài cảnh báo trước khi phạt là một phần sự tốt lành của Ngài. Khoảng 27% câu Kinh Thánh có lời tiên báo về tương lai.</p>
+<p class="book" id="sach-e-sai"><strong>Ê-sai (2 bài).</strong> "Kinh Thánh thu nhỏ": phần 1 (39 chương) mang tính quốc gia, Chúa hiện ra như lửa, nhấn mạnh phán xét; phần 2 mang tính quốc tế, Chúa như Cha, nhấn mạnh an ủi. Ê-sai là tiên tri vĩ đại nhất về lời, như Môi-se và Ê-li vĩ đại về việc làm; Chúa Giê-xu và Phao-lô trích Ê-sai nhiều hơn mọi sách khác. Danh xưng đặc trưng: "Đấng Thánh của Israel". Dàn ý: 1–10 quở trách Giu-đa; 13–23 các nước bị phán xét; 24–34 phán xét Israel và Giu-đa (xen những đoạn tin mừng); 36–39 tường thuật thời Ê-xê-chia. Phần sau vẽ một nhân vật bí ẩn vô tội, Người đau khổ, chết thay tội người khác, sống lại và được tôn cao, mà Cơ Đốc nhân nhận ra là Chúa Giê-xu.</p>
+<p class="book" id="sach-gie-re-mi"><strong>Giê-rê-mi (2 bài).</strong> Có nắng giữa mây. Giê-rê-mi bày tỏ lòng mình và cuộc vật lộn riêng, yêu thiên nhiên, truyền đạt bằng cả hành động biểu tượng; người Do Thái gọi ông là "tiên tri khóc lóc". Pawson giải thích ý nghĩa thật của hình ảnh thợ gốm và đất sét. Sứ điệp độc đáo: nghi lễ tôn giáo còn tệ hơn vô ích nếu lòng không ở đó ("đi nhà thờ không thay được đời sống tin kính"); Chúa bắt đầu đối xử với từng cá nhân chứ không chỉ cả dân tộc; lời hứa về Giao Ước Mới; sự bình an không đến từ liên minh với các nước mà từ tin cậy Chúa. Sứ điệp chính trị của ông bị coi là phản quốc.</p>
+<p class="book" id="sach-ca-thuong"><strong>Ca Thương (1 bài).</strong> Giê-rê-mi khóc trên Giê-ru-sa-lem đổ nát (hãy hình dung Hiroshima năm 1945). Năm chương là năm bài ai ca, bốn bài viết theo lối chữ đầu theo bảng chữ cái, giúp sắp xếp cảm xúc. Năm chủ đề: Thảm họa, Nguyên nhân, Phương chữa, Hậu quả, Tiếng kêu. Lòng thương xót của Chúa cho phép lưu đày chứ không diệt vong. Hai số phận mở ra cho ta: khóc mãi mãi, hoặc được lau khô nước mắt.</p>
+<p class="book" id="sach-e-xe-chi-en"><strong>Ê-xê-chi-ên (3 bài).</strong> Có lẽ là phần bị bỏ quên nhất của Cựu Ước. Ê-xê-chi-ên là thầy tế lễ bị lưu đày trong đợt đầu nên không thể hành chức, được gọi làm tiên tri suốt khoảng 20 năm. Sách bày tỏ "sự nghiêm khắc" của Chúa mà ít ai giảng ("sự nhân từ và nghiêm khắc của Đức Chúa Trời"). Khải tượng mở đầu: bốn sinh vật tượng trưng cho mọi tạo vật, Đấng Tạo Hóa trên ngai, bánh xe cho thấy Chúa có thể ở bất cứ đâu (rất có ý nghĩa với người lưu đày từng nghĩ sự hiện diện của Chúa gắn cố định với đất Israel), những con mắt cho thấy Ngài thấy mọi nơi. Điệp khúc: "khi điều đó xảy ra, chúng sẽ biết Ta là Đức Giê-hô-va." Phần sau: phán xét kẻ thù, tin vui được về quê, Chúa là Đấng Chăn Hiền Lành, Gót và Ma-gốc (cũng có trong Khải Huyền), đền thờ được phục hồi. Theo Pawson, hơn 75% các lời tiên tri của sách đã ứng nghiệm từng chữ. Chúa sẽ không bao giờ để Israel hay hội thánh biến mất.</p>
+<p class="book" id="sach-da-ni-en"><strong>Đa-ni-ên (2 bài).</strong> Sách bao quát 75 năm đời Đa-ni-ên nhưng nói về 2.400 năm lịch sử. Nửa đầu là phép lạ, viết về ông; nửa sau là tiên tri, do ông viết. Những ai bác bỏ siêu nhiên không thể chấp nhận việc Đa-ni-ên tiên báo chính xác; chỉ riêng chương 11 có khoảng 200 chi tiết đã ứng nghiệm. Chương 7–12 là những khải tượng riêng rẽ, không liên tục, có phần chồng lên nhau: các vương quốc loài người kế tiếp nhau suy yếu dần, rồi Vương quốc thiên thượng đến với Chúa Giê-xu và tồn tại song song đến khi Ngài tái lâm. Tính cách Đa-ni-ên được thử trước ở việc nhỏ (ăn uống) rồi mới đến việc lớn: tấm gương cho người trẻ.</p>
+<p class="book" id="sach-o-se"><strong>Ô-sê (1 bài).</strong> Lời kêu gọi ăn năn cuối cùng cho vương quốc phía bắc. Ô-sê phải nếm trải nỗi đau của Chúa khi cưới một người vợ bất trung mà vẫn trung tín với nàng. Tội của Israel (dàn ý chữ "I"): bất trung, tự lập riêng, mưu mô, thờ thần tượng, thờ ơ không biết Chúa, vô luân, vô ơn. Bị cáo: thầy tế lễ, tiên tri giả, vương hầu, kẻ trục lợi. Hậu quả: hiếm muộn, đổ máu, bị đuổi khỏi xứ.</p>
+<p class="book" id="sach-ap-dia"><strong>Áp-đia (1 bài, chung với Giô-ên).</strong> Không nói với dân Chúa mà nói với Ê-đôm, nước láng giềng. Ý tưởng triệt để thời đó: Đức Chúa Trời của Israel cũng là Chúa của mọi dân tộc và sẽ phán xét họ. Ê-đôm là nước đầu tiên được cảnh báo về sự phán xét vì những gì đã làm với Israel; ngày nay không còn dấu vết dân Ê-đôm.</p>
+<p class="book" id="sach-gio-en"><strong>Giô-ên.</strong> Đồng ý với Áp-đia rằng Ngày của Chúa sẽ thanh toán mọi món nợ, nhưng cảnh báo Israel cũng không ngoại lệ. Nạn châu chấu là lời cảnh báo. "Tội lỗi trong dân Chúa cũng nghiêm trọng như tội lỗi ngoài dân Chúa." Khi ăn năn thật, Chúa có thể "đền bù những năm châu chấu đã ăn". Lời tiên tri về Thánh Linh đổ xuống trên mọi người tin.</p>
+<p class="book" id="sach-a-mot"><strong>A-mốt (1 bài).</strong> Thế kỷ 8 TCN, thời thịnh vượng sinh băng hoại; tôn giáo phổ biến nhưng không phải tôn giáo thật ("khi nữ thần xuất hiện, tôn giáo trở nên tình dục"). Chúa sửa phạt dần: đói kém, thiếu nước, châu chấu, dịch bệnh, giặc cướp, hỏa hoạn, với điệp khúc "các ngươi vẫn không trở lại cùng Ta"; hai tai họa cuối là động đất và lưu đày. Lời cầu nguyện của A-mốt ảnh hưởng đến hành động của Chúa.</p>
+<p class="book" id="sach-gio-na"><strong>Giô-na (1 bài).</strong> Giô-na đến từ vùng của Chúa Giê-xu, được sai đến Ni-ni-ve của người A-si-ri tàn bạo. Pawson giải thích vì sao ông tin đây là chuyện có thật, không phải ngụ ngôn, và chỉ ra có 8 phép lạ thể chất chứ không chỉ một. "Khi trả lời được câu hỏi vì sao Giô-na bỏ chạy, cả sách sẽ mở ra."</p>
+<p class="book" id="sach-mi-che"><strong>Mi-chê (1 bài).</strong> Người nhà quê nhạy bén với bất công xã hội, thấy sự băng hoại của thành thị lan về nông thôn: thờ thần tượng, vô luân, bất công. Câu nổi tiếng: "làm sự công bình, ưa sự nhân từ và bước đi cách khiêm nhường với Đức Chúa Trời". Công lý cho ta điều ta đáng nhận; thương xót cho ta điều ta không đáng nhận. Hai điều không mâu thuẫn mà đi chung một con đường, nhưng thương xót đi xa hơn; thập tự giá thể hiện tột bậc điều đó.</p>
+<p class="book" id="sach-na-hum"><strong>Na-hum (1 bài).</strong> 150 năm sau Giô-na, thời gian của A-si-ri đã hết. Phán xét Ni-ni-ve là tin mừng cho người Do Thái bị chiếm đóng; chưa đầy một thập kỷ sau, thành bị tàn phá và không bao giờ có người ở lại. Chúa không xét dân ngoại vì vi phạm Mười Điều Răn mà vì sự vô nhân đạo. Chúa "chậm giận" không có nghĩa là không bao giờ giận. Ngài có thể đổi kế hoạch tùy cách con người đáp ứng.</p>
+<p class="book" id="sach-ha-ba-cuc"><strong>Ha-ba-cúc (1 bài).</strong> Tiên tri tranh luận với Chúa vì cái nhìn về Ngài chưa chính xác, nhưng bám lấy Chúa đến khi có câu trả lời. Pawson khuyến khích "cầu nguyện chất vấn". Trong tiếng Hê-bơ-rơ và Hy Lạp, đức tin cũng là sự trung tín: ta bày tỏ đức tin bằng cách tiếp tục trung tín. Năm tội của Ba-by-lôn sẽ bị phạt: bất công, đế quốc, vô nhân đạo, vô độ, thờ thần tượng.</p>
+<p class="book" id="sach-so-pho-ni"><strong>Sô-phô-ni (1 bài).</strong> Hậu duệ của một vị vua tốt, nói tiên tri khi vua trẻ Giô-si-a lên ngôi giữa hỗn loạn. Cảnh báo Giu-đa và các nước lân cận về Ngày của Chúa, nhưng vẫn còn thời gian ăn năn. Sự lựa chọn giữa công lý và thương xót của Chúa nằm ở con người; lời cuối của Chúa luôn là chọn thương xót. Dù vậy dân vẫn không nghe.</p>
+<p class="book" id="sach-1-2-su-ky"><strong>1–2 Sử Ký (1 bài).</strong> Đừng bỏ qua vì tưởng giống Các Vua. Các Vua viết từ góc nhìn tiên tri, Sử Ký từ góc nhìn thầy tế lễ; Sử Ký bao quát thời gian dài hơn, chỉ nói về các vua Giu-đa thuộc dòng Đa-vít và thái độ của họ với các vấn đề thuộc linh. Viết cho người Do Thái hồi hương để trả lại cho họ ba điều: <strong>Cội rễ</strong> (một dòng dõi Chúa đã điều khiển), <strong>Vương quyền</strong> (dòng vua của riêng họ), <strong>Tôn giáo</strong> (lý do họ tồn tại).</p>
+<p class="book" id="sach-e-xo-ra-va-ne-he-mi"><strong>E-xơ-ra và Nê-hê-mi (2 bài).</strong> Ba lần lưu đày và ba lần hồi hương (Xô-rô-ba-bên, E-xơ-ra, Nê-hê-mi). Si-ru được Ê-sai báo tên trước. Hai sách ghi lại việc tái thiết đời sống xã hội, tôn giáo và tường thành. E-xơ-ra là "người của Kinh Thánh": nghiên cứu, sống và dạy Lời. Nê-hê-mi là "người của cầu nguyện" mà cũng rất thực tế: tường thành xong trong 52 ngày vì "dân sự có lòng làm việc". Hội thánh cần cả hai kiểu người. Bi kịch: về đến quê rồi họ lại rơi vào tội cũ.</p>
+<p class="book" id="sach-e-xo-te"><strong>Ê-xơ-tê (1 bài).</strong> Một trong số ít sách đặt ngoài đất hứa: cách người Do Thái sống giữa xã hội dân ngoại mà không thỏa hiệp (đọc cùng Đa-ni-ên). Tên Chúa không xuất hiện, nhưng sự giải cứu đến qua cầu nguyện, kiêng ăn và sự can thiệp của hoàng hậu. Nếu câu chuyện kết thúc khác, dân Do Thái đã bị tiêu diệt và Chúa Giê-xu không thể đến. Sách cho thấy chiến lược của cả Sa-tan lẫn Đức Chúa Trời.</p>
+<p class="book" id="sach-a-ghe"><strong>A-ghê (1 bài).</strong> Chỉ nói tiên tri trong ba tháng, 18 năm sau khi dân hồi hương. Họ ngừng xây đền thờ vì thiếu tiền; A-ghê cho thấy họ thiếu tiền vì đã thôi đặt Chúa lên trước. Khi họ đáp ứng, Chúa hứa vinh quang Ngài sẽ đầy dẫy đền thờ.</p>
+<p class="book" id="sach-xa-cha-ri"><strong>Xa-cha-ri (2 bài).</strong> Trùng với A-ghê một tháng, vừa là thầy tế lễ vừa là tiên tri. Sách có lời tiên tri khải thị: muốn mô tả tương lai xa phải dùng hình ảnh (thử mô tả tivi cho người sống cách đây nghìn năm). Chương 1–8 nói về hiện tại (có "cửa sổ hòa bình" thế giới, thời điểm lý tưởng để xây đền thờ); nửa sau nhìn về tương lai xa: vị Vua cưỡi lừa, các nước sẽ lên Giê-ru-sa-lem dự Lễ Lều Tạm. Về kiêng ăn: điều Chúa muốn là "kiêng" ngược đãi người khác và sống rộng rãi, tử tế. Các lời tiên tri như những mảnh ghép, còn <strong>Khải Huyền là "bức tranh trên nắp hộp xếp hình"</strong>.</p>
+<p class="book" id="sach-ma-la-chi"><strong>Ma-la-chi (2 bài).</strong> Lời cuối của Chúa trước 400 năm im lặng. Năm điểm độc đáo: tỷ lệ lời trực tiếp của Chúa rất cao; khuyết danh ("Ma-la-chi" nghĩa là "sứ giả của Ta"); đối đáp gay gắt giữa tiên tri và dân; toàn văn xuôi; là lời cuối cùng trong 400 năm. Dân không quay lại thờ thần tượng nhưng trở nên tự mãn, hình thức. Ba khía cạnh của Chúa cần hiểu: Đấng Tạo Hóa ta đến từ, Vua ta sống dưới quyền, Thẩm Phán ta sẽ đến gặp; hình ảnh Cha yêu thương trong Tân Ước <strong>bổ sung chứ không thay thế</strong> điều này. Các chủ đề: thầy tế lễ chiều lòng người, hôn nhân khác đạo, "Ta ghét sự ly dị", dâng phần mười, "hãy trở lại cùng Ta thì Ta sẽ trở lại cùng các ngươi". Kết sách: trở về với lời chỉ dẫn của Đấng Tạo Hóa và chờ đợi một người như Ê-li dọn đường. Pawson mở đầu bài bằng việc phê phán thần học thay thế (xem mục 7).</p>
+
+</section><section class="sec"><h2 id="6-tom-luoc-tung-sach-tan-uoc">6. Tóm lược từng sách: Tân Ước</h2>
+<h3 id="tap-6-ban-le-cua-lich-su">Tập 6: Bản lề của lịch sử</h3>
+<p class="book" id="sach-nhap-de-ve-cac-sach-phuc-am"><strong>Nhập đề về các sách Phúc Âm.</strong> Phúc Âm không hẳn là tiểu sử (hơn một phần ba nội dung là về cái chết của Chúa Giê-xu) mà như những "bản tin" mở rộng của nhân chứng, nên đọc to. Bốn sách cho bức chân dung bốn chiều vì viết cho bốn nhóm độc giả khác nhau: <strong>Mác và Lu-ca viết cho người chưa tin; Ma-thi-ơ và Giăng viết cho Cơ Đốc nhân.</strong></p>
+<p class="book" id="sach-ma-thi-o"><strong>Ma-thi-ơ (2 bài).</strong> Trình bày Chúa Giê-xu là Vua dân Do Thái, ghi chủ yếu lời Ngài phán, nhiều lần chỉ ra sự ứng nghiệm Cựu Ước. Dùng khung của Mác và thêm nhiều, bắt đầu từ sự giáng sinh. Đây là <strong>cẩm nang môn đồ hóa</strong>, sách tốt nhất để hướng dẫn người mới tin: "Môn đồ hóa là dạy người ta cách sống trong Nước Thiên Đàng trên đất." Năm bài giảng xen giữa các việc làm minh họa: (1) Bài giảng trên núi, lối sống của Nước Trời; (2) Sứ mạng: minh chứng rồi mới công bố; (3) Điều nên trông đợi: không phải hạt nào gieo cũng kết quả; (4) Cộng đồng của Nước Trời, bao gồm kỷ luật hội thánh; (5) Tương lai của Nước Trời: bốn dấu hiệu rõ ràng của sự tái lâm. Ta đang sống trong giai đoạn chồng lấn giữa "đời ác hiện tại" và Nước Trời được thiết lập. Pawson tin sách này đưa người Do Thái và Cơ Đốc nhân lại gần nhau.</p>
+<p class="book" id="sach-mac"><strong>Mác (1 bài).</strong> Phúc Âm viết đầu tiên, ghi lại lời giảng của Phi-e-rơ, sách của hành động (phép lạ nhiều hơn ngụ ngôn), không có giáng sinh hay thời thơ ấu. Mác chưa từng là lãnh đạo nhưng là phụ tá hoặc thông dịch cho ít nhất bốn người. Cấu trúc: chương 1–9 khoảng 2,5 năm chức vụ ở Ga-li-lê; chương 10 sáu tháng tập trung vào mười hai sứ đồ; chương 11–16 tuần lễ cuối. Pawson chỉ ra điều đã đổi hướng chức vụ của Chúa Giê-xu, và nhấn mạnh cả khía cạnh con người lẫn thần tính trong cái chết của Ngài.</p>
+<p class="book" id="sach-lu-ca"><strong>Lu-ca (1 bài).</strong> Được yêu thích nhất nhưng ít được biết rõ nhất. Lu-ca là tác giả dân ngoại duy nhất của Kinh Thánh và là bác sĩ, nên có những chi tiết riêng. Viết cho một người, Thê-ô-phi-lơ, có thể để giúp Phao-lô được trả tự do. Phần riêng của Lu-ca: chuyện giáng sinh theo góc nhìn Ma-ri, thời niên thiếu của Chúa Giê-xu, chi tiết về phép báp-têm bằng nước và Thánh Linh, "bài giảng trên đồng bằng" với mỗi phước lành đi kèm một lời khốn, nhiều ngụ ngôn và cuộc gặp gỡ cá nhân. Lu-ca quan tâm người Sa-ma-ri, dân ngoại, người bị ruồng bỏ, phụ nữ, người nghèo, "kẻ có tội", và yếu tố siêu nhiên (thiên sứ, Thánh Linh). Đây là "Phúc Âm cho mọi người", trình bày Chúa Giê-xu là Cứu Chúa thế gian.</p>
+<p class="book" id="sach-giang"><strong>Giăng (2 bài).</strong> Giăng, môn đồ gần Chúa nhất, nhìn vào "bên trong" Chúa Giê-xu: Ngài thật sự là ai. Ông bỏ qua nhiều điều đã có trong ba sách kia (giáng sinh, báp-têm, cám dỗ, đuổi quỷ, hóa hình, tiệc ly, Ghết-sê-ma-nê, thăng thiên) vì mục đích riêng, và thêm các phép lạ là "dấu lạ", việc rửa chân, những cuộc gặp gỡ cá nhân, bảy lời tuyên bố "Ta là". Giăng sửa những hiểu lầm nảy sinh sau khi Chúa về trời do tư duy Hy Lạp: nhấn mạnh trọn vẹn nhân tính (cả đời sống cầu nguyện) lẫn trọn vẹn thần tính, với bảy nhân chứng, bảy phép lạ, bảy lời độc nhất. Về Ngôi Lời (Logos): đã có từ ban đầu (đời đời), "đối diện" Đức Chúa Trời (có ngôi vị), là Đức Chúa Trời, và đã trở nên xác thịt, "dựng lều" giữa chúng ta. Sách này nói về Thánh Linh nhiều hơn các Phúc Âm khác.</p>
+<p class="book" id="sach-cong-vu"><strong>Công Vụ (2 bài).</strong> Phần con người: Lu-ca ghi lại Tin Lành đi từ Giê-ru-sa-lem đến Rô-ma, từ người Do Thái đến dân ngoại; ông đi cùng Phao-lô (có lẽ để chăm sóc sức khỏe ông). Theo Pawson, Thê-ô-phi-lơ có thể là thẩm phán hoặc luật sư sắp bào chữa cho Phao-lô, và chính Cơ Đốc giáo mới là bị cáo ở Rô-ma (đây là một giả thuyết thiểu số trong giới học thuật). Phần áp dụng: hội thánh đầu tiên không hoàn hảo nhưng có sự sống và quyền năng Thánh Linh; không nên lấy sự cải đạo của Phao-lô làm khuôn mẫu cho mọi người. Công Vụ là sách duy nhất cho thấy cách các sứ đồ hướng dẫn người tìm đạo: các Phúc Âm viết quá sớm (trước thập tự giá và phục sinh), các thư tín và Khải Huyền viết quá muộn (cho người đã tin). Sau Lễ Ngũ Tuần, không ai được tái sinh mà thiếu bốn điều: <strong>ăn năn tội, tin Chúa Giê-xu, chịu báp-têm bằng nước, nhận lãnh Thánh Linh.</strong></p>
+<h3 id="tap-7-su-do-thu-muoi-ba">Tập 7: Sứ đồ thứ mười ba</h3>
+<p class="book" id="sach-phao-lo-va-cac-thu-tin"><strong>Phao-lô và các thư tín (1 bài).</strong> Hơn một phần ba Tân Ước xoay quanh Phao-lô, người "có ảnh hưởng đến châu Âu hơn bất kỳ ai khác". Ba ảnh hưởng: dòng dõi Do Thái, tiếng Hy Lạp (từ Tạt-sơ), quyền công dân La Mã. Ông là nhà truyền giáo trước khi tin Chúa, "nhưng ở phe sai". Gặp Chúa Giê-xu phục sinh là sự cải đạo và lời kêu gọi đến dân ngoại; 13 năm chuẩn bị trước khi lên đường cùng Ba-na-ba. Chiến lược: lập một cộng đồng của Nước Trời ở mỗi thành phố then chốt rồi đi tiếp, để hội thánh truyền giáo cho vùng của mình. Cách theo dõi: thăm lại, viết thư, hoặc sai người trong nhóm đến.</p>
+<p class="book" id="sach-ro-ma"><strong>Rô-ma (2 bài).</strong> Bức thư dài nhất còn lại từ thế giới cổ đại. Chìa khóa: chương 9–11 về người Do Thái. Hội thánh Rô-ma vốn khởi đầu với người Do Thái tin Chúa, thành hội thánh dân ngoại khi Hoàng đế Cơ-lốt trục xuất người Do Thái; khi họ được cho về, hội thánh đã đổi khác. Mọi điều trong thư nhằm đưa hai nhóm trở lại thông công; chương 9–11 chống lại thần học thay thế. Phao-lô phải bàn về luật pháp vì người Do Thái và về sự phóng túng vì người ngoại. Từ khóa là "Đức Chúa Trời"; chủ đề là sự công chính của Đức Chúa Trời. Dàn ý: chương 1–4 Đức tin (nhìn về quá khứ), từ chương 5 Hy vọng (nhìn về tương lai), 9–11 dân Do Thái, 12–16 Tình yêu (sống hiện tại). Chúa xưng công chính trước rồi mới thánh hóa; sự cứu rỗi là một tiến trình phải tiếp tục đến cuối.</p>
+<p class="book" id="sach-1-2-co-rinh-to"><strong>1–2 Cô-rinh-tô (2 bài).</strong> Hai trận chiến lớn của mọi hội thánh: giữ hội thánh ở trong thế gian, và giữ thế gian ở ngoài hội thánh. 1 Cô-rinh-tô trả lời các vấn đề thực tế (chia rẽ, vô luân, kiện tụng, thần tượng, vai trò nam nữ, tái hôn, say sưa trong Tiệc Thánh); nhờ đó ta có bài ca tình yêu (chương 13) và danh sách các lần hiện ra sớm nhất của Chúa phục sinh (chương 15). Người Hy Lạp đối xử với thân thể theo ba cách: buông thả, khắc kỷ hoặc thần tượng hóa; Phao-lô đáp: thân thể là đền thờ Thánh Linh, việc làm với thân thể là một phần đời sống thuộc linh. Nguyên tắc giải nghĩa: không bắt chước máy móc thực hành, mà tìm nguyên tắc Phao-lô đang dùng. 2 Cô-rinh-tô dành cho người lãnh đạo: "phép thử của một chức vụ không phải là bằng cấp hay đào tạo mà là loại người nó sản sinh ra."</p>
+<p class="book" id="sach-ga-la-ti"><strong>Ga-la-ti (2 bài).</strong> "Đại Hiến chương của tự do Cơ Đốc", sách khởi phát cuộc Cải chánh của Luther. Những người theo Do Thái giáo dạy: bắt đầu bằng đức tin rồi tiếp tục bằng giữ luật. Phao-lô: "đã khởi sự theo Thánh Linh, nay lại cậy xác thịt mà làm cho trọn sao?" Đưa luật pháp vào ở bất kỳ giai đoạn nào là đặt người tin dưới sự rủa sả, vì điểm đạt duy nhất là 100%. Ba khái niệm Pawson hay dùng: <strong>chủ nghĩa luật pháp</strong> và <strong>sự phóng túng</strong> đều là kẻ thù của <strong>tự do</strong>; "tự do thật là được tự do để không phạm tội". Phao-lô nhấn mạnh việc "tiếp tục tin".</p>
+<p class="book" id="sach-e-phe-so"><strong>Ê-phê-sô (1 bài).</strong> Cách phòng chống tà giáo tốt nhất là sự dạy dỗ vững chắc. Thư chia hai nửa rõ ràng: quan hệ với Chúa trong Đấng Christ (sự cứu rỗi được "làm vào trong", giáo lý: ta được cứu bởi điều gì) và quan hệ với người khác trong Chúa (sự cứu rỗi được "làm ra ngoài", bổn phận: ta được cứu để làm gì). Phải giữ đúng thứ tự: không thể sống đời sống Cơ Đốc trước khi được cứu. "Một Tin Lành không biểu hiện ra đời sống là một Tin Lành không trọn vẹn." Pawson cũng giải thích giáo lý tiền định.</p>
+<p class="book" id="sach-phi-lip-va-phi-le-mon"><strong>Phi-líp và Phi-lê-môn (2 bài).</strong> Phi-líp, "thuộc địa của thiên đàng" trong một thành La Mã, hội thánh đầu tiên ở châu Âu. Thư cảm ơn viết khi Phao-lô bị quản thúc ở Rô-ma; từ yêu thích là <strong>vui mừng</strong>. "Thông công còn hơn một tách trà": điều xảy ra với một người là xảy ra với mọi người. Về đoạn "Đấng Christ tự bỏ mình đi" (Phi-líp 2): Ngài từ bỏ đặc quyền chứ không từ bỏ bản tính; đoạn này nói về đạo đức (thái độ và lựa chọn của Đấng Christ) hơn là lý thuyết thần học. Phi-lê-môn: thư riêng về một nô lệ bỏ trốn; khi tin Chúa, đừng chạy trốn quá khứ mà hãy sửa lại quá khứ; câu chuyện là hình ảnh hoàn hảo của sự cứu rỗi.</p>
+<p class="book" id="sach-co-lo-se"><strong>Cô-lô-se (1 bài).</strong> "Bài học bắt buộc cho mọi Cơ Đốc nhân." Hội thánh ở thành đa tôn giáo đã đem quá nhiều thứ bên ngoài vào; thư cho công cụ phân tích <strong>chủ nghĩa hỗn hợp tôn giáo</strong>. Khi trộn niềm tin khác vào, Đấng Christ mất địa vị tối thượng. "Nếu có một điều Đấng Christ làm, đó là cứu ta khỏi tôn giáo. Cơ Đốc giáo không phải là một tôn giáo, mà là một mối quan hệ với Đấng Christ." Pawson lưu ý Tân Ước không truyền giữ Chủ nhật, Giáng sinh hay Phục sinh như ngày đặc biệt, và Cô-lô-se cảnh báo về việc đánh mất sự cứu rỗi.</p>
+<p class="book" id="sach-1-2-te-sa-lo-ni-ca"><strong>1–2 Tê-sa-lô-ni-ca (2 bài).</strong> Theo Pawson, đây là phần Tân Ước được viết đầu tiên. Phao-lô đem Tin Lành bằng ba cách: lời, việc làm, dấu lạ (việc làm là bằng chứng con người, dấu lạ là bằng chứng thiên thượng), minh chứng trước rồi công bố. Kết quả: đức tin, hy vọng, tình yêu. Ba chiều của đời sống Cơ Đốc: từ bỏ thần tượng, phục vụ Đức Chúa Trời hằng sống, chờ đợi Con Ngài từ trời. Thư thứ nhất ấm áp; thư thứ hai lạnh và sắc hơn vì đã nghe tin xấu. Về sự tái lâm: người tỉnh thức, tiết độ, canh chừng sẽ không bị bất ngờ; phải quan sát các dấu hiệu. Hội thánh nên được cai trị bởi Thánh Linh qua người lãnh đạo đầy Thánh Linh, không phải theo lối dân chủ.</p>
+<p class="book" id="sach-1-2-ti-mo-the-va-tit"><strong>1–2 Ti-mô-thê và Tít (2 bài).</strong> Pawson phản đối gọi là "thư mục vụ" vì không chứa đủ hướng dẫn cho mục sư, và Ti-mô-thê, Tít không phải mục sư mà là <strong>người xử lý sự cố</strong> ("Ti-mô-thê nhút nhát" và "Tít cứng rắn"). Phao-lô viết từ phòng tử tù. Ở Cơ-rết, vấn đề là chất lượng tín hữu và cần lập trưởng lão; ở Ê-phê-sô, tín hữu tốt nhưng trưởng lão sai, cần thay. Bài học: lúc khởi đầu cần lãnh đạo và tín hữu có phẩm chất trước khi tăng số lượng; đối chất là phần của lãnh đạo; sự bảo vệ tốt nhất là sự dạy dỗ tốt liên tục; nhiều trưởng lão bổ sung và cân bằng nhau, còn một người lãnh đạo sẽ truyền cả điểm mạnh lẫn điểm yếu của mình cho hội thánh. Sứ đồ lập hội thánh, chờ có trưởng lão và chấp sự, rồi rời đi.</p>
+<h3 id="tap-8-qua-kho-nan-den-vinh-hien">Tập 8: Qua khổ nạn đến vinh hiển</h3>
+<p class="book" id="sach-he-bo-ro"><strong>Hê-bơ-rơ (2 bài).</strong> Thư rất "Do Thái", liên hệ đức tin Cơ Đốc với nghi lễ đền thờ. Từ khóa: <strong>"tốt hơn"</strong>: Chúa Giê-xu tốt hơn các tiên tri, thiên sứ, các lãnh tụ xưa, các thầy tế lễ; thực thể tốt hơn hình bóng. Không biết tác giả, nhưng Pawson nghĩ thư được gửi cho nửa Do Thái của hội thánh Rô-ma thời Nê-rô: bị bắt bớ vì Cơ Đốc giáo bất hợp pháp, một số muốn quay về nhà hội, nơi họ sẽ phải chối Chúa Giê-xu. Phần hai xem xét các đoạn cảnh báo khó: có thể có sự bảo đảm rằng mình đang trên đường cứu rỗi, nhưng không có bảo đảm rằng mình không thể quay đi vào tội cố ý và đánh mất sự cứu rỗi; Pawson cho rằng chân lý này chạy suốt Tân Ước, kể cả trên môi Chúa Giê-xu. Năm giá trị của sách: cho biết quan hệ Cựu Ước, Tân Ước; giữ mắt ta trên Chúa Giê-xu; xây dựng đức tin; cảnh báo sa ngã; nhấn mạnh tham gia tích cực vào hội thánh.</p>
+<p class="book" id="sach-gia-co"><strong>Gia-cơ (2 bài).</strong> Cơ Đốc giáo thực hành; từ khóa là <strong>"làm"</strong> (Pawson nói đó cũng là từ khóa của cả Kinh Thánh). Không có cấu trúc chặt, như "những viên ngọc trai chưa được xâu". Tác giả là em cùng mẹ khác cha của Chúa Giê-xu. Viết cho người Do Thái tản lạc, nhiều người làm ăn: cảnh báo về tham lam, ganh tị, tham vọng, kiêu ngạo, khoe khoang, tự phụ, nóng nảy, cãi cọ, nói xấu, kiện tụng ("tiền vào thì Chúa ra"). Khôn ngoan từ trên có thể nhận ngay khi xin không hai lòng. "Chủ nghĩa luật pháp nói ta được cứu bởi việc lành; sự phóng túng nói ta được cứu mà không cần việc lành; tự do nói ta được cứu <strong>để làm</strong> việc lành."</p>
+<p class="book" id="sach-1-2-phi-e-ro"><strong>1–2 Phi-e-rơ (2 bài).</strong> 1 Phi-e-rơ cần thiết ở bất cứ nơi nào Cơ Đốc nhân sợ bắt bớ; ấm áp, khích lệ. Phi-e-rơ từng sợ hãi, nay biết đối diện không sợ. Ba chủ đề: đau khổ, thuận phục, cứu rỗi; "niềm hy vọng sống"; chức tế lễ của mọi tín hữu. "Nếu bạn trung tín trong những trận chiến nhỏ bây giờ, Ngài sẽ ban ân điển khi cơn khủng hoảng lớn đến." 2 Phi-e-rơ chuyển sang hiểm họa bên trong: bốn triệu chứng bệnh của hội thánh là tín điều băng hoại, hành vi băng hoại, tính cách băng hoại ("giống thú hơn người"), lời nói băng hoại; Phi-e-rơ chỉ cách lớn lên trong tính cách và sự trưởng thành.</p>
+<p class="book" id="sach-1-3-giang"><strong>1–3 Giăng (2 bài).</strong> Thư "của ông nội": Giăng đã già, là sứ đồ duy nhất chết vì tuổi già, nhìn mọi thứ trắng đen rõ ràng, trái ngược với thuyết tương đối hiện đại. Năm mục đích (dàn ý chữ "H"): thúc đẩy hòa thuận, đem lại hạnh phúc, bảo vệ sự thánh khiết, ngăn chặn tà giáo, ban hy vọng. Lối sắp xếp kiểu ra-bi Do Thái, không phân tích mà là khôn ngoan không cấu trúc. Tà giáo bấy giờ đến từ triết học Hy Lạp (vật chất là dơ bẩn, nên Chúa không thể thật sự thành người). Về tội trong đời sống người tin: những câu tưởng mâu thuẫn sẽ sáng tỏ khi đọc kỹ ngữ cảnh. Pawson cho rằng khi đến với Chúa, chỉ tội quá khứ được tha lúc đó; tội tương lai phải được giải quyết khi xảy ra. 2 Giăng (gửi một phụ nữ) và 3 Giăng (gửi một người nam) nói về cùng chủ đề tiếp đãi nhưng theo hai hướng ngược nhau: đừng mời tà giáo vào qua những người giảng lưu động chưa được kiểm chứng, nhưng cũng đừng giữ chặt hội thánh mà khước từ những người chức vụ lưu động đáng kính. Cần cả chân lý lẫn tình yêu.</p>
+<p class="book" id="sach-giu-de"><strong>Giu-đe (1 bài).</strong> Lá thư nhỏ bị bỏ quên mà tuyệt vời, chia hai: một sự băng hoại nguy hiểm và cách xử lý nó. Giu-đe (em của Chúa Giê-xu) như bác sĩ phẫu thuật "cắt bỏ khối ung thư trong Thân Thể Đấng Christ". Hiểm họa từ bên ngoài làm hội thánh gắn kết; hiểm họa từ bên trong (luật pháp hoặc phóng túng) có thể hủy hoại. "Khi tín điều băng hoại, hành vi cũng băng hoại; khi hành vi băng hoại, tính cách và lời nói cũng vậy." Giu-đe khích lệ ta "tranh chiến cho đức tin" trong chân lý và tình yêu.</p>
+<p class="book" id="sach-khai-huyen"><strong>Khải Huyền (6 bài).</strong> Pawson xem đây là một trong những sách vĩ đại nhất; thiếu nó, Kinh Thánh không trọn vẹn.
+- Đặc điểm: sách duy nhất có lời chúc phước cho người đọc to và lời rủa sả cho người thêm bớt; sách duy nhất "không ai quyết định viết", Giăng chỉ ghi lại điều thấy và nghe. Viết cho người thường, nên đọc bằng lẽ thường (cùng một từ lặp lại trong cùng ngữ cảnh thì cùng nghĩa). Mục đích rất thực tế: chuẩn bị tín hữu kiên nhẫn chịu đựng qua gian khổ; "Khải Huyền được viết với mục đích đơn giản là <strong>giữ tên Cơ Đốc nhân trong Sách Sự Sống</strong>."
+- Bảy hội thánh: thư theo bảy phần (địa chỉ, một thuộc tính của Chúa Giê-xu, khen, trách, khuyên, kêu gọi, bảo đảm). Hai hội thánh lớn nhất không được khen gì; hội thánh đang bị bắt bớ không bị trách gì.
+- Lịch sử khải thị: Chúa cho thấy toàn cảnh gồm cả trên trời và tương lai. Những tai họa sẽ chỉ kéo dài ba năm rưỡi; Chúa nói trước điều tệ nhất để ta chuẩn bị nếu nó đến trong đời mình. "Bộ ba bất chính" Sa-tan, kẻ địch lại Đấng Christ, tiên tri giả; nhiều tín hữu tử đạo. Pawson trình bày các trường phái giải nghĩa Khải Huyền.
+- Hai thành: Ba-by-lôn (thành của loài người, khoái lạc, tội ác, thương mại, hình ảnh kỹ nữ "lấy tiền của bạn và cho bạn khoái lạc") và Giê-ru-sa-lem (thành của Đức Chúa Trời). Hệ thống tài chính thế giới sẽ sụp đổ. Ông bàn về quan niệm Cơ Đốc nhân được cất lên trước hoạn nạn và phản đối quan niệm này.
+- Kết cục: phải đọc các khải tượng theo thứ tự, không xáo chương. Chúa Giê-xu cưỡi ngựa chứ không cưỡi lừa, trận chiến tại Mê-ghi-đô; bốn sự kiện lớn: <strong>Sự tái lâm, Thiên hy niên Đấng Christ cai trị trên đất (cùng các thánh), Ngày phán xét, Trời mới đất mới.</strong> Loài người cuối cùng chỉ còn hai nhóm: sống dưới quyền Chúa và muốn sống theo ý mình. Pawson cảnh báo tư tưởng thiếu kính sợ Chúa cho rằng người không trung tín sẽ chỉ bị hủy diệt: "Đức Chúa Trời chúng ta là đám lửa thiêu đốt." Ta có thể sống trong trời mới đất mới nếu sẵn lòng được "tái chế" ngay bây giờ. Bài cuối nêu mười lý do nên đọc Khải Huyền.</p>
+
+</section><section class="sec"><h2 id="7-cac-chu-de-va-quan-diem-xuyen-suot">7. Các chủ đề và quan điểm xuyên suốt</h2>
+<p>Bộ bài giảng không trung lập về thần học. Biết những lập trường dưới đây giúp người học nhận ra đâu là trình bày Kinh Thánh, đâu là quan điểm riêng của Pawson (một số có thể khác với giáo hội hoặc hệ phái của người đọc).</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Chủ đề</th>
+<th>Quan điểm của Pawson</th>
+<th>Xuất hiện ở</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sự cứu rỗi là một tiến trình</td>
+<td>Được xưng công chính rồi được thánh hóa; phải "tiếp tục tin" đến cuối. Có thể có sự bảo đảm, nhưng người tin có thể quay đi và đánh mất sự cứu rỗi (ông viết riêng sách <em>Once Saved, Always Saved?</em>).</td>
+<td>Rô-ma, Ga-la-ti, Cô-lô-se, Ti-mô-thê, Hê-bơ-rơ, Giô-ên, 1 Giăng, Khải Huyền</td>
+</tr>
+<tr>
+<td>"Sự tái sinh bình thường"</td>
+<td>Bốn bước: ăn năn, tin Chúa Giê-xu, báp-têm bằng nước, nhận lãnh Thánh Linh; xa hơn "lời cầu nguyện tiếp nhận Chúa". Báp-têm Thánh Linh là trải nghiệm riêng.</td>
+<td>Công Vụ, 1 Tê-sa-lô-ni-ca, Lu-ca</td>
+</tr>
+<tr>
+<td>Báp-têm</td>
+<td>Phản đối báp-têm trẻ sơ sinh; đây là lý do ông rời hệ phái Giám Lý.</td>
+<td>Tiểu sử</td>
+</tr>
+<tr>
+<td>Israel và hội thánh</td>
+<td>Phản đối "thần học thay thế" (cho rằng hội thánh đã thay Israel, nhận phước mà không nhận rủa); các lời tiên tri về Israel là nói về Israel. Ủng hộ chủ nghĩa Phục quốc Cơ Đốc nhưng phê phán thuyết định kỳ (dispensationalism).</td>
+<td>Rô-ma 9–11, Ma-la-chi, Ê-xê-chi-ên, Xa-cha-ri, Khải Huyền</td>
+</tr>
+<tr>
+<td>Thời kỳ cuối cùng</td>
+<td>Tiền thiên hy niên; phản đối sự cất lên trước hoạn nạn; khủng hoảng cuối kéo dài ba năm rưỡi.</td>
+<td>Đa-ni-ên, Tê-sa-lô-ni-ca, Ma-thi-ơ, Khải Huyền</td>
+</tr>
+<tr>
+<td>Địa ngục</td>
+<td>Phản đối thuyết hủy diệt; kẻ hư mất chịu hình phạt đời đời (sách <em>The Road to Hell</em>).</td>
+<td>Khải Huyền</td>
+</tr>
+<tr>
+<td>Công lý và thương xót</td>
+<td>Hai mặt không mâu thuẫn của Đức Chúa Trời; thương xót đi xa hơn công lý; Ngài có thể đổi kế hoạch tùy phản ứng của con người.</td>
+<td>Mi-chê, Na-hum, Sô-phô-ni, Ê-sai</td>
+</tr>
+<tr>
+<td>Sự kính sợ Chúa</td>
+<td>Hội thánh ngày nay đối xử với Chúa thân mật mà thiếu tôn kính; hình ảnh Cha yêu thương bổ sung chứ không thay thế hình ảnh Đấng Tạo Hóa, Vua, Thẩm Phán.</td>
+<td>Ma-la-chi, Ê-xê-chi-ên, Na-hum, Giu-đe, Khải Huyền</td>
+</tr>
+<tr>
+<td>Luật pháp, phóng túng, tự do</td>
+<td>Bộ ba giúp đọc Ga-la-ti, Gia-cơ, Giu-đe: tự do thật là được tự do để không phạm tội.</td>
+<td>Ga-la-ti, Gia-cơ, Giu-đe</td>
+</tr>
+<tr>
+<td>Tư duy Hê-bơ-rơ và Hy Lạp</td>
+<td>Phương Tây thừa hưởng lối tách thiêng liêng khỏi thể xác; Kinh Thánh thì không.</td>
+<td>Nhã Ca, Châm Ngôn, Cô-rinh-tô, Giăng, 1 Giăng</td>
+</tr>
+<tr>
+<td>Lãnh đạo hội thánh</td>
+<td>Nhiều trưởng lão tốt hơn một người; nguy hiểm của chức vụ một người; lãnh đạo là vai trò Chúa giao cho người nam (sách <em>Leadership is Male</em>).</td>
+<td>Giô-suê, Ti-mô-thê và Tít, Tê-sa-lô-ni-ca</td>
+</tr>
+<tr>
+<td>Siêu nhiên và lịch sử</td>
+<td>Tin Giô-na là chuyện thật, Đa-ni-ên tiên báo thật, phản bác thuyết tiến hóa áp dụng cho con người; đề cao bằng chứng phục sinh.</td>
+<td>Sáng Thế Ký, Giô-na, Đa-ni-ên</td>
+</tr>
+<tr>
+<td>Lu-ca – Công Vụ như hồ sơ bào chữa</td>
+<td>Thê-ô-phi-lơ có thể là luật sư hoặc thẩm phán trong phiên xử Phao-lô. Đây là giả thuyết thiểu số, không phải đồng thuận học thuật.</td>
+<td>Lu-ca, Công Vụ</td>
+</tr>
+</tbody>
+</table></div>
+
+</section><section class="sec"><h2 id="8-nhung-cau-noi-dang-nho">8. Những câu nói đáng nhớ</h2>
+<p>Các câu dưới đây được dịch ý từ mô tả chính thức các bài giảng.</p>
+<ul>
+<li>"Phải biết trọn một sách." (Gióp)</li>
+<li>"Trước mặt Đức Chúa Trời, không có gì là thế tục ngoại trừ tội lỗi." (Châm Ngôn)</li>
+<li>"Kinh Thánh không phải câu trả lời của Đức Chúa Trời cho vấn đề của chúng ta, mà là câu trả lời cho vấn đề của Ngài." (Sáng Thế Ký)</li>
+<li>"Đức Chúa Trời thà có một người tin hơn là một người tốt." (Sáng Thế Ký)</li>
+<li>"Quyền sở hữu là vô điều kiện, quyền cư ngụ là có điều kiện." (Phục Truyền)</li>
+<li>"Yêu là vâng lời, vì trước mặt Đức Chúa Trời, tình yêu là lòng trung thành." (Phục Truyền)</li>
+<li>"Mỗi thế hệ phải tự mình khám phá lại Đức Chúa Trời." (Giô-suê)</li>
+<li>"Lịch sử là HIS-story, câu chuyện của Ngài, và Ngài đang viết nó." (Các Quan Xét)</li>
+<li>"Điều quan trọng không phải là tìm được câu trả lời, mà là đến được chỗ trong mối quan hệ với Chúa nơi bạn không cần chúng nữa." (Gióp)</li>
+<li>"Một câu châm ngôn không phải là một lời hứa." (Châm Ngôn)</li>
+<li>"Công lý cho ta điều ta đáng nhận; thương xót cho ta điều ta không đáng nhận." (Mi-chê)</li>
+<li>"Khải Huyền là bức tranh trên nắp hộp xếp hình." (Xa-cha-ri)</li>
+<li>"Chúng ta không được cứu bởi việc lành, nhưng được cứu để làm việc lành." (Ê-phê-sô)</li>
+<li>"Cơ Đốc giáo không phải là một tôn giáo, mà là một mối quan hệ với Đấng Christ." (Cô-lô-se)</li>
+<li>"Thông công còn hơn một tách trà." (Phi-líp)</li>
+<li>"Phép thử của một chức vụ là loại người nó sản sinh ra." (2 Cô-rinh-tô)</li>
+<li>"Tiền vào thì Chúa ra." (Gia-cơ)</li>
+<li>"Khải Huyền được viết để giữ tên Cơ Đốc nhân trong Sách Sự Sống." (Khải Huyền)</li>
+</ul>
+
+</section><section class="sec"><h2 id="9-goi-y-cach-hoc-theo-bo-bai-giang">9. Gợi ý cách học theo bộ bài giảng</h2>
+<p><strong>Lộ trình 1: theo thứ tự podcast (khoảng 98 buổi).</strong> Mỗi tuần 2–3 bài, xong trong khoảng 8–12 tháng. Trước mỗi bài, đọc một lượt cả sách Kinh Thánh liên quan (với sách ngắn) hoặc đọc lướt tiêu đề các đoạn (với sách dài).</p>
+<p><strong>Lộ trình 2: bắt đầu từ "chìa khóa".</strong> Nghe trước các bài có tính phương pháp: Tổng quan Cựu Ước, Sáng Thế Ký phần 1, Thi ca Hê-bơ-rơ, Ma-thi-ơ phần 1, 2 Sa-mu-ên (sáu cấp độ đọc), Các Quan Xét và Ru-tơ phần 1 (bốn cấp độ lịch sử), Phao-lô và các thư tín. Sau đó học theo nhu cầu.</p>
+<p><strong>Lộ trình 3: theo chủ đề.</strong> Ví dụ chủ đề "đức tin và việc làm": Ga-la-ti → Ê-phê-sô → Gia-cơ → Giu-đe. Chủ đề "đau khổ": Gióp → Ha-ba-cúc → Ca Thương → 1 Phi-e-rơ → Khải Huyền. Chủ đề "tương lai": Đa-ni-ên → Xa-cha-ri → Ma-thi-ơ 24 → Tê-sa-lô-ni-ca → Khải Huyền.</p>
+<p><strong>Câu hỏi dùng cho mỗi sách (theo phương pháp Pawson):</strong></p>
+<ol>
+<li>Ai viết, viết cho ai, khi nào, ở đâu?</li>
+<li>Vì sao sách được viết? Người nhận đang gặp vấn đề gì?</li>
+<li>"Hình dạng" của sách là gì? Chia được thành mấy phần lớn?</li>
+<li>Sách là văn xuôi hay thơ? Điều đó cho biết gì về cách Chúa đang nói?</li>
+<li>Sách nói gì về Đức Chúa Trời (cấp độ thần học)?</li>
+<li>Vì sao sách này được đặt trong Kinh Thánh, và nó liên hệ thế nào với ngày nay?</li>
+</ol>
+<p><strong>Lưu ý khi dùng:</strong> Pawson nói thẳng và có nhiều lập trường mạnh (mục 7). Nên nghe với tinh thần người Bê-rê "tra xem Kinh Thánh mỗi ngày", đối chiếu với giáo hội của mình và các sách nhập môn Kinh Thánh khác.</p>
+
+</section><section class="sec"><h2 id="10-tai-nguyen-va-nguon-tham-khao">10. Tài nguyên và nguồn tham khảo</h2>
+<p><strong>Tài nguyên chính thức để nghe, xem:</strong></p>
+<ul>
+<li>David Pawson Ministry: <a href="https://davidpawson.org" target="_blank" rel="noopener">davidpawson.org</a> và trang giới thiệu <a href="https://davidpawson.org/about" target="_blank" rel="noopener">davidpawson.org/about</a>. Video, audio miễn phí; biểu đồ đi kèm có thể tải về.</li>
+<li>Podcast "David Pawson – Unlocking the Bible": <a href="https://davidpawsonministry.podbean.com" target="_blank" rel="noopener">davidpawsonministry.podbean.com</a> (98 tập). Có cả trên <a href="https://tunein.com/podcasts/p1394585" target="_blank" rel="noopener">TuneIn</a> và các ứng dụng podcast khác.</li>
+<li>Video trên YouTube (kênh David Pawson).</li>
+<li>Ứng dụng "David Pawson Bible Teaching" trên <a href="https://apps.apple.com/us/app/-/id1547085904" target="_blank" rel="noopener">App Store</a>.</li>
+</ul>
+<p><strong>Sách:</strong></p>
+<ul>
+<li>Pawson, David. <em>Unlocking the Bible: A Unique Overview of the Whole Bible</em>. HarperCollins (Collins), 2003. ISBN 9780007166664. Bản ebook 2012: ISBN 9780007378920. Andy Peck biên tập từ lời giảng.</li>
+<li>Bản có biểu đồ: Anchor Recordings, 2017.</li>
+</ul>
+<p><strong>Nguồn đã dùng để tổng hợp:</strong></p>
+<ul>
+<li>Mô tả chính thức của 98 tập podcast, lấy từ RSS feed: <a href="https://feed.podbean.com/davidpawsonministry/feed.xml" target="_blank" rel="noopener">feed.podbean.com/davidpawsonministry/feed.xml</a>. Đây là nguồn chính cho mục 5, 6 và 8.</li>
+<li><a href="https://en.wikipedia.org/wiki/David_Pawson" target="_blank" rel="noopener">Wikipedia: David Pawson</a> (tiểu sử, danh sách sách, lập trường thần học).</li>
+<li><a href="https://en.wikipedia.org/wiki/Theophilus_(biblical)" target="_blank" rel="noopener">Wikipedia: Theophilus (biblical)</a> (giả thuyết Thê-ô-phi-lơ là luật sư của Phao-lô).</li>
+<li>Mô tả của nhà xuất bản và nhà sách: <a href="https://www.stanfords.co.uk/unlocking-the-bible-9780007166664" target="_blank" rel="noopener">Stanfords</a>, <a href="https://www.goodreads.com/book/show/537949" target="_blank" rel="noopener">Goodreads</a>, <a href="https://backstory.london/products/9780007166664" target="_blank" rel="noopener">Backstory</a> (cấu trúc 8 tập, phương pháp).</li>
+<li><a href="https://cti.churchinsight.com/Articles/277940/David_Pawsons_Fireside.aspx" target="_blank" rel="noopener">Church Insight: David Pawson's Fireside</a> (mốc 1979 rời Millmead).</li>
+<li><a href="https://www.eslite.com/product/1001166452681928718000" target="_blank" rel="noopener">Eslite</a> (bản tiếng Hoa).</li>
+</ul>
+<p><strong>Giới hạn của bản tổng hợp này:</strong> phần tóm lược từng sách dựa trên mô tả ngắn của từng bài giảng chứ không phải bản ghi đầy đủ, nên chưa bao quát hết chi tiết của mỗi bài. Các con số (ví dụ 75% lời tiên tri của Ê-xê-chi-ên đã ứng nghiệm, 200 chi tiết của Đa-ni-ên 11) là theo lời Pawson, không phải số liệu đã được kiểm chứng độc lập. Việc phân sách vào tập 4 và tập 5 cần đối chiếu với mục lục bản in.</p></section>
+
+    <p class="foot">Bản tổng hợp từ mô tả chính thức 98 tập podcast "Unlocking the Bible" của David Pawson Ministry, đối chiếu với mô tả nhà xuất bản và tiểu sử công khai. Không phải bản dịch nguyên văn.</p>
+  </main>
+</div>
+<button class="top" id="top" type="button" hidden>Lên đầu trang</button>
+
+<script>
+(function(){
+  var norm = function(s){ return s.toLowerCase().replace(/đ/g,'d').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]+/g,' ').trim(); };
+  var q = document.getElementById('q'), chips = [].slice.call(document.querySelectorAll('.chip')), vols = [].slice.call(document.querySelectorAll('.vol')), empty = document.getElementById('empty');
+  function filter(){
+    var t = norm(q.value), any = false;
+    vols.forEach(function(v){
+      var hit = false;
+      v.querySelectorAll('.chip').forEach(function(c){
+        var ok = !t || c.dataset.name.indexOf(t) !== -1;
+        c.classList.toggle('dim', !!t && !ok); c.classList.toggle('hit', !!t && ok);
+        if (ok) hit = true;
+      });
+      v.classList.toggle('none', !!t && !hit); if (hit) any = true;
+    });
+    empty.hidden = any;
+  }
+  q.addEventListener('input', filter);
+  q.addEventListener('keydown', function(e){
+    if (e.key === 'Enter'){ var c = document.querySelector('.chip.hit'); if (c){ e.preventDefault(); location.hash = c.getAttribute('href').slice(1); } }
+  });
+
+  var links = [].slice.call(document.querySelectorAll('#toc a'));
+  var secs = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  var topBtn = document.getElementById('top');
+  function spy(){
+    var y = window.scrollY + 120, cur = -1;
+    secs.forEach(function(s,i){ if (s && s.offsetTop <= y) cur = i; });
+    links.forEach(function(a,i){ a.classList.toggle('on', i === cur); });
+    topBtn.hidden = window.scrollY < 800;
+  }
+  window.addEventListener('scroll', spy, {passive:true}); spy();
+  topBtn.addEventListener('click', function(){ window.scrollTo({top:0}); });
+  document.querySelectorAll('.mtoc a').forEach(function(a){ a.addEventListener('click', function(){ a.closest('details').open = false; }); });
+})();
+</script>
