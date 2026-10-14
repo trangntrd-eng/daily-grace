@@ -7,17 +7,17 @@
 /* Layout: thư viện tra cứu — dải đầu màu mực, thanh mục lục dính bên trái, cột đọc ~68ch, bảng tra 66 sách nhóm theo 8 tập */
 :root{
   --bg:#F4F5F7; --surface:#FFFFFF; --ink:#18202E; --muted:#596373; --rule:#DCE0E7;
-  --accent:#94560A; --accent-soft:#F4E8D6; --band:#1C2840; --band-ink:#EEF0F4; --band-muted:#AEB8CA; --band-accent:#E7B062; --mark:#FBE3A6;
+  --accent:#94560A; --accent-soft:#F4E8D6; --band:#1C2840; --band-ink:#EEF0F4; --band-muted:#AEB8CA; --band-accent:#E7B062; --mark:#FBE3A6; --bar:#94560A;
   --f-display:"Literata", Georgia, "Times New Roman", serif;
   --f-body:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --gut-l:max(16px, env(safe-area-inset-left, 0px)); --gut-r:max(16px, env(safe-area-inset-right, 0px));
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0F131A; --surface:#161B24; --ink:#E5E8ED; --muted:#9BA4B3; --rule:#283040;
-  --accent:#E3A957; --accent-soft:#2D2415; --band:#0A0E15; --band-ink:#EEF0F4; --band-muted:#97A2B6; --mark:#5A4415; color-scheme:dark}}
+  --accent:#E3A957; --accent-soft:#2D2415; --band:#0A0E15; --band-ink:#EEF0F4; --band-muted:#97A2B6; --mark:#5A4415; --bar:#BF8230; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0F131A; --surface:#161B24; --ink:#E5E8ED; --muted:#9BA4B3; --rule:#283040;
-  --accent:#E3A957; --accent-soft:#2D2415; --band:#0A0E15; --band-ink:#EEF0F4; --band-muted:#97A2B6; --mark:#5A4415; color-scheme:dark}
+  --accent:#E3A957; --accent-soft:#2D2415; --band:#0A0E15; --band-ink:#EEF0F4; --band-muted:#97A2B6; --mark:#5A4415; --bar:#BF8230; color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
@@ -86,6 +86,21 @@ td:first-child{font-weight:600; white-space:nowrap}
 @media (max-width:640px){td:first-child{white-space:normal}}
 mark{background:var(--mark); color:inherit; border-radius:2px}
 .note{margin:0 0 8px; padding:14px 18px; background:var(--accent-soft); border-radius:8px; font-size:.92rem; color:var(--ink)}
+.fig{margin:24px 0 28px; padding:18px 18px 14px; background:var(--surface); border:1px solid var(--rule); border-radius:10px}
+.fig-sc{overflow-x:auto}
+.fig svg{display:block; width:100%; height:auto; font-family:var(--f-body)}
+.fig figcaption{margin-top:10px; font-size:.86rem; line-height:1.55; color:var(--muted); max-width:70ch}
+.fig .tx{fill:var(--ink)} .fig .tm{fill:var(--muted)} .fig .ta{fill:var(--accent)}
+.fig .bx{fill:var(--bg); stroke:var(--rule); stroke-width:1.2}
+.fig .bxa{fill:var(--accent-soft); stroke:var(--accent); stroke-width:1.2}
+.fig .ln{stroke:var(--muted); stroke-width:1.5; fill:none} .fig .lna{stroke:var(--accent); stroke-width:1.8; fill:none}
+.fig .mk{fill:var(--muted)} .fig .mka{fill:var(--accent)}
+.fig .dot{fill:var(--accent)} .fig .dotb{fill:var(--surface); stroke:var(--accent); stroke-width:2}
+.fig .wall{stroke:var(--ink); stroke-width:4}
+.fig .ditch{fill:var(--bg); stroke:var(--muted); stroke-width:1.5}
+.fig .cross{stroke:var(--accent); stroke-width:2.5}
+.fig .grid{stroke:var(--rule); stroke-width:1}
+.fig .bar{fill:var(--bar)} .fig .hit{fill:transparent} .fig .hv:hover .bar{fill:var(--accent)} .fig .hv:hover .hit{fill:var(--accent-soft); opacity:.5}
 .foot{color:var(--muted); font-size:.85rem; margin-top:48px; border-top:1px solid var(--rule); padding-top:16px}
 .top{position:fixed; right:calc(16px + env(safe-area-inset-right, 0px)); bottom:calc(16px + env(safe-area-inset-bottom, 0px)); font:inherit; font-size:.85rem;
   padding:8px 14px; border-radius:999px; border:1px solid var(--rule); background:var(--surface); color:var(--ink); cursor:pointer}

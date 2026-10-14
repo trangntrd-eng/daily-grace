@@ -1,5 +1,7 @@
 import re, sys, unicodedata, html
-import markdown
+import markdown, os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from figures import F
 
 src, out = sys.argv[1], sys.argv[2]
 md = open(src, encoding='utf-8').read()
@@ -19,6 +21,9 @@ intro = re.search(r'^> (.+)$', md, re.M).group(1)
 
 h = markdown.markdown(body_md, extensions=['tables', 'sane_lists'])
 h = h.replace('<hr />', '')
+# hình minh hoạ: khối <!-- fig:x --> ... <!-- /fig --> được thay hẳn bằng hình; <!-- fig:x --> đứng một mình thì chèn hình vào
+h = re.sub(r'<!-- fig:(\w+) -->(?:(?!<!-- fig:).)*?<!-- /fig -->', lambda m: F[m.group(1)], h, flags=re.S)
+h = re.sub(r'<!-- fig:(\w+) -->', lambda m: F[m.group(1)], h)
 
 # ids for h2/h3
 nav = []

@@ -34,6 +34,8 @@
 | 1979/1981 | Rời Millmead (các nguồn ghi khác nhau: 1979 hoặc 1981) để làm giáo sư Kinh Thánh lưu động, chủ yếu dạy hội thảo cho người lãnh đạo hội thánh ở châu Á, châu Úc, châu Phi, châu Âu và Mỹ. |
 | Di sản | Hơn 90 đầu sách, hơn 300 video giảng dạy, hơn 1.600 bài giảng ghi âm; tài liệu lan đến hơn 120 quốc gia. |
 
+<!-- fig:doi -->
+
 Một số sách tiêu biểu khác: *The Normal Christian Birth* (1989), *The Road to Hell* (1992), *When Jesus Returns* (1995), *Once Saved, Always Saved?* (1996), *Jesus Baptises in One Holy Spirit* (1997), *Word and Spirit Together* (trước đây tên *The Fourth Wave*), *Defending Christian Zionism* (2008).
 
 ---
@@ -43,6 +45,8 @@ Một số sách tiêu biểu khác: *The Normal Christian Birth* (1989), *The R
 **Ý tưởng cốt lõi:** thay vì học Kinh Thánh theo từng câu hay từng đoạn (dễ bị tách khỏi ngữ cảnh), Pawson dạy **từng sách một, trọn vẹn**, bằng cách trả lời hai câu hỏi: sách này được viết **vì sao** và **cho ai**. Với mỗi sách ông trình bày bối cảnh, mục đích, ý nghĩa và sự liên hệ với ngày nay. Đây là một cái nhìn tổng quan, không phải chú giải từng câu.
 
 **Nguồn gốc:** nền móng được xây trong thập niên 1960–1970, khi Pawson dạy hội thánh ở Guildford gần một nửa Cựu Ước và toàn bộ Tân Ước theo lối đi từng dòng. Về sau ông chắt lọc thành các bài tổng quan từng sách, giảng nhiều nơi và thu thành video.
+
+<!-- fig:dinhdang -->
 
 **Các định dạng:**
 
@@ -69,6 +73,8 @@ Số chương và số câu được thêm vào rất lâu sau khi Kinh Thánh �
 
 Kinh Thánh là sách của lịch sử và địa lý chứ không chỉ là tư tưởng. Đức Chúa Trời phán vào những hoàn cảnh cụ thể, nên thời gian và nơi chốn cho câu văn ý nghĩa của nó. Cựu Ước là một "thư viện" 39 sách viết trong khoảng 1.000 năm, phủ khoảng 2.000 năm lịch sử, xoay quanh cuộc giằng co giữa các cường quốc ở Trung Đông cổ đại.
 
+<!-- fig:ngucanh -->
+
 ### 3.3. Viết vì lý do con người, "biên tập" vì lý do thiêng liêng
 
 Kinh Thánh có khoảng 40 tác giả con người và một "Biên tập viên" thiêng liêng. Các tác giả vẫn giữ cá tính riêng. Vì vậy Pawson thường xem xét mặt con người trước (ai viết, viết cho ai, hoàn cảnh gì), rồi mới đến mặt thiêng liêng (vì sao sách được đặt trong Kinh Thánh).
@@ -77,11 +83,17 @@ Kinh Thánh có khoảng 40 tác giả con người và một "Biên tập viên
 
 Một chủ đề Pawson nhắc đi nhắc lại: người Hy Lạp tách thuộc linh khỏi thể xác, thiêng liêng khỏi thế tục, đời đời khỏi tạm thời; phương Tây và hội thánh đã thừa hưởng lối nghĩ đó. Tư duy Hê-bơ-rơ thì xem một Đức Chúa Trời tạo nên cả thể xác lẫn tâm linh, và thể xác là tốt. Điều này giải thích vì sao Nhã Ca nằm trong Kinh Thánh, vì sao Phao-lô phải dạy người Cô-rinh-tô rằng thân thể là đền thờ Thánh Linh, và vì sao Giăng phải nhấn mạnh Chúa Giê-xu vừa là Đức Chúa Trời vừa là người thật. Ông nói: "Trước mặt Đức Chúa Trời, không có gì là thế tục ngoại trừ tội lỗi."
 
+<!-- fig:hylap -->
+
 ### 3.5. Văn xuôi và thơ
 
 Khi Đức Chúa Trời nói bằng văn xuôi, Ngài truyền đạt **ý nghĩ** từ tâm trí Ngài đến tâm trí ta; khi Ngài nói bằng thơ, Ngài truyền đạt **cảm xúc** từ lòng Ngài đến lòng ta. Thơ Hê-bơ-rơ không dùng vần mà dùng nhịp và nhất là sự lặp lại theo cặp câu (câu thứ hai lặp lại, đẩy ý xa hơn, hoặc nói ý ngược lại). Vì thế nên dùng bản Kinh Thánh trình bày rõ phần thơ, và nên đọc to. Ví dụ ngược lại: sách Ma-la-chi toàn văn xuôi, điều Pawson hiểu là dấu hiệu Đức Chúa Trời đã "cạn cảm xúc" với dân Ngài, dù giao ước không bị hủy.
 
+<!-- fig:tho -->
+
 ### 3.6. Sáu cấp độ đọc một câu chuyện Kinh Thánh (bài giảng 2 Sa-mu-ên)
+
+<!-- fig:capdo -->
 
 1. Giai thoại: chỉ là một câu chuyện hay.
 2. Tĩnh nguyện: tìm một lời riêng cho mình.
@@ -90,9 +102,13 @@ Khi Đức Chúa Trời nói bằng văn xuôi, Ngài truyền đạt **ý nghĩ
 5. Phê bình: lối phê bình kinh văn cao cấp mà ông cho là đã "lây nhiễm" cả thế giới.
 6. Thần học: tìm hiểu về Đức Chúa Trời, nhân vật chính của mọi câu chuyện. Đây là cấp độ Pawson muốn người đọc đạt tới.
 
+<!-- /fig -->
+
 ### 3.7. Bốn cấp độ học lịch sử (bài giảng Các Quan Xét và Ru-tơ)
 
 1. Những nhân vật quan trọng. 2. Các quốc gia, chính trị. 3. Các khuôn mẫu, chu kỳ thịnh suy. 4. Mục đích, cốt truyện. Lịch sử là "HIS-story", câu chuyện của Ngài, và Ngài đang dẫn nó đến kết cục đã định. Các Quan Xét cho thấy một đời sống xa Chúa thành "vòng luẩn quẩn"; Ru-tơ cho thấy sự cứu chuộc đưa ta ra khỏi vòng quay và đặt lên một "đường thẳng" có đích đến.
+
+<!-- fig:vongtron -->
 
 ### 3.8. Cách sắp xếp Cựu Ước của người Do Thái
 
@@ -116,6 +132,8 @@ Pawson khuyên chia sách thành từng phần để thấy cấu trúc, vì c�
 | 6 | The Hinge of History | Bản lề của lịch sử | Ma-thi-ơ, Mác, Lu-ca, Giăng, Công Vụ |
 | 7 | The Thirteenth Apostle | Sứ đồ thứ mười ba | Phao-lô và các thư tín của ông |
 | 8 | Through Suffering to Glory | Qua khổ nạn đến vinh hiển | Hê-bơ-rơ, Gia-cơ, Phi-e-rơ, Giăng, Giu-đe, Khải Huyền |
+
+<!-- fig:bieudo -->
 
 Ghi chú: mô tả của nhà xuất bản chỉ nêu tiêu biểu "Ê-sai, Giê-rê-mi và các tiên tri khác" cho tập 4 và "Sử Ký và các tiên tri thời lưu đày" cho tập 5. Thứ tự podcast (dưới đây) nhóm Sử Ký, E-xơ-ra, Nê-hê-mi, Ê-xơ-tê ngay sau Các Vua, rồi đến sách thơ, rồi các tiên tri. Nếu cần chính xác sách nào thuộc tập nào, hãy đối chiếu mục lục bản in.
 
@@ -149,6 +167,8 @@ Cựu Ước là thư viện 39 sách. Năm sách Luật pháp là quan trọng 
 
 **Phục Truyền Luật Lệ Ký (2 bài).** Ba bài diễn văn của Môi-se trong tuần cuối đời, như người cha sắp mất nói với con. Hai cụm từ then chốt: "xứ mà Giê-hô-va Đức Chúa Trời ngươi ban cho" (quà không xứng đáng) và "hãy vào và nhận lấy xứ" (phải hành động mới nhận được). **Quyền sở hữu là vô điều kiện, quyền cư ngụ là có điều kiện.** Đây là sách nền tảng nhất của cả Cựu Ước: mọi tiên tri đều quy chiếu về nó. "Yêu là vâng lời, vì trước mặt Đức Chúa Trời, tình yêu là lòng trung thành."
 
+<!-- fig:phuctruyen -->
+
 ### Tập 2: Một miền đất và một vương quốc
 
 **Giô-suê (2 bài).** Không có luật mới; đây là sự ứng nghiệm của lời hứa. Sách bao quát đời Giô-suê từ 80 đến 120 tuổi: chiếm xứ, rồi chia xứ. Lòng can đảm của người lãnh đạo và tinh thần của dân là yếu tố thắng trận ("tinh thần và đạo đức là điều Chúa đòi hỏi ở người lãnh đạo"). Giê-ri-cô (thắng lớn) và A-hi (thua lớn) vì tự tin thái quá và tội của một người. Giô-suê không chỉ định người kế vị mà giao cho trưởng lão từng chi phái. "Mỗi thế hệ phải tự mình khám phá lại Đức Chúa Trời."
@@ -167,6 +187,8 @@ Cựu Ước là thư viện 39 sách. Năm sách Luật pháp là quan trọng 
 
 **Thi Thiên (2 bài).** Sách thánh ca của người Do Thái, chia năm quyển, viết trong khoảng nghìn năm; sách Cựu Ước được trích nhiều nhất trong Tân Ước. Ba thái độ chính: **Xin, Cảm ơn, Xin lỗi** (than thở, tạ ơn, ăn năn), mỗi loại có khuôn mẫu riêng. Các nhóm thi thiên nên đọc cùng nhau: 22–24 (Đấng Cứu Rỗi, Đấng Chăn Giữ, Đấng Tể Trị: "chưa đến thập tự giá nhận Ngài là Cứu Chúa thì chưa có quyền xem Ngài là Đấng Chăn Giữ"), 96–99 (Chúa là Vua), 113–118 (hát trong Lễ Vượt Qua; "hô-sa-na" là lời đòi giải phóng, "xin cứu"), 120–134 (bài ca lên đền), 146–150 (Ha-lê-lu-gia). Bốn thể loại: thi thiên hoàng gia, thi thiên về Đấng Mê-si, thi thiên khôn ngoan, thi thiên rủa sả (họ thành thật và để sự báo thù cho Chúa).
 
+<!-- fig:thithien -->
+
 **Châm Ngôn (2 bài).** Thoạt nhìn là mớ tục ngữ, nhưng là "chìa khóa của đời sống tốt đẹp" hiểu theo nghĩa đạo đức chứ không phải vật chất. Sa-lô-môn sưu tầm (có câu gốc Ả Rập, Ai Cập, đặt vào khung có Đức Chúa Trời) và tự viết. Cách đọc: nhận ra chính mình trong đó. Châm Ngôn nói về điều ta được cứu **để làm**, không phải điều ta được cứu **bởi**. Chủ đề: lười biếng, bạn bè, láng giềng, vay nợ, cái lưỡi, gia đình, hơn 70 câu về kẻ ngu dại. Lưu ý quan trọng: **một câu châm ngôn không phải là một lời hứa.** "Đấng Christ đã trở nên sự khôn ngoan từ Đức Chúa Trời cho chúng ta."
 
 **Truyền Đạo (1 bài).** Tác giả ở cuối đời, thất vọng, vỡ mộng, trầm uất; ta không phải đồng ý với mọi điều ông nói, và không có nghĩa Đức Chúa Trời có cùng thái độ. Hai giới hạn của Sa-lô-môn: chỉ nhìn "dưới mặt trời" (thiếu góc nhìn từ trên cao) và chỉ nhìn đời này. Phải tìm được ý nghĩa cuộc đời trước, rồi mới thật sự tận hưởng được những điều khác. Kết luận: kính sợ Chúa và vâng giữ điều răn Ngài; đời sống có thể đáng sống.
@@ -177,7 +199,11 @@ Cựu Ước là thư viện 39 sách. Năm sách Luật pháp là quan trọng 
 
 Bối cảnh chung (bài Áp-đia và Giô-ên): "tiểu tiên tri" là nói về độ dài sách, không phải tầm vóc thông điệp. Các tiên tri viết sách đều liên quan đến cuộc lưu đày: cảnh báo trước, an ủi khi đang ở đó, hoặc khích lệ khi trở về. Tiên tri nói thay Đức Chúa Trời nên trước hết phải nghe từ Ngài: cần sự nhạy bén để nghe và can đảm để nói. Chúa thường sai tiên tri khi có điều sai trái, và việc Ngài cảnh báo trước khi phạt là một phần sự tốt lành của Ngài. Khoảng 27% câu Kinh Thánh có lời tiên báo về tương lai.
 
+<!-- fig:tientri -->
+
 **Ê-sai (2 bài).** "Kinh Thánh thu nhỏ": phần 1 (39 chương) mang tính quốc gia, Chúa hiện ra như lửa, nhấn mạnh phán xét; phần 2 mang tính quốc tế, Chúa như Cha, nhấn mạnh an ủi. Ê-sai là tiên tri vĩ đại nhất về lời, như Môi-se và Ê-li vĩ đại về việc làm; Chúa Giê-xu và Phao-lô trích Ê-sai nhiều hơn mọi sách khác. Danh xưng đặc trưng: "Đấng Thánh của Israel". Dàn ý: 1–10 quở trách Giu-đa; 13–23 các nước bị phán xét; 24–34 phán xét Israel và Giu-đa (xen những đoạn tin mừng); 36–39 tường thuật thời Ê-xê-chia. Phần sau vẽ một nhân vật bí ẩn vô tội, Người đau khổ, chết thay tội người khác, sống lại và được tôn cao, mà Cơ Đốc nhân nhận ra là Chúa Giê-xu.
+
+<!-- fig:esai -->
 
 **Giê-rê-mi (2 bài).** Có nắng giữa mây. Giê-rê-mi bày tỏ lòng mình và cuộc vật lộn riêng, yêu thiên nhiên, truyền đạt bằng cả hành động biểu tượng; người Do Thái gọi ông là "tiên tri khóc lóc". Pawson giải thích ý nghĩa thật của hình ảnh thợ gốm và đất sét. Sứ điệp độc đáo: nghi lễ tôn giáo còn tệ hơn vô ích nếu lòng không ở đó ("đi nhà thờ không thay được đời sống tin kính"); Chúa bắt đầu đối xử với từng cá nhân chứ không chỉ cả dân tộc; lời hứa về Giao Ước Mới; sự bình an không đến từ liên minh với các nước mà từ tin cậy Chúa. Sứ điệp chính trị của ông bị coi là phản quốc.
 
@@ -225,6 +251,8 @@ Bối cảnh chung (bài Áp-đia và Giô-ên): "tiểu tiên tri" là nói v�
 
 **Nhập đề về các sách Phúc Âm.** Phúc Âm không hẳn là tiểu sử (hơn một phần ba nội dung là về cái chết của Chúa Giê-xu) mà như những "bản tin" mở rộng của nhân chứng, nên đọc to. Bốn sách cho bức chân dung bốn chiều vì viết cho bốn nhóm độc giả khác nhau: **Mác và Lu-ca viết cho người chưa tin; Ma-thi-ơ và Giăng viết cho Cơ Đốc nhân.**
 
+<!-- fig:phucam -->
+
 **Ma-thi-ơ (2 bài).** Trình bày Chúa Giê-xu là Vua dân Do Thái, ghi chủ yếu lời Ngài phán, nhiều lần chỉ ra sự ứng nghiệm Cựu Ước. Dùng khung của Mác và thêm nhiều, bắt đầu từ sự giáng sinh. Đây là **cẩm nang môn đồ hóa**, sách tốt nhất để hướng dẫn người mới tin: "Môn đồ hóa là dạy người ta cách sống trong Nước Thiên Đàng trên đất." Năm bài giảng xen giữa các việc làm minh họa: (1) Bài giảng trên núi, lối sống của Nước Trời; (2) Sứ mạng: minh chứng rồi mới công bố; (3) Điều nên trông đợi: không phải hạt nào gieo cũng kết quả; (4) Cộng đồng của Nước Trời, bao gồm kỷ luật hội thánh; (5) Tương lai của Nước Trời: bốn dấu hiệu rõ ràng của sự tái lâm. Ta đang sống trong giai đoạn chồng lấn giữa "đời ác hiện tại" và Nước Trời được thiết lập. Pawson tin sách này đưa người Do Thái và Cơ Đốc nhân lại gần nhau.
 
 **Mác (1 bài).** Phúc Âm viết đầu tiên, ghi lại lời giảng của Phi-e-rơ, sách của hành động (phép lạ nhiều hơn ngụ ngôn), không có giáng sinh hay thời thơ ấu. Mác chưa từng là lãnh đạo nhưng là phụ tá hoặc thông dịch cho ít nhất bốn người. Cấu trúc: chương 1–9 khoảng 2,5 năm chức vụ ở Ga-li-lê; chương 10 sáu tháng tập trung vào mười hai sứ đồ; chương 11–16 tuần lễ cuối. Pawson chỉ ra điều đã đổi hướng chức vụ của Chúa Giê-xu, và nhấn mạnh cả khía cạnh con người lẫn thần tính trong cái chết của Ngài.
@@ -234,6 +262,8 @@ Bối cảnh chung (bài Áp-đia và Giô-ên): "tiểu tiên tri" là nói v�
 **Giăng (2 bài).** Giăng, môn đồ gần Chúa nhất, nhìn vào "bên trong" Chúa Giê-xu: Ngài thật sự là ai. Ông bỏ qua nhiều điều đã có trong ba sách kia (giáng sinh, báp-têm, cám dỗ, đuổi quỷ, hóa hình, tiệc ly, Ghết-sê-ma-nê, thăng thiên) vì mục đích riêng, và thêm các phép lạ là "dấu lạ", việc rửa chân, những cuộc gặp gỡ cá nhân, bảy lời tuyên bố "Ta là". Giăng sửa những hiểu lầm nảy sinh sau khi Chúa về trời do tư duy Hy Lạp: nhấn mạnh trọn vẹn nhân tính (cả đời sống cầu nguyện) lẫn trọn vẹn thần tính, với bảy nhân chứng, bảy phép lạ, bảy lời độc nhất. Về Ngôi Lời (Logos): đã có từ ban đầu (đời đời), "đối diện" Đức Chúa Trời (có ngôi vị), là Đức Chúa Trời, và đã trở nên xác thịt, "dựng lều" giữa chúng ta. Sách này nói về Thánh Linh nhiều hơn các Phúc Âm khác.
 
 **Công Vụ (2 bài).** Phần con người: Lu-ca ghi lại Tin Lành đi từ Giê-ru-sa-lem đến Rô-ma, từ người Do Thái đến dân ngoại; ông đi cùng Phao-lô (có lẽ để chăm sóc sức khỏe ông). Theo Pawson, Thê-ô-phi-lơ có thể là thẩm phán hoặc luật sư sắp bào chữa cho Phao-lô, và chính Cơ Đốc giáo mới là bị cáo ở Rô-ma (đây là một giả thuyết thiểu số trong giới học thuật). Phần áp dụng: hội thánh đầu tiên không hoàn hảo nhưng có sự sống và quyền năng Thánh Linh; không nên lấy sự cải đạo của Phao-lô làm khuôn mẫu cho mọi người. Công Vụ là sách duy nhất cho thấy cách các sứ đồ hướng dẫn người tìm đạo: các Phúc Âm viết quá sớm (trước thập tự giá và phục sinh), các thư tín và Khải Huyền viết quá muộn (cho người đã tin). Sau Lễ Ngũ Tuần, không ai được tái sinh mà thiếu bốn điều: **ăn năn tội, tin Chúa Giê-xu, chịu báp-têm bằng nước, nhận lãnh Thánh Linh.**
+
+<!-- fig:congvu -->
 
 ### Tập 7: Sứ đồ thứ mười ba
 
@@ -245,7 +275,11 @@ Bối cảnh chung (bài Áp-đia và Giô-ên): "tiểu tiên tri" là nói v�
 
 **Ga-la-ti (2 bài).** "Đại Hiến chương của tự do Cơ Đốc", sách khởi phát cuộc Cải chánh của Luther. Những người theo Do Thái giáo dạy: bắt đầu bằng đức tin rồi tiếp tục bằng giữ luật. Phao-lô: "đã khởi sự theo Thánh Linh, nay lại cậy xác thịt mà làm cho trọn sao?" Đưa luật pháp vào ở bất kỳ giai đoạn nào là đặt người tin dưới sự rủa sả, vì điểm đạt duy nhất là 100%. Ba khái niệm Pawson hay dùng: **chủ nghĩa luật pháp** và **sự phóng túng** đều là kẻ thù của **tự do**; "tự do thật là được tự do để không phạm tội". Phao-lô nhấn mạnh việc "tiếp tục tin".
 
+<!-- fig:galati -->
+
 **Ê-phê-sô (1 bài).** Cách phòng chống tà giáo tốt nhất là sự dạy dỗ vững chắc. Thư chia hai nửa rõ ràng: quan hệ với Chúa trong Đấng Christ (sự cứu rỗi được "làm vào trong", giáo lý: ta được cứu bởi điều gì) và quan hệ với người khác trong Chúa (sự cứu rỗi được "làm ra ngoài", bổn phận: ta được cứu để làm gì). Phải giữ đúng thứ tự: không thể sống đời sống Cơ Đốc trước khi được cứu. "Một Tin Lành không biểu hiện ra đời sống là một Tin Lành không trọn vẹn." Pawson cũng giải thích giáo lý tiền định.
+
+<!-- fig:ephe -->
 
 **Phi-líp và Phi-lê-môn (2 bài).** Phi-líp, "thuộc địa của thiên đàng" trong một thành La Mã, hội thánh đầu tiên ở châu Âu. Thư cảm ơn viết khi Phao-lô bị quản thúc ở Rô-ma; từ yêu thích là **vui mừng**. "Thông công còn hơn một tách trà": điều xảy ra với một người là xảy ra với mọi người. Về đoạn "Đấng Christ tự bỏ mình đi" (Phi-líp 2): Ngài từ bỏ đặc quyền chứ không từ bỏ bản tính; đoạn này nói về đạo đức (thái độ và lựa chọn của Đấng Christ) hơn là lý thuyết thần học. Phi-lê-môn: thư riêng về một nô lệ bỏ trốn; khi tin Chúa, đừng chạy trốn quá khứ mà hãy sửa lại quá khứ; câu chuyện là hình ảnh hoàn hảo của sự cứu rỗi.
 
@@ -258,6 +292,8 @@ Bối cảnh chung (bài Áp-đia và Giô-ên): "tiểu tiên tri" là nói v�
 ### Tập 8: Qua khổ nạn đến vinh hiển
 
 **Hê-bơ-rơ (2 bài).** Thư rất "Do Thái", liên hệ đức tin Cơ Đốc với nghi lễ đền thờ. Từ khóa: **"tốt hơn"**: Chúa Giê-xu tốt hơn các tiên tri, thiên sứ, các lãnh tụ xưa, các thầy tế lễ; thực thể tốt hơn hình bóng. Không biết tác giả, nhưng Pawson nghĩ thư được gửi cho nửa Do Thái của hội thánh Rô-ma thời Nê-rô: bị bắt bớ vì Cơ Đốc giáo bất hợp pháp, một số muốn quay về nhà hội, nơi họ sẽ phải chối Chúa Giê-xu. Phần hai xem xét các đoạn cảnh báo khó: có thể có sự bảo đảm rằng mình đang trên đường cứu rỗi, nhưng không có bảo đảm rằng mình không thể quay đi vào tội cố ý và đánh mất sự cứu rỗi; Pawson cho rằng chân lý này chạy suốt Tân Ước, kể cả trên môi Chúa Giê-xu. Năm giá trị của sách: cho biết quan hệ Cựu Ước, Tân Ước; giữ mắt ta trên Chúa Giê-xu; xây dựng đức tin; cảnh báo sa ngã; nhấn mạnh tham gia tích cực vào hội thánh.
+
+<!-- fig:hebo -->
 
 **Gia-cơ (2 bài).** Cơ Đốc giáo thực hành; từ khóa là **"làm"** (Pawson nói đó cũng là từ khóa của cả Kinh Thánh). Không có cấu trúc chặt, như "những viên ngọc trai chưa được xâu". Tác giả là em cùng mẹ khác cha của Chúa Giê-xu. Viết cho người Do Thái tản lạc, nhiều người làm ăn: cảnh báo về tham lam, ganh tị, tham vọng, kiêu ngạo, khoe khoang, tự phụ, nóng nảy, cãi cọ, nói xấu, kiện tụng ("tiền vào thì Chúa ra"). Khôn ngoan từ trên có thể nhận ngay khi xin không hai lòng. "Chủ nghĩa luật pháp nói ta được cứu bởi việc lành; sự phóng túng nói ta được cứu mà không cần việc lành; tự do nói ta được cứu **để làm** việc lành."
 
@@ -273,6 +309,8 @@ Bối cảnh chung (bài Áp-đia và Giô-ên): "tiểu tiên tri" là nói v�
 - Lịch sử khải thị: Chúa cho thấy toàn cảnh gồm cả trên trời và tương lai. Những tai họa sẽ chỉ kéo dài ba năm rưỡi; Chúa nói trước điều tệ nhất để ta chuẩn bị nếu nó đến trong đời mình. "Bộ ba bất chính" Sa-tan, kẻ địch lại Đấng Christ, tiên tri giả; nhiều tín hữu tử đạo. Pawson trình bày các trường phái giải nghĩa Khải Huyền.
 - Hai thành: Ba-by-lôn (thành của loài người, khoái lạc, tội ác, thương mại, hình ảnh kỹ nữ "lấy tiền của bạn và cho bạn khoái lạc") và Giê-ru-sa-lem (thành của Đức Chúa Trời). Hệ thống tài chính thế giới sẽ sụp đổ. Ông bàn về quan niệm Cơ Đốc nhân được cất lên trước hoạn nạn và phản đối quan niệm này.
 - Kết cục: phải đọc các khải tượng theo thứ tự, không xáo chương. Chúa Giê-xu cưỡi ngựa chứ không cưỡi lừa, trận chiến tại Mê-ghi-đô; bốn sự kiện lớn: **Sự tái lâm, Thiên hy niên Đấng Christ cai trị trên đất (cùng các thánh), Ngày phán xét, Trời mới đất mới.** Loài người cuối cùng chỉ còn hai nhóm: sống dưới quyền Chúa và muốn sống theo ý mình. Pawson cảnh báo tư tưởng thiếu kính sợ Chúa cho rằng người không trung tín sẽ chỉ bị hủy diệt: "Đức Chúa Trời chúng ta là đám lửa thiêu đốt." Ta có thể sống trong trời mới đất mới nếu sẵn lòng được "tái chế" ngay bây giờ. Bài cuối nêu mười lý do nên đọc Khải Huyền.
+
+<!-- fig:khaihuyen -->
 
 ---
 
