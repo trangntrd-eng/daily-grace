@@ -73,10 +73,25 @@ main p, main li{max-width:70ch}
 main ul, main ol{padding-left:1.3em}
 main li{margin:4px 0}
 main blockquote{margin:0}
-p.book{scroll-margin-top:20px; padding:14px 0 14px 18px; border-left:2px solid var(--rule); margin:18px 0}
-p.book > strong:first-child{display:block; font-family:var(--f-display); font-weight:700; font-size:1.12rem; color:var(--accent); margin-bottom:2px}
-p.book:target{border-left-color:var(--accent); background:linear-gradient(90deg, var(--accent-soft), transparent 70%)}
-p.book + ul{margin-top:-10px; padding-left:calc(18px + 1.3em); border-left:2px solid var(--rule); margin-left:0; padding-bottom:6px}
+.book{scroll-margin-top:20px; background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:20px 22px 16px; margin:18px 0}
+.book:target{border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+.book h4{font-family:var(--f-display); font-weight:700; font-size:1.35rem; line-height:1.25; color:var(--ink); margin:0}
+.book .meta{margin:2px 0 10px; font-size:.82rem; letter-spacing:.04em; color:var(--muted)}
+.book ul.qs{list-style:none; padding:0; margin:0}
+.qrow{display:grid; grid-template-columns:132px minmax(0,1fr); gap:6px 16px; padding:10px 0; border-top:1px solid var(--rule); margin:0; max-width:none}
+.qlab{font-size:.72rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); padding-top:.3em}
+.q5 .qlab, .q7 .qlab{color:var(--accent)}
+.qbody{min-width:0; max-width:68ch}
+.qbody ul{margin:2px 0 0; padding-left:1.1em}
+.qbody li{margin:3px 0}
+.qbody li::marker{color:var(--accent)}
+.q7 .qbody{font-family:var(--f-display); font-style:italic; font-size:1.05rem; line-height:1.55}
+.book .fig{border:0; background:transparent; padding:0; margin:14px 0 4px}
+.book .fig figcaption{margin-top:6px}
+@media (max-width:640px){
+  .book{padding:16px 14px 12px}
+  .qrow{grid-template-columns:minmax(0,1fr); gap:2px}
+}
 .tbl{overflow-x:auto; margin:16px 0; border:1px solid var(--rule); border-radius:8px; background:var(--surface)}
 table{border-collapse:collapse; width:100%; font-size:.92rem; line-height:1.55}
 th,td{text-align:left; vertical-align:top; padding:10px 14px; border-bottom:1px solid var(--rule)}

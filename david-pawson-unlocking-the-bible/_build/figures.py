@@ -288,3 +288,79 @@ b.append(T(84, 50, 'hội thánh đi qua hoạn nạn, nhiều người tử đ�
 b.append(T(320, 178, 'Bốn sự kiện lớn của phần cuối sách, đọc theo đúng thứ tự khải tượng', 'tm', 'middle', 12))
 F['khaihuyen'] = fig('khaihuyen', 640, 190, 'Trình tự tương lai theo cách đọc Khải Huyền của Pawson: hoạn nạn, tái lâm, thiên hy niên, phán xét, trời mới đất mới', ''.join(b),
                      'Cách Pawson đọc Khải Huyền: tiền thiên hy niên, không có sự cất lên trước hoạn nạn. Đây là một trong nhiều trường phái giải nghĩa.')
+
+# 19. Sáng Thế Ký: hai phần -------------------------------------------------------
+b = [f'<rect x="20" y="62" width="130" height="40" rx="4" class="bx"/>' + T(85, 87, 'chương 1–11', 'tx', 'middle', 13),
+     T(85, 52, 'Cả thế giới', 'tx', 'middle', 13, 600)]
+for x1, x2, name, rng in [(152, 308, 'Áp-ra-ham', '12–25'), (310, 452, 'Y-sác, Gia-cốp', '25–36'), (454, 620, 'Giô-sép', '37–50')]:
+    b.append(f'<rect x="{x1}" y="62" width="{x2 - x1}" height="40" rx="4" class="bxa"/>' + T((x1 + x2) / 2, 87, rng, 'ta', 'middle', 13))
+    b.append(T((x1 + x2) / 2, 124, name, 'tx', 'middle', 13, 600))
+b.append(T(386, 52, 'Một gia đình qua bốn thế hệ', 'ta', 'middle', 13, 600))
+b.append(T(20, 124, 'Sáng tạo, sa ngã', 'tm', 'start', 12) + T(20, 141, 'Ca-in, Nô-ê, Nim-rốt', 'tm', 'start', 12))
+b.append(f'<line x1="30" y1="26" x2="30" y2="60" class="ln" stroke-dasharray="2 3"/>' + T(36, 22, '1:1–2:3 · được Chúa trực tiếp truyền cho Môi-se', 'tm', 'start', 12))
+F['sangthe'] = fig('sangthe', 640, 155, 'Sáng Thế Ký: chương 1 đến 11 nói về cả thế giới, chương 12 đến 50 nói về một gia đình qua bốn thế hệ', ''.join(b),
+                   'Độ dài mỗi khối theo số chương. "Đức Chúa Trời bắt đầu sáng tạo bằng một người và bắt đầu cứu chuộc bằng một người."')
+
+# 20. Xuất Ê-díp-tô: hai nửa ------------------------------------------------------
+b = [box(10, 15, 290, 70, ['Nửa đầu · điều Chúa LÀM', 'giải cứu khỏi Ai Cập: ân điển'], 'bx', first_bold=True),
+     arrow('xh', 302, 50, 338, 50),
+     box(340, 15, 290, 70, ['Nửa sau · điều Chúa PHÁN', 'luật pháp: sống biết ơn'], 'bxa', 'ta', first_bold=True),
+     T(320, 112, 'Được cứu chuộc trước, rồi mới được dạy sống đúng', 'tm', 'middle', 12)]
+F['xuathanh'] = fig('xuathanh', 640, 125, 'Xuất Ê-díp-tô Ký chia hai nửa: điều Chúa làm, rồi điều Chúa phán', ''.join(b),
+                    'Cùng thứ tự với Ê-phê-sô trong Tân Ước: ân điển đi trước, đời sống vâng phục theo sau.')
+
+# 21. Dân Số Ký: hành trình 40 năm ----------------------------------------------------
+import math as _m
+b = [box(10, 80, 130, 52, ['Núi Si-na-i', 'điều tra ~600.000'], 'bx', first_bold=True),
+     arrow('ds', 142, 106, 193, 106),
+     box(195, 80, 170, 52, ['Ca-đe', '10/12 thám tử: không thể'], 'bx', first_bold=True),
+     f'<path d="M367,106 C400,10 440,200 470,114" class="ln" stroke-dasharray="5 4" fill="none"/>',
+     head(476, 106, _m.atan2(-86, 34), 'ln'),
+     T(420, 50, '40 năm trong đồng vắng', 'tx', 'middle', 13, 600),
+     box(480, 80, 150, 52, ['Bờ sông Giô-đanh', 'điều tra ~600.000'], 'bxa', 'ta', first_bold=True),
+     T(320, 188, 'Thế hệ cũ qua đời; chỉ Giô-suê và Ca-lép còn lại', 'tm', 'middle', 12)]
+F['danso'] = fig('danso', 640, 200, 'Dân Số Ký: từ núi Si-na-i đến Ca-đe, rồi 40 năm lang thang trước khi đến bờ Giô-đanh', ''.join(b),
+                 'Hai cuộc điều tra dân số cho cùng một con số: dấu hiệu Chúa không ban phước. Theo Pawson, hai phần ba sách "lẽ ra không bao giờ xảy ra".')
+
+# 22. Các Vua: vương quốc chia đôi -------------------------------------------------
+b = [box(5, 92, 170, 56, ['Vương quốc thống nhất', 'Sa-lô-môn xây đền thờ'], 'bx', first_bold=True),
+     curve(175, 120, 228, 50), curve(175, 120, 228, 180),
+     box(230, 20, 215, 60, ['Bắc: Israel, 10 chi phái', 'mọi vua đều xấu · Ê-li, Ê-li-sê'], 'bx', first_bold=True),
+     box(230, 150, 215, 60, ['Nam: Giu-đa, 2 chi phái', 'có vua tốt: Ê-xê-chia, Giô-si-a'], 'bxa', 'ta', first_bold=True),
+     arrow('cv2', 447, 50, 488, 50), arrow('cv2', 447, 180, 488, 180, cls='lna'),
+     box(490, 25, 145, 50, ['A-si-ri lưu đày', '722 TCN'], 'bx', first_bold=True),
+     box(490, 155, 145, 50, ['Ba-by-lôn lưu đày', '586 TCN'], 'bx', first_bold=True),
+     T(337, 228, 'phía nam tồn tại lâu hơn ~140 năm', 'tm', 'middle', 12)]
+F['cacvua'] = fig('cacvua', 640, 235, 'Các Vua: vương quốc chia đôi, phía bắc bị A-si-ri lưu đày, phía nam bị Ba-by-lôn lưu đày', ''.join(b),
+                  'Các vua được đánh giá theo việc tôn kính Đức Chúa Trời. Phía nam có những vua tốt trị vì lâu nên tồn tại lâu hơn.')
+
+# 23. Đa-ni-ên: hai nửa ------------------------------------------------------------
+b = [box(10, 15, 290, 70, ['Chương 1–6 · viết VỀ ông', 'phép lạ: trung tín giữa Ba-by-lôn'], 'bx', first_bold=True),
+     arrow('dn', 302, 50, 338, 50),
+     box(340, 15, 290, 70, ['Chương 7–12 · do ông viết', 'khải tượng về tương lai xa'], 'bxa', 'ta', first_bold=True),
+     T(320, 112, '75 năm đời Đa-ni-ên, nói về 2.400 năm lịch sử', 'tm', 'middle', 12)]
+F['danien'] = fig('danien', 640, 125, 'Đa-ni-ên chia hai nửa: chuyện về ông với các phép lạ, và các khải tượng do ông viết', ''.join(b),
+                  'Các khải tượng ở nửa sau là những khải tượng riêng, không nối tiếp nhau và có phần chồng lên nhau.')
+
+# 24. Ma-thi-ơ: năm bài giảng --------------------------------------------------------
+b = [f'<line x1="10" y1="80" x2="630" y2="80" class="ln"/>', T(10, 70, 'Giáng sinh', 'tm', 'start', 12),
+     T(630, 70, 'Thập tự,', 'tm', 'end', 12), T(630, 100, 'phục sinh', 'tm', 'end', 12)]
+for i, (a, c) in enumerate([('Trên núi', 'lối sống'), ('Sứ mạng', 'ra đi'), ('Ngụ ngôn', 'hạt giống'), ('Cộng đồng', 'kỷ luật'), ('Tương lai', 'tái lâm')]):
+    x = 90 + i * 94
+    b.append(f'<rect x="{x}" y="46" width="84" height="68" rx="6" class="bxa"/>' + T(x + 42, 66, str(i + 1), 'ta', 'middle', 12, 600)
+             + T(x + 42, 86, a, 'ta', 'middle', 13, 600) + T(x + 42, 104, c, 'tm', 'middle', 12))
+b.append(T(320, 138, 'xen giữa các bài giảng là việc làm của Chúa minh họa lời Ngài', 'tm', 'middle', 12))
+F['mathio'] = fig('mathio', 640, 150, 'Ma-thi-ơ có năm bài giảng xen giữa các việc làm, từ giáng sinh đến thập tự giá', ''.join(b),
+                  'Năm bài giảng của Ma-thi-ơ đều nói về cách làm công dân của Nước Trời.')
+
+# 25. Khải Huyền: thư cho bảy hội thánh ----------------------------------------------
+parts = ['Địa chỉ', 'Thuộc tính', 'Khen', 'Trách', 'Khuyên', 'Kêu gọi', 'Bảo đảm']
+b = []
+for i, s in enumerate(parts):
+    x = 10 + i * 90
+    hi = s in ('Khen', 'Trách')
+    b.append(T(x + 41, 20, str(i + 1), 'tm', 'middle', 11) + box(x, 28, 82, 44, [s], 'bxa' if hi else 'bx', 'ta' if hi else 'tx', size=13))
+b.append(f'<line x1="231" y1="74" x2="231" y2="90" class="ln" stroke-dasharray="2 3"/>' + T(225, 104, 'hai hội thánh lớn nhất', 'tm', 'end', 12) + T(225, 120, 'không được khen', 'tm', 'end', 12))
+b.append(f'<line x1="321" y1="74" x2="321" y2="90" class="ln" stroke-dasharray="2 3"/>' + T(327, 104, 'hội thánh bị bắt bớ', 'tm', 'start', 12) + T(327, 120, 'không bị trách', 'tm', 'start', 12))
+F['baylathu'] = fig('baylathu', 640, 132, 'Mỗi thư gửi bảy hội thánh trong Khải Huyền gồm bảy phần', ''.join(b),
+                    'Khung bảy phần của mỗi thư gửi bảy hội thánh (Khải Huyền 2–3), theo Pawson.')
