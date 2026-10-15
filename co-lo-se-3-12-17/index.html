@@ -1,0 +1,609 @@
+<title>Cô-lô-se 3:12–17</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,500;0,600;1,500&display=swap">
+<style>
+/* Layout: một buổi học đi theo ba chặng (Bối cảnh → Thập tự giá → Áp dụng); thanh chặng dính trên đầu, cột đọc ~68ch, phân đoạn Kinh Thánh là "tấm vải" trung tâm có thể chạm vào từng chữ */
+:root{
+  --bg:#F6F4F7; --surface:#FFFFFF; --ink:#231B2A; --muted:#62596B; --rule:#E2DCE6;
+  --berry:#8A2C58; --berry-soft:#F6E4EC; --sage:#3F6F5B; --sage-soft:#E2EFE8; --mark:#FBE7A1;
+  --f-verse:"Lora", Georgia, "Times New Roman", serif;
+  --f-body:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gut-l:max(16px, env(safe-area-inset-left, 0px)); --gut-r:max(16px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141017; --surface:#1D1821; --ink:#ECE6F0; --muted:#A79DB0; --rule:#2F2836;
+  --berry:#E790B8; --berry-soft:#3A2030; --sage:#8DC7AC; --sage-soft:#1E3129; --mark:#5B4716; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141017; --surface:#1D1821; --ink:#ECE6F0; --muted:#A79DB0; --rule:#2F2836;
+  --berry:#E790B8; --berry-soft:#3A2030; --sage:#8DC7AC; --sage-soft:#1E3129; --mark:#5B4716; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg); color:var(--ink); font:16px/1.7 var(--f-body)}
+a{color:var(--berry); text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--berry); outline-offset:2px; border-radius:4px}
+.wrap{max-width:860px; margin:0 auto; padding-left:var(--gut-l); padding-right:var(--gut-r)}
+
+header.top{padding-block:44px 8px}
+.eyebrow{font-size:.76rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:0 0 10px}
+h1{font-family:var(--f-verse); font-weight:600; font-size:clamp(2rem, 6vw, 3rem); line-height:1.12; margin:0 0 12px; text-wrap:balance}
+h1 em{font-style:italic; color:var(--berry)}
+.lede{color:var(--muted); max-width:62ch; margin:0}
+
+nav.steps{position:sticky; top:env(safe-area-inset-top, 0px); z-index:5; background:var(--bg); border-bottom:1px solid var(--rule); margin-top:22px}
+nav.steps .wrap{display:flex; gap:6px; overflow-x:auto; padding-block:10px}
+nav.steps a{flex:0 0 auto; text-decoration:none; color:var(--ink); font-size:.88rem; padding:6px 12px; border-radius:999px; border:1px solid var(--rule); background:var(--surface); white-space:nowrap}
+nav.steps a.on{background:var(--berry); border-color:var(--berry); color:var(--surface)}
+nav.steps a b{font-weight:600}
+
+section{padding-block:36px 8px; scroll-margin-top:60px}
+h2{font-family:var(--f-verse); font-weight:600; font-size:clamp(1.5rem, 4vw, 2rem); line-height:1.2; margin:0 0 6px; text-wrap:balance}
+.kicker{font-size:.76rem; letter-spacing:.14em; text-transform:uppercase; color:var(--berry); font-weight:600; margin:0 0 6px}
+h3{font-size:1.06rem; font-weight:600; margin:28px 0 8px}
+p, li{max-width:68ch}
+ul, ol{padding-left:1.25em}
+li{margin:4px 0}
+li::marker{color:var(--berry)}
+.muted{color:var(--muted)}
+.ref{font-size:.82em; color:var(--muted); white-space:nowrap}
+
+/* lịch buổi học */
+.agenda{list-style:none; padding:0; margin:18px 0 0; display:grid; gap:0; border:1px solid var(--rule); border-radius:12px; background:var(--surface); overflow:hidden}
+.agenda li{display:grid; grid-template-columns:64px minmax(0,1fr); gap:14px; padding:12px 16px; border-top:1px solid var(--rule); margin:0; max-width:none}
+.agenda li:first-child{border-top:0}
+.agenda .t{font-variant-numeric:tabular-nums; font-weight:600; color:var(--berry)}
+.agenda .what b{display:block}
+.agenda .what span{color:var(--muted); font-size:.92rem}
+
+/* phân đoạn Kinh Thánh */
+.verse{background:var(--surface); border:1px solid var(--rule); border-radius:14px; padding:24px 24px 18px; margin:18px 0 0}
+.verse p{font-family:var(--f-verse); font-size:1.18rem; line-height:1.9; margin:0; max-width:none}
+.verse sup{font-family:var(--f-body); font-size:.62em; color:var(--berry); font-weight:600; margin-right:2px}
+.verse button.k{font:inherit; color:inherit; background:none; border:0; padding:0 1px; cursor:pointer; border-bottom:2px dotted var(--berry); border-radius:0; line-height:inherit}
+.verse button.k:hover{background:var(--berry-soft)}
+.verse button.k[aria-pressed="true"]{background:var(--mark); border-bottom-style:solid}
+.verse .src{font-family:var(--f-body); font-size:.8rem; color:var(--muted); margin-top:12px}
+.note{margin:12px 0 0; padding:16px 18px; border-radius:12px; background:var(--berry-soft)}
+.note .nt{font-weight:600; margin:0 0 2px}
+.note .gk{font-family:var(--f-verse); font-style:italic; color:var(--berry); margin:0 0 6px}
+.note p{margin:0}
+.hint{font-size:.85rem; color:var(--muted); margin:8px 0 0}
+
+/* hình */
+figure{margin:20px 0; padding:16px 16px 12px; background:var(--surface); border:1px solid var(--rule); border-radius:12px}
+.fig-sc{overflow-x:auto}
+figure svg{display:block; width:100%; min-width:500px; height:auto; font-family:var(--f-body)}
+figcaption{margin-top:8px; font-size:.86rem; color:var(--muted); line-height:1.55}
+svg .tx{fill:var(--ink)} svg .tm{fill:var(--muted)} svg .tb{fill:var(--berry)} svg .ts{fill:var(--sage)}
+svg .bx{fill:var(--bg); stroke:var(--rule); stroke-width:1.2}
+svg .bb{fill:var(--berry-soft); stroke:var(--berry); stroke-width:1.3}
+svg .bs{fill:var(--sage-soft); stroke:var(--sage); stroke-width:1.3}
+svg .ln{stroke:var(--muted); stroke-width:1.5; fill:none} svg .lb{stroke:var(--berry); stroke-width:1.8; fill:none}
+svg .hm{fill:var(--muted)} svg .hb{fill:var(--berry)}
+svg .cross{fill:var(--berry)}
+svg .strike{stroke:var(--muted); stroke-width:1}
+
+/* câu hỏi thảo luận */
+.qs{counter-reset:q; list-style:none; padding:0; margin:12px 0 0; display:grid; gap:10px}
+.qs > li{counter-increment:q; position:relative; padding:12px 16px 12px 48px; background:var(--surface); border:1px solid var(--rule); border-radius:10px; margin:0; max-width:none}
+.qs > li::before{content:counter(q); position:absolute; left:14px; top:12px; width:24px; height:24px; border-radius:50%; background:var(--berry-soft); color:var(--berry); font-weight:600; font-size:.85rem; display:grid; place-items:center}
+details.lead{margin-top:6px}
+details.lead summary{cursor:pointer; font-size:.86rem; color:var(--sage); font-weight:600}
+details.lead div{font-size:.94rem; color:var(--muted); padding-top:4px}
+
+/* bảng */
+.tbl{overflow-x:auto; margin:14px 0; border:1px solid var(--rule); border-radius:10px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:.93rem; line-height:1.55}
+th, td{text-align:left; vertical-align:top; padding:10px 14px; border-bottom:1px solid var(--rule)}
+tr:last-child td{border-bottom:0}
+th{font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); background:var(--bg); font-weight:600}
+td:first-child{font-weight:600; color:var(--berry); white-space:nowrap}
+
+.callout{border-left:3px solid var(--sage); background:var(--sage-soft); padding:14px 18px; border-radius:0 10px 10px 0; margin:16px 0}
+.callout p{margin:0}
+.callout.warn{border-left-color:var(--berry); background:var(--berry-soft)}
+
+/* thẻ tình huống */
+.cards{display:grid; grid-template-columns:repeat(auto-fill, minmax(min(250px, 100%), 1fr)); gap:14px; margin-top:14px}
+.card{background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:8px; min-width:0}
+.card .tag{font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--berry); font-weight:600}
+.card p{margin:0}
+.card button{align-self:flex-start; font:inherit; font-size:.86rem; padding:6px 12px; border-radius:999px; border:1px solid var(--sage); color:var(--sage); background:transparent; cursor:pointer}
+.card .ans{font-size:.93rem; border-top:1px dashed var(--rule); padding-top:8px}
+.card .ans ul{margin:4px 0 0}
+
+/* tủ áo tuần này */
+.wardrobe{background:var(--surface); border:1px solid var(--rule); border-radius:14px; padding:20px; margin-top:14px}
+.garments{display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 16px; padding:0; border:0}
+.garments legend{font-weight:600; margin-bottom:8px; padding:0}
+.garments label{cursor:pointer}
+.garments input{position:absolute; opacity:0; pointer-events:none}
+.garments span{display:inline-block; padding:7px 14px; border-radius:999px; border:1px solid var(--rule); background:var(--bg); font-size:.92rem}
+.garments input:checked + span{background:var(--berry); color:var(--surface); border-color:var(--berry)}
+.garments input:focus-visible + span{outline:2px solid var(--berry); outline-offset:2px}
+.field{display:grid; gap:6px; margin-bottom:14px}
+.field label{font-weight:600; font-size:.94rem}
+.field textarea{font:inherit; min-height:72px; padding:10px 12px; border:1px solid var(--rule); border-radius:8px; background:var(--bg); color:var(--ink); resize:vertical; width:100%}
+.saved{font-size:.82rem; color:var(--muted)}
+
+/* thuộc lòng */
+.memo{background:var(--surface); border:1px solid var(--rule); border-radius:14px; padding:20px; margin-top:14px}
+.memo p.mv{font-family:var(--f-verse); font-size:1.12rem; line-height:1.95; margin:0 0 14px; max-width:none}
+.memo .w.hide{color:transparent; background:var(--rule); border-radius:3px}
+.memo .ctl{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.btn{font:inherit; font-size:.9rem; padding:7px 14px; border-radius:999px; border:1px solid var(--berry); background:var(--berry); color:var(--surface); cursor:pointer}
+.btn.ghost{background:transparent; color:var(--berry)}
+.lv{font-size:.85rem; color:var(--muted)}
+
+.prayer{font-family:var(--f-verse); font-style:italic; font-size:1.08rem; line-height:1.8; background:var(--surface); border:1px solid var(--rule); border-radius:14px; padding:20px 22px; margin-top:14px}
+.prayer p{margin:0 0 10px} .prayer p:last-child{margin:0}
+footer{color:var(--muted); font-size:.84rem; padding-block:40px 60px; border-top:1px solid var(--rule); margin-top:40px}
+@media (max-width:560px){
+  .verse{padding:18px 16px 14px} .verse p{font-size:1.08rem}
+  .agenda li{grid-template-columns:52px minmax(0,1fr); padding:10px 12px}
+  td:first-child{white-space:normal}
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Học Kinh Thánh nhóm · Cô-lô-se 3:12–17</p>
+    <h1>Mặc lấy tấm lòng <em>của Đấng Christ</em></h1>
+    <p class="lede">Tài liệu cho một buổi tối học nhóm khoảng 90 phút. Đi qua ba chặng: hiểu phân đoạn trong bối cảnh thư Cô-lô-se, nhìn nó qua thập tự giá, rồi sống ra trong đời sống của các chị em trẻ tin Chúa hôm nay.</p>
+  </div>
+</header>
+
+<nav class="steps" aria-label="Các chặng của buổi học">
+  <div class="wrap" id="stepnav">
+    <a href="#lich"><b>Lịch</b> tối nay</a>
+    <a href="#doc"><b>Đọc</b> phân đoạn</a>
+    <a href="#boi-canh"><b>1</b> Bối cảnh</a>
+    <a href="#thap-tu"><b>2</b> Thập tự giá</a>
+    <a href="#ap-dung"><b>3</b> Áp dụng</a>
+    <a href="#cau-nguyen"><b>Cầu nguyện</b></a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="lich">
+  <p class="kicker">Lịch buổi học</p>
+  <h2>Tối nay đi thế nào</h2>
+  <ol class="agenda">
+    <li><span class="t">10'</span><span class="what"><b>Mở lòng</b><span>Mỗi người kể: món đồ bạn mặc nhiều nhất gần đây là gì? Người khác nhận ra bạn qua cách bạn ăn mặc hay qua cách bạn đối xử với họ?</span></span></li>
+    <li><span class="t">10'</span><span class="what"><b>Đọc phân đoạn</b><span>Hai người đọc to hai lần. Mỗi người chạm vào một chữ trong phân đoạn khiến mình dừng lại, và nói vì sao.</span></span></li>
+    <li><span class="t">20'</span><span class="what"><b>Chặng 1 · Bối cảnh</b><span>Hội thánh Cô-lô-se đang gặp vấn đề gì, và đoạn này nằm ở đâu trong cả bức thư.</span></span></li>
+    <li><span class="t">20'</span><span class="what"><b>Chặng 2 · Thập tự giá</b><span>Mỗi mệnh lệnh trong đoạn bắt nguồn từ điều Chúa đã làm cho chúng ta.</span></span></li>
+    <li><span class="t">25'</span><span class="what"><b>Chặng 3 · Áp dụng</b><span>Chia cặp, mỗi cặp bốc một thẻ tình huống; rồi mỗi người chọn "chiếc áo" cho tuần này.</span></span></li>
+    <li><span class="t">5'</span><span class="what"><b>Hát và cầu nguyện</b><span>Mỗi người chọn một câu trong đoạn để cầu nguyện cho người ngồi bên cạnh.</span></span></li>
+  </ol>
+</section>
+
+<section id="doc">
+  <p class="kicker">Đọc phân đoạn</p>
+  <h2>Cô-lô-se 3:12–17</h2>
+  <p class="muted">Chạm vào những chữ có gạch chân để xem ghi chú về nguyên ngữ và mối liên hệ với phần còn lại của thư.</p>
+  <div class="verse">
+    <p><sup>12</sup>Anh em là những người <button class="k" data-k="chon">được tuyển chọn của Đức Chúa Trời, là người thánh và rất yêu dấu</button>. Vậy, hãy <button class="k" data-k="mac">mặc lấy</button> <button class="k" data-k="thuongxot">lòng thương xót</button>, <button class="k" data-k="nhantu">nhân từ</button>, <button class="k" data-k="khiem">khiêm nhường</button>, <button class="k" data-k="mem">mềm mại</button>, <button class="k" data-k="nhin">nhịn nhục</button>. <sup>13</sup>Nếu một người trong anh em có điều gì phàn nàn với người khác thì hãy <button class="k" data-k="nhuong">nhường nhịn nhau</button> và <button class="k" data-k="tha">tha thứ nhau</button>; <button class="k" data-k="nhuchua">như Chúa đã tha thứ anh em</button> thể nào thì anh em cũng phải tha thứ thể ấy. <sup>14</sup>Nhưng trên hết những điều nầy, phải mặc lấy <button class="k" data-k="yeu">tình yêu thương, vì là dây liên kết của sự toàn hảo</button>. <sup>15</sup>Hãy để sự bình an của Đấng Christ <button class="k" data-k="ngutri">ngự trị</button> lòng anh em, là bình an mà anh em đã được gọi đến trong <button class="k" data-k="motthan">một thân thể</button>, và hãy tỏ <button class="k" data-k="bieton">lòng biết ơn</button>. <sup>16</sup>Cũng hãy để <button class="k" data-k="loi">lời của Đấng Christ sống sung mãn</button> trong lòng anh em; hãy dùng tất cả sự khôn ngoan để dạy và khuyên bảo nhau, dùng <button class="k" data-k="hat">thi thiên, thánh ca, linh khúc</button> để hát cho Đức Chúa Trời với lòng biết ơn. <sup>17</sup>Bất cứ điều gì anh em nói hay làm, hãy thực hiện mọi sự <button class="k" data-k="danh">trong danh Chúa là Đức Chúa Jêsus</button>, nhờ Ngài mà tạ ơn Đức Chúa Trời, là Đức Chúa Cha.</p>
+    <p class="src">Bản Truyền Thống Hiệu Đính 2010 (VIE2010)</p>
+  </div>
+  <div class="note" id="note" aria-live="polite"></div>
+  <p class="hint">Gợi ý khi đọc: đếm xem cụm "biết ơn" xuất hiện mấy lần trong ba câu cuối.</p>
+</section>
+
+<section id="boi-canh">
+  <p class="kicker">Chặng 1</p>
+  <h2>Bối cảnh: một hội thánh trẻ bị kéo về "tôn giáo"</h2>
+
+  <h3>Ai viết, cho ai</h3>
+  <ul>
+    <li>Phao-lô viết khi đang bị xiềng <span class="ref">(4:3, 18)</span>, gửi hội thánh ở Cô-lô-se, một thành nhỏ trong thung lũng Ly-cút (Tiểu Á, nay là Thổ Nhĩ Kỳ), gần Lao-đi-xê và Hi-ê-ra-bô-li <span class="ref">(4:13)</span>.</li>
+    <li>Phao-lô chưa từng đến đây <span class="ref">(2:1)</span>. Hội thánh do Ê-pháp-ra, người địa phương, gây dựng <span class="ref">(1:7; 4:12)</span>.</li>
+    <li>Hội thánh rất đa dạng: người Hy Lạp và Do Thái, nô lệ và người tự do <span class="ref">(3:11)</span>. Một cộng đồng như thế dễ va chạm.</li>
+  </ul>
+
+  <h3>Vấn đề hội thánh đang gặp</h3>
+  <ul>
+    <li>Một kiểu dạy dỗ pha trộn: triết lý loài người <span class="ref">(2:8)</span>, luật ăn uống và ngày lễ <span class="ref">(2:16)</span>, thờ thiên sứ, khổ hạnh, "khiêm nhường" giả <span class="ref">(2:18, 23)</span>, những quy định "chớ cầm, chớ nếm, chớ đụng" <span class="ref">(2:21)</span>.</li>
+    <li>Phao-lô nói thẳng: những luật lệ đó có vẻ khôn ngoan nhưng không có giá trị gì để chế ngự xác thịt <span class="ref">(2:23)</span>.</li>
+    <li>David Pawson gọi Cô-lô-se là công cụ để nhận diện sự pha trộn tôn giáo: khi trộn thêm thứ khác vào, Đấng Christ mất địa vị trên hết. "Cơ Đốc giáo không phải là một tôn giáo, mà là một mối quan hệ với Đấng Christ."</li>
+  </ul>
+
+  <figure>
+    <div class="fig-sc">
+      <svg viewBox="0 0 640 250" role="img" aria-label="Bố cục thư Cô-lô-se: chương 1–2 về Đấng Christ là trên hết, chương 3–4 về đời sống; 3:12–17 là phần mặc vào sau khi cởi bỏ">
+        <rect x="10" y="10" width="620" height="62" rx="10" class="bx"/>
+        <text x="320" y="36" class="tx" font-size="14" font-weight="600" text-anchor="middle">Chương 1–2 · Đấng Christ là trên hết, và anh em đã đầy đủ trong Ngài</text>
+        <text x="320" y="56" class="tm" font-size="12" text-anchor="middle">nên đừng để ai lôi kéo bằng triết lý, luật lệ, khổ hạnh (2:8–23)</text>
+        <line x1="320" y1="72" x2="320" y2="88" class="ln"/><polygon points="320,96 315,87 325,87" class="hm"/>
+        <text x="10" y="114" class="tm" font-size="12" font-weight="600">Chương 3–4 · Sống trong Ngài</text>
+        <rect x="10" y="124" width="140" height="80" rx="8" class="bx"/>
+        <text x="80" y="148" class="tx" font-size="13" font-weight="600" text-anchor="middle">3:1–4</text>
+        <text x="80" y="168" class="tm" font-size="12" text-anchor="middle">Danh tính: đã chết</text>
+        <text x="80" y="184" class="tm" font-size="12" text-anchor="middle">và sống lại với Ngài</text>
+        <rect x="167" y="124" width="140" height="80" rx="8" class="bx"/>
+        <text x="237" y="148" class="tx" font-size="13" font-weight="600" text-anchor="middle">3:5–11 · Cởi bỏ</text>
+        <text x="237" y="168" class="tm" font-size="12" text-anchor="middle">hai danh sách</text>
+        <text x="237" y="184" class="tm" font-size="12" text-anchor="middle">năm điều (3:5, 3:8)</text>
+        <rect x="324" y="124" width="150" height="80" rx="8" class="bb"/>
+        <text x="399" y="148" class="tb" font-size="13" font-weight="600" text-anchor="middle">3:12–17 · Mặc vào</text>
+        <text x="399" y="168" class="tb" font-size="12" text-anchor="middle">năm đức tính,</text>
+        <text x="399" y="184" class="tb" font-size="12" text-anchor="middle">tình yêu, bình an, lời</text>
+        <rect x="491" y="124" width="139" height="80" rx="8" class="bx"/>
+        <text x="560" y="148" class="tx" font-size="13" font-weight="600" text-anchor="middle">3:18–4:6</text>
+        <text x="560" y="168" class="tm" font-size="12" text-anchor="middle">gia đình, công việc,</text>
+        <text x="560" y="184" class="tm" font-size="12" text-anchor="middle">cầu nguyện, lời nói</text>
+        <line x1="150" y1="164" x2="160" y2="164" class="ln"/><polygon points="166,164 158,160 158,168" class="hm"/>
+        <line x1="307" y1="164" x2="317" y2="164" class="ln"/><polygon points="323,164 315,160 315,168" class="hm"/>
+        <line x1="474" y1="164" x2="484" y2="164" class="ln"/><polygon points="490,164 482,160 482,168" class="hm"/>
+        <text x="320" y="236" class="tm" font-size="12" text-anchor="middle">Danh tính đi trước, rồi mới đến cởi bỏ và mặc vào; sau đó áp dụng vào gia đình và công việc</text>
+      </svg>
+    </div>
+    <figcaption>Đoạn tối nay nằm ở chỗ thư chuyển từ "Đấng Christ là ai" sang "sống trong Ngài thế nào". Câu trả lời của Phao-lô cho luật lệ của tà giáo là một danh tính mới và một bộ áo mới.</figcaption>
+  </figure>
+
+  <figure>
+    <div class="fig-sc">
+      <svg viewBox="0 0 640 300" role="img" aria-label="Tủ áo: cởi bỏ mười điều ở 3:5 và 3:8, mặc vào năm đức tính ở 3:12 và tình yêu buộc chúng lại ở 3:14">
+        <text x="150" y="22" class="tm" font-size="13" font-weight="600" text-anchor="middle">Cởi bỏ người cũ (3:9)</text>
+        <text x="490" y="22" class="tb" font-size="13" font-weight="600" text-anchor="middle">Mặc người mới (3:10, 12)</text>
+        <rect x="10" y="34" width="135" height="200" rx="8" class="bx"/>
+        <text x="77" y="56" class="tm" font-size="12" font-weight="600" text-anchor="middle">3:5</text>
+        <text x="77" y="82" class="tm" font-size="13" text-anchor="middle">tà dâm</text>
+        <text x="77" y="108" class="tm" font-size="13" text-anchor="middle">ô uế</text>
+        <text x="77" y="134" class="tm" font-size="13" text-anchor="middle">tình dục</text>
+        <text x="77" y="160" class="tm" font-size="13" text-anchor="middle">ham muốn xấu</text>
+        <text x="77" y="186" class="tm" font-size="13" text-anchor="middle">tham lam</text>
+        <text x="77" y="214" class="tm" font-size="11" text-anchor="middle">(thờ thần tượng)</text>
+        <rect x="155" y="34" width="135" height="200" rx="8" class="bx"/>
+        <text x="222" y="56" class="tm" font-size="12" font-weight="600" text-anchor="middle">3:8</text>
+        <text x="222" y="82" class="tm" font-size="13" text-anchor="middle">thịnh nộ</text>
+        <text x="222" y="108" class="tm" font-size="13" text-anchor="middle">giận dữ</text>
+        <text x="222" y="134" class="tm" font-size="13" text-anchor="middle">hiểm độc</text>
+        <text x="222" y="160" class="tm" font-size="13" text-anchor="middle">nói xấu</text>
+        <text x="222" y="186" class="tm" font-size="13" text-anchor="middle">lời tục tĩu</text>
+        <text x="222" y="214" class="tm" font-size="11" text-anchor="middle">(và nói dối, 3:9)</text>
+        <line x1="296" y1="134" x2="336" y2="134" class="lb"/><polygon points="344,134 335,129 335,139" class="hb"/>
+        <rect x="350" y="34" width="280" height="200" rx="10" class="bb"/>
+        <text x="490" y="56" class="tb" font-size="12" font-weight="600" text-anchor="middle">3:12 · năm đức tính, đều hướng về người khác</text>
+        <rect x="366" y="68" width="120" height="30" rx="15" class="bx"/><text x="426" y="88" class="tx" font-size="13" text-anchor="middle">thương xót</text>
+        <rect x="494" y="68" width="120" height="30" rx="15" class="bx"/><text x="554" y="88" class="tx" font-size="13" text-anchor="middle">nhân từ</text>
+        <rect x="366" y="106" width="120" height="30" rx="15" class="bx"/><text x="426" y="126" class="tx" font-size="13" text-anchor="middle">khiêm nhường</text>
+        <rect x="494" y="106" width="120" height="30" rx="15" class="bx"/><text x="554" y="126" class="tx" font-size="13" text-anchor="middle">mềm mại</text>
+        <rect x="430" y="144" width="120" height="30" rx="15" class="bx"/><text x="490" y="164" class="tx" font-size="13" text-anchor="middle">nhịn nhục</text>
+        <rect x="366" y="186" width="248" height="34" rx="6" class="bs"/>
+        <text x="490" y="208" class="ts" font-size="13" font-weight="600" text-anchor="middle">tình yêu · dây buộc tất cả lại (3:14)</text>
+        <text x="320" y="262" class="tm" font-size="12" text-anchor="middle">Ba danh sách năm: năm điều xấu, năm điều xấu, rồi năm điều của Đấng Christ</text>
+        <text x="320" y="282" class="tm" font-size="12" text-anchor="middle">Không có đức tính nào sống được một mình: tất cả đều cần có một người khác</text>
+      </svg>
+    </div>
+    <figcaption>Phao-lô dùng hình ảnh thay áo. Các tà giáo sư thêm luật lệ bên ngoài; Phao-lô đổi cả bộ áo bên trong. Từ ngữ trong danh sách cởi bỏ được tóm lược, có thể khác bản dịch của nhóm.</figcaption>
+  </figure>
+
+  <h3>Quan sát cùng nhau</h3>
+  <ol class="qs">
+    <li>Phao-lô gọi họ là gì trước khi bảo họ phải làm gì (c.12)? Vì sao thứ tự này quan trọng?
+      <details class="lead"><summary>Gợi ý cho người hướng dẫn</summary><div>"Được chọn, thánh, yêu dấu" là những danh xưng Cựu Ước dành cho Israel (Phục 7:6–8), nay dành cho những người phần lớn là dân ngoại. Danh tính đến trước, mệnh lệnh theo sau. Ta không mặc áo để được yêu; ta mặc vì đã được yêu.</div></details>
+    </li>
+    <li>Năm đức tính ở câu 12 hướng về chính mình hay hướng về người khác?
+      <details class="lead"><summary>Gợi ý cho người hướng dẫn</summary><div>Tất cả đều cần một người khác mới thể hiện được. Đây là bộ áo để sống trong cộng đồng, không phải để tu luyện một mình như kiểu khổ hạnh ở 2:23.</div></details>
+    </li>
+    <li>Câu 13 bắt đầu bằng "nếu một người... có điều gì phàn nàn". Phao-lô có nghĩ hội thánh sẽ không bao giờ có va chạm không?
+      <details class="lead"><summary>Gợi ý cho người hướng dẫn</summary><div>Không. Ông giả định sẽ có va chạm thật, với lý do thật. Lời Chúa không bảo giả vờ là không có chuyện, mà chỉ cách xử lý.</div></details>
+    </li>
+    <li>Chữ "khiêm nhường" ở 3:12 cũng xuất hiện ở 2:18 và 2:23. Khác nhau thế nào?
+      <details class="lead"><summary>Gợi ý cho người hướng dẫn</summary><div>Cùng một chữ Hy Lạp (tapeinophrosynē). Ở chương 2 là khiêm nhường giả, tự hành xác để tỏ ra đạo đức. Ở chương 3 là khiêm nhường thật, hạ mình vì người khác như Chúa Giê-xu.</div></details>
+    </li>
+    <li>Ba câu cuối (15–17) lặp lại điều gì? Vì sao lòng biết ơn lại liên quan đến việc sống chung với nhau?
+      <details class="lead"><summary>Gợi ý cho người hướng dẫn</summary><div>Lòng biết ơn xuất hiện ở cả ba câu. Người đang biết ơn khó ganh tị, khó cay đắng, khó giữ nợ người khác. Cô-lô-se nhắc đến lòng biết ơn rất nhiều lần (1:3, 12; 2:7; 3:15–17; 4:2).</div></details>
+    </li>
+  </ol>
+</section>
+
+<section id="thap-tu">
+  <p class="kicker">Chặng 2</p>
+  <h2>Soi qua thập tự giá: "như Chúa đã..."</h2>
+  <p>Đoạn này không phải danh sách đức tính để cố gắng cho đủ. Mỗi mệnh lệnh đều đứng trên một việc Chúa đã làm, và trung tâm của những việc đó là thập tự giá.</p>
+
+  <figure>
+    <div class="fig-sc">
+      <svg viewBox="0 0 640 300" role="img" aria-label="Năm điều Chúa đã làm qua thập tự giá dẫn đến năm điều chúng ta làm trong Cô-lô-se 3:12–17">
+        <text x="120" y="20" class="tm" font-size="12" font-weight="600" text-anchor="middle">ĐIỀU CHÚA ĐÃ LÀM</text>
+        <text x="520" y="20" class="tb" font-size="12" font-weight="600" text-anchor="middle">NÊN CHÚNG TA</text>
+        <g>
+          <rect x="10" y="32" width="220" height="42" rx="8" class="bx"/><text x="120" y="50" class="tx" font-size="13" text-anchor="middle">Chọn, làm thánh, yêu</text><text x="120" y="66" class="tm" font-size="11" text-anchor="middle">3:12a</text>
+          <rect x="410" y="32" width="220" height="42" rx="8" class="bb"/><text x="520" y="50" class="tb" font-size="13" text-anchor="middle">Mặc lấy năm đức tính</text><text x="520" y="66" class="tm" font-size="11" text-anchor="middle">3:12b</text>
+          <line x1="230" y1="53" x2="402" y2="53" class="ln"/><polygon points="409,53 400,48 400,58" class="hm"/>
+        </g>
+        <g>
+          <rect x="10" y="86" width="220" height="42" rx="8" class="bx"/><text x="120" y="104" class="tx" font-size="13" text-anchor="middle">Tha thứ, xóa tờ nợ</text><text x="120" y="120" class="tm" font-size="11" text-anchor="middle">2:13–14</text>
+          <rect x="410" y="86" width="220" height="42" rx="8" class="bb"/><text x="520" y="104" class="tb" font-size="13" text-anchor="middle">Tha thứ cho nhau</text><text x="520" y="120" class="tm" font-size="11" text-anchor="middle">3:13</text>
+          <line x1="230" y1="107" x2="402" y2="107" class="lb"/><polygon points="409,107 400,102 400,112" class="hb"/>
+        </g>
+        <g>
+          <rect x="10" y="140" width="220" height="42" rx="8" class="bx"/><text x="120" y="158" class="tx" font-size="13" text-anchor="middle">Hòa giải bằng huyết thập tự</text><text x="120" y="174" class="tm" font-size="11" text-anchor="middle">1:20</text>
+          <rect x="410" y="140" width="220" height="42" rx="8" class="bb"/><text x="520" y="158" class="tb" font-size="13" text-anchor="middle">Để bình an làm trọng tài</text><text x="520" y="174" class="tm" font-size="11" text-anchor="middle">3:15</text>
+          <line x1="230" y1="161" x2="402" y2="161" class="ln"/><polygon points="409,161 400,156 400,166" class="hm"/>
+        </g>
+        <g>
+          <rect x="10" y="194" width="220" height="42" rx="8" class="bx"/><text x="120" y="212" class="tx" font-size="13" text-anchor="middle">Ban lời của Đấng Christ</text><text x="120" y="228" class="tm" font-size="11" text-anchor="middle">1:5–6, 25–28</text>
+          <rect x="410" y="194" width="220" height="42" rx="8" class="bb"/><text x="520" y="212" class="tb" font-size="13" text-anchor="middle">Dạy, khuyên, hát cho nhau</text><text x="520" y="228" class="tm" font-size="11" text-anchor="middle">3:16</text>
+          <line x1="230" y1="215" x2="402" y2="215" class="ln"/><polygon points="409,215 400,210 400,220" class="hm"/>
+        </g>
+        <g>
+          <rect x="10" y="248" width="220" height="42" rx="8" class="bx"/><text x="120" y="266" class="tx" font-size="13" text-anchor="middle">Cho ta mang danh Ngài</text><text x="120" y="282" class="tm" font-size="11" text-anchor="middle">3:17; 2:12</text>
+          <rect x="410" y="248" width="220" height="42" rx="8" class="bb"/><text x="520" y="266" class="tb" font-size="13" text-anchor="middle">Mọi việc trong danh Ngài</text><text x="520" y="282" class="tm" font-size="11" text-anchor="middle">3:17</text>
+          <line x1="230" y1="269" x2="402" y2="269" class="ln"/><polygon points="409,269 400,264 400,274" class="hm"/>
+        </g>
+        <rect x="312" y="30" width="16" height="262" rx="2" class="cross"/>
+        <rect x="282" y="78" width="76" height="16" rx="2" class="cross"/>
+      </svg>
+    </div>
+    <figcaption>Mọi mũi tên đều đi qua thập tự giá. Mũi tên đậm là câu duy nhất Phao-lô nói rõ thước đo: "như Chúa đã tha thứ anh em thể nào".</figcaption>
+  </figure>
+
+  <h3>Tờ nợ bị đóng đinh</h3>
+  <ul>
+    <li>Cô-lô-se 2:13–14: Đức Chúa Trời đã tha thứ mọi tội chúng ta, xóa tờ ghi nợ chống lại chúng ta, và đóng đinh nó trên thập tự giá.</li>
+    <li>"Tha thứ" ở 3:13 (charizomai) cùng gốc với "ân điển" (charis): tha thứ là ban cho người khác điều họ không xứng đáng nhận.</li>
+    <li>Vì món nợ lớn của ta đã được xóa, ta có thể xóa những món nợ nhỏ hơn người khác nợ ta. Không có thập tự giá, câu 13 chỉ là một gánh nặng; có thập tự giá, nó là một sự tự do.</li>
+  </ul>
+
+  <h3>Năm chiếc áo là tấm lòng của chính Chúa Giê-xu</h3>
+  <p>Mỗi đức tính trong đoạn này, Chúa Giê-xu đã mặc trọn vẹn nhất trong những giờ cuối trên thập tự giá.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Chiếc áo</th><th>Chúa Giê-xu đã mặc</th></tr></thead>
+      <tbody>
+        <tr><td>Thương xót</td><td>Trên thập tự vẫn lo cho mẹ mình, giao bà cho môn đồ yêu dấu <span class="ref">(Giăng 19:26–27)</span></td></tr>
+        <tr><td>Nhân từ</td><td>Hứa với tên trộm đang hấp hối: "Hôm nay ngươi sẽ ở với Ta trong Ba-ra-đi" <span class="ref">(Lu-ca 23:43)</span></td></tr>
+        <tr><td>Khiêm nhường</td><td>Tự hạ mình xuống, vâng phục cho đến chết, thậm chí chết trên cây thập tự <span class="ref">(Phi-líp 2:8)</span></td></tr>
+        <tr><td>Mềm mại</td><td>Bị rủa mà không rủa lại, chịu khổ mà không hăm dọa <span class="ref">(1 Phi-e-rơ 2:23)</span></td></tr>
+        <tr><td>Nhịn nhục</td><td>Có thể gọi hơn mười hai đạo thiên sứ, nhưng chọn chịu đựng <span class="ref">(Ma-thi-ơ 26:53)</span></td></tr>
+        <tr><td>Tha thứ</td><td>"Lạy Cha, xin tha cho họ, vì họ không biết mình làm điều gì" <span class="ref">(Lu-ca 23:34)</span></td></tr>
+        <tr><td>Tình yêu</td><td>Khi chúng ta còn là kẻ có tội, Đấng Christ đã chết vì chúng ta <span class="ref">(Rô-ma 5:8)</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <p><b>Suy ngẫm:</b> tại thập tự giá, quân lính chia nhau áo của Chúa Giê-xu và bắt thăm áo dài của Ngài <span class="ref">(Giăng 19:23–24)</span>. Ngài bị lột áo để chúng ta được mặc. "Mọi người đã chịu phép báp-têm trong Đấng Christ đều đã mặc lấy Đấng Christ" <span class="ref">(Ga-la-ti 3:27)</span>. Đây là một suy ngẫm nối các câu Kinh Thánh, không phải điều Phao-lô trực tiếp nói trong Cô-lô-se 3.</p>
+  </div>
+
+  <h3>Câu hỏi cho chặng này</h3>
+  <ol class="qs">
+    <li>Đọc lại Cô-lô-se 2:13–14. Nếu Chúa có một "tờ ghi nợ" về bạn, trên đó sẽ có gì? Bạn cảm thấy thế nào khi biết nó đã bị đóng đinh?</li>
+    <li>Trong bảng trên, chiếc áo nào của Chúa Giê-xu làm bạn xúc động nhất? Vì sao?</li>
+    <li>Vì sao cố gắng "tốt hơn" bằng ý chí riêng (như luật lệ ở 2:21–23) không đủ để tha thứ một người đã làm mình đau?</li>
+  </ol>
+</section>
+
+<section id="ap-dung">
+  <p class="kicker">Chặng 3</p>
+  <h2>Sống ra: tủ áo của chị em trẻ hôm nay</h2>
+
+  <figure>
+    <div class="fig-sc">
+      <svg viewBox="0 0 640 210" role="img" aria-label="Ba lời 'hãy để' trong 3:15–17 đi từ trong lòng ra cộng đồng rồi ra mọi việc, mỗi lời đều kết thúc bằng lòng biết ơn">
+        <rect x="10" y="10" width="620" height="190" rx="14" class="bx"/>
+        <text x="30" y="34" class="tm" font-size="12" font-weight="600">MỌI VIỆC · c.17</text>
+        <rect x="40" y="46" width="560" height="140" rx="12" class="bx"/>
+        <text x="60" y="70" class="tm" font-size="12" font-weight="600">CỘNG ĐỒNG · c.16</text>
+        <rect x="70" y="82" width="500" height="90" rx="10" class="bb"/>
+        <text x="90" y="106" class="tb" font-size="12" font-weight="600">TRONG LÒNG · c.15</text>
+        <text x="90" y="130" class="tx" font-size="14" font-weight="600">Bình an của Đấng Christ làm trọng tài</text>
+        <text x="90" y="152" class="tm" font-size="12">khi lòng giằng co giữa hai lựa chọn</text>
+        <rect x="470" y="118" width="86" height="28" rx="14" class="bs"/><text x="513" y="137" class="ts" font-size="12" font-weight="600" text-anchor="middle">biết ơn</text>
+        <text x="200" y="70" class="tx" font-size="13">Lời Đấng Christ ở trong ta; dạy, khuyên, hát</text>
+        <rect x="490" y="54" width="76" height="24" rx="12" class="bs"/><text x="528" y="71" class="ts" font-size="12" font-weight="600" text-anchor="middle">biết ơn</text>
+        <text x="170" y="34" class="tx" font-size="13">Nói hay làm gì cũng trong danh Chúa Giê-xu</text>
+        <rect x="540" y="18" width="80" height="24" rx="12" class="bs"/><text x="580" y="35" class="ts" font-size="12" font-weight="600" text-anchor="middle">biết ơn</text>
+      </svg>
+    </div>
+    <figcaption>Ba lời "hãy để" lan từ trong lòng ra cộng đồng rồi ra mọi việc. Cả ba đều kết thúc bằng lòng biết ơn.</figcaption>
+  </figure>
+
+  <h3>Thẻ tình huống</h3>
+  <p class="muted">Chia cặp, mỗi cặp chọn một thẻ. Thảo luận 7 phút trước khi mở gợi ý: câu nào trong đoạn nói với tình huống này, và bước đầu tiên cụ thể là gì?</p>
+  <div class="cards">
+    <article class="card">
+      <span class="tag">Nhóm chat</span>
+      <p>Trong group chat của nhóm thanh niên, một bạn nhắc tên bạn kiểu châm chọc. Vài người thả "haha". Bạn thấy bị tổn thương và muốn đăng một story ám chỉ.</p>
+      <button type="button" aria-expanded="false">Xem gợi ý từ phân đoạn</button>
+      <div class="ans" hidden><ul><li><b>Mềm mại</b> (c.12): sức mạnh được kiềm chế. Không đăng story ám chỉ.</li><li><b>Nhường nhịn, tha thứ</b> (c.13): nếu cần, nói riêng và trực tiếp với bạn ấy, đừng nói qua người khác.</li><li><b>Bình an làm trọng tài</b> (c.15): trước khi bấm gửi, hỏi xem tin nhắn này có giữ được sự bình an của cả nhóm không.</li></ul></div>
+    </article>
+    <article class="card">
+      <span class="tag">Mạng xã hội</span>
+      <p>Lướt mạng thấy bạn cùng tuổi đi du học, có công việc tốt, có người yêu tin Chúa. Bạn thấy mình tụt lại và bắt đầu ganh tị.</p>
+      <button type="button" aria-expanded="false">Xem gợi ý từ phân đoạn</button>
+      <div class="ans" hidden><ul><li><b>Danh tính</b> (c.12): giá trị của bạn đã được định: được chọn, thánh, rất yêu dấu. Không phải do lượt thích.</li><li><b>Khiêm nhường thật</b>: không tự cao cũng không tự hạ mình, mà rảnh lòng để vui với người khác.</li><li><b>Biết ơn</b> (c.15–17): liệt kê ba điều Chúa đã cho bạn tuần này. Lòng biết ơn là thuốc giải ganh tị.</li></ul></div>
+    </article>
+    <article class="card">
+      <span class="tag">Ban phục vụ</span>
+      <p>Trong ban hát, hai chị em bất đồng về cách chọn bài và chia phần. Cả hai đều có lý, buổi tập căng thẳng, có người muốn nghỉ.</p>
+      <button type="button" aria-expanded="false">Xem gợi ý từ phân đoạn</button>
+      <div class="ans" hidden><ul><li><b>Một thân thể</b> (c.15): mục tiêu là sự bình an của cả ban, không phải ai thắng.</li><li><b>Tình yêu là dây liên kết</b> (c.14): tài năng không giữ được ban với nhau; tình yêu thì giữ được.</li><li><b>Hát với lòng biết ơn</b> (c.16): trước khi tập, cùng cầu nguyện và nhắc nhau mình hát cho ai.</li></ul></div>
+    </article>
+    <article class="card">
+      <span class="tag">Gia đình</span>
+      <p>Bố mẹ chưa tin Chúa, hay so sánh bạn với con nhà khác và không thích bạn dành tối thứ Bảy cho hội thánh.</p>
+      <button type="button" aria-expanded="false">Xem gợi ý từ phân đoạn</button>
+      <div class="ans" hidden><ul><li><b>Nhịn nhục</b> (c.12): kiên nhẫn dài hơi, không chỉ trong một buổi tối.</li><li><b>Nhân từ</b>: tốt bụng chủ động, như giúp việc nhà khi không ai nhờ.</li><li><b>Trong danh Chúa</b> (c.17): rửa bát, học bài, đi làm cũng là việc làm trong danh Ngài. Đời sống tin Chúa của bạn được thấy rõ nhất ở nhà.</li></ul></div>
+    </article>
+    <article class="card">
+      <span class="tag">Vết thương sâu</span>
+      <p>Một người từng làm bạn tổn thương nặng, có khi vẫn còn tiếp diễn. Bạn nghe dạy phải tha thứ nhưng thấy không thể, và sợ tha thứ nghĩa là phải chịu đựng tiếp.</p>
+      <button type="button" aria-expanded="false">Xem gợi ý từ phân đoạn</button>
+      <div class="ans" hidden><ul><li><b>Tha thứ</b> là giao món nợ cho Chúa, Đấng xét xử công bình. Không phải nói rằng điều đó không sai.</li><li>Tha thứ không có nghĩa là ở lại trong hoàn cảnh bị xúc phạm hay bạo hành. Hòa giải còn cần sự ăn năn thật từ phía người kia.</li><li>Tha thứ thường là một quá trình. Hãy tìm một người lãnh đạo hoặc người lớn đáng tin để đồng hành, và nếu đang gặp nguy hiểm, hãy tìm sự giúp đỡ ngay.</li></ul></div>
+    </article>
+    <article class="card">
+      <span class="tag">Quyết định lớn</span>
+      <p>Bạn phân vân giữa hai lời mời làm việc, hoặc một mối quan hệ. Ai cũng cho lời khuyên khác nhau, lòng bạn rối.</p>
+      <button type="button" aria-expanded="false">Xem gợi ý từ phân đoạn</button>
+      <div class="ans" hidden><ul><li><b>Bình an làm trọng tài</b> (c.15): chữ này vốn dùng cho trọng tài thể thao. Để bình an của Đấng Christ "thổi còi" khi lòng giằng co.</li><li><b>Lời của Đấng Christ</b> (c.16): đem quyết định đối chiếu với Lời Chúa, và hỏi ý kiến những người cùng đọc Lời với bạn.</li><li><b>Trong danh Ngài</b> (c.17): lựa chọn nào bạn có thể làm trong danh Chúa Giê-xu và với lòng biết ơn?</li></ul></div>
+    </article>
+  </div>
+
+  <div class="callout warn">
+    <p><b>Lưu ý cho người hướng dẫn:</b> thẻ "Vết thương sâu" có thể chạm vào chuyện thật của một chị em. Hãy để mọi người tự chọn có chia sẻ hay không, và hẹn nói chuyện riêng sau buổi học nếu cần.</p>
+  </div>
+
+  <h3>Tủ áo tuần này</h3>
+  <form class="wardrobe" id="wardrobe" autocomplete="off">
+    <fieldset class="garments">
+      <legend>Tuần này tôi xin Chúa giúp tôi mặc chiếc áo nào?</legend>
+      <label><input type="radio" name="g" id="g1" value="Thương xót"><span>Thương xót</span></label>
+      <label><input type="radio" name="g" id="g2" value="Nhân từ"><span>Nhân từ</span></label>
+      <label><input type="radio" name="g" id="g3" value="Khiêm nhường"><span>Khiêm nhường</span></label>
+      <label><input type="radio" name="g" id="g4" value="Mềm mại"><span>Mềm mại</span></label>
+      <label><input type="radio" name="g" id="g5" value="Nhịn nhục"><span>Nhịn nhục</span></label>
+      <label><input type="radio" name="g" id="g6" value="Tha thứ"><span>Tha thứ</span></label>
+      <label><input type="radio" name="g" id="g7" value="Biết ơn"><span>Biết ơn</span></label>
+    </fieldset>
+    <div class="field">
+      <label for="who">Với ai, ở đâu? (một người cụ thể, một nơi cụ thể)</label>
+      <textarea id="who" placeholder="Ví dụ: với em gái ở nhà, khi em mượn đồ không trả."></textarea>
+    </div>
+    <div class="field">
+      <label for="step">Một bước nhỏ tôi sẽ làm trước Chủ nhật</label>
+      <textarea id="step" placeholder="Ví dụ: nhắn tin xin lỗi chị M. vì đã nói nặng lời hôm trước."></textarea>
+    </div>
+    <p class="saved" id="saved">Chỉ lưu trên máy của bạn, không ai khác thấy được.</p>
+  </form>
+
+  <h3>Thuộc lòng câu 12–14</h3>
+  <div class="memo">
+    <p class="mv" id="mv"></p>
+    <div class="ctl">
+      <button type="button" class="btn" id="hideMore">Ẩn bớt chữ</button>
+      <button type="button" class="btn ghost" id="showAll">Hiện lại tất cả</button>
+      <span class="lv" id="lv">Mức 0 / 4</span>
+    </div>
+  </div>
+
+  <h3>Câu hỏi đem về</h3>
+  <ol class="qs">
+    <li>Có ai bạn đang giữ "tờ ghi nợ" trong lòng không? Bạn cần gì để có thể đóng đinh tờ nợ ấy như Chúa đã làm với bạn?</li>
+    <li>Nơi nào trong tuần (lớp học, công ty, nhà, mạng xã hội) bạn khó mặc những chiếc áo này nhất?</li>
+    <li>Bạn có thể dùng một bài hát, một câu Kinh Thánh để khuyên ai trong nhóm tuần này (c.16)?</li>
+  </ol>
+</section>
+
+<section id="cau-nguyen">
+  <p class="kicker">Kết thúc</p>
+  <h2>Hát và cầu nguyện</h2>
+  <ul>
+    <li>Cả nhóm chọn một bài thánh ca hay bài hát về ân điển và sự tha thứ để hát cùng nhau (c.16).</li>
+    <li>Mỗi người cầu nguyện cho người ngồi bên phải, dùng chiếc áo người ấy đã chọn.</li>
+  </ul>
+  <div class="prayer">
+    <p>Lạy Cha, cảm ơn Cha vì chúng con đã được Cha chọn, làm cho thánh và yêu thương, trước khi chúng con làm được điều gì.</p>
+    <p>Cảm ơn Chúa Giê-xu đã bị lột áo trên thập tự giá để chúng con được mặc lấy Ngài, và đã xóa tờ nợ của chúng con.</p>
+    <p>Xin giúp chúng con mặc lấy lòng thương xót, nhân từ, khiêm nhường, mềm mại, nhịn nhục; tha thứ như Chúa đã tha thứ; và để bình an của Ngài làm trọng tài trong lòng chúng con.</p>
+    <p>Bất cứ điều gì chúng con nói hay làm tuần này, xin cho được làm trong danh Chúa Giê-xu, với lòng biết ơn. A-men.</p>
+  </div>
+</section>
+
+<footer>
+  Phân đoạn trích từ bản Truyền Thống Hiệu Đính 2010 (VIE2010). Các câu tham chiếu khác được tóm lược ý, nên đối chiếu với bản Kinh Thánh của nhóm. Ghi chú nguyên ngữ dựa trên bản Hy Lạp; nhận xét về Cô-lô-se như công cụ nhận diện sự pha trộn tôn giáo lấy từ bài giảng Cô-lô-se trong loạt "Unlocking the Bible" của David Pawson.
+</footer>
+</main>
+
+<script>
+(function(){
+  var NOTES = {
+    chon: ['Được chọn, thánh, rất yêu dấu', 'eklektoi · hagioi · ēgapēmenoi', 'Trong Cựu Ước đây là những danh xưng của Israel (Phục Truyền 7:6–8). Phao-lô dùng chúng cho một hội thánh phần lớn là dân ngoại. "Yêu dấu" ở thì hoàn thành: đã được yêu và vẫn đang được yêu. Danh tính đi trước mệnh lệnh.'],
+    mac: ['Mặc lấy', 'endysasthe', 'Một hành động dứt khoát, như thay áo. Đối lại với "đã lột bỏ người cũ" và "đã mặc người mới" ở 3:9–10. Áo người khác nhìn thấy được: những đức tính này hiện ra trong cách ta đối xử với nhau.'],
+    thuongxot: ['Lòng thương xót', 'splanchna oiktirmou', 'Nghĩa đen là "ruột gan của lòng thương xót". Người xưa xem ruột gan là nơi của cảm xúc sâu. Đây là sự xúc động từ bên trong trước nỗi đau của người khác, như Chúa Giê-xu thương xót đám đông (Ma-thi-ơ 9:36).'],
+    nhantu: ['Nhân từ', 'chrēstotēs', 'Sự tốt bụng chủ động, làm điều tốt cho người khác. Rô-ma 2:4 nói chính sự nhân từ của Đức Chúa Trời dẫn ta đến ăn năn.'],
+    khiem: ['Khiêm nhường', 'tapeinophrosynē', 'Trong văn hóa Hy Lạp, chữ này thường mang nghĩa xấu: thấp hèn. Chúa Giê-xu biến nó thành đức tính (Phi-líp 2:8). Chính chữ này xuất hiện ở 2:18, 23 để chỉ sự khiêm nhường giả của các tà giáo sư.'],
+    mem: ['Mềm mại', 'prautēs', 'Sức mạnh được kiềm chế, không phải sự yếu đuối. Chúa Giê-xu nói: "Ta có lòng nhu mì, khiêm nhường" (Ma-thi-ơ 11:29).'],
+    nhin: ['Nhịn nhục', 'makrothymia', 'Nghĩa đen là "chậm nóng": kiên nhẫn lâu dài với con người, không chỉ chịu đựng hoàn cảnh.'],
+    nhuong: ['Nhường nhịn nhau', 'anechomenoi', 'Chịu đựng những điểm khó chịu của nhau. Phao-lô giả định trong hội thánh sẽ có người làm ta phiền lòng.'],
+    tha: ['Tha thứ nhau', 'charizomenoi', 'Cùng gốc với charis, "ân điển". Tha thứ là ban cho người khác điều họ không xứng đáng nhận. Chính động từ này được dùng ở 2:13: Ngài đã tha thứ mọi tội chúng ta.'],
+    nhuchua: ['Như Chúa đã tha thứ anh em', 'kathōs kai ho Kyrios', '"Như" vừa là thước đo vừa là động lực. Món nợ của ta đã được xóa và đóng đinh trên thập tự giá (2:14), nên ta có thể xóa nợ cho người khác.'],
+    yeu: ['Tình yêu, dây liên kết của sự toàn hảo', 'agapē · syndesmos tēs teleiotētos', 'Tình yêu buộc mọi đức tính lại thành một tổng thể trọn vẹn. Chữ "dây liên kết" cũng được dùng ở 2:19 để chỉ dây chằng giữ Thân Thể với Đầu là Đấng Christ.'],
+    ngutri: ['Ngự trị', 'brabeuetō', 'Nghĩa gốc là làm trọng tài, phân xử trong các cuộc thi đấu. Hãy để bình an của Đấng Christ "thổi còi" khi lòng giằng co. Ở 2:18, Phao-lô dùng một chữ cùng gốc: đừng để ai xử thua anh em.'],
+    motthan: ['Một thân thể', 'en heni sōmati', 'Bình an không chỉ là cảm giác riêng tư, mà là sự hòa thuận của cả cộng đồng. Đấng Christ là Đầu của Thân Thể, tức là Hội Thánh (1:18).'],
+    bieton: ['Lòng biết ơn', 'eucharistoi', 'Lòng biết ơn xuất hiện ở cả ba câu 15, 16, 17, và rải khắp thư Cô-lô-se (1:3, 12; 2:7; 4:2). Người đang biết ơn khó giữ cay đắng.'],
+    loi: ['Lời của Đấng Christ sống sung mãn', 'ho logos tou Christou enoikeitō', 'Cụm từ "lời của Đấng Christ" chỉ có ở đây trong Tân Ước. "Sống" có nghĩa là cư ngụ như ở nhà mình: Lời Chúa không phải khách lạ thỉnh thoảng ghé qua.'],
+    hat: ['Thi thiên, thánh ca, linh khúc', 'psalmois · hymnois · ōdais pneumatikais', 'Hát vừa là thờ phượng Chúa vừa là cách dạy và khuyên nhau. Ê-phê-sô 5:18–20 nối việc hát này với sự đầy dẫy Thánh Linh.'],
+    danh: ['Trong danh Chúa Giê-xu', 'en onomati Kyriou Iēsou', 'Làm như người đại diện của Ngài, theo ý Ngài, và mang danh tiếng của Ngài. Không có việc nào quá nhỏ hay quá "đời thường" để làm trong danh Ngài.']
+  };
+  var note = document.getElementById('note'), keys = [].slice.call(document.querySelectorAll('.verse .k'));
+  function show(k){
+    var n = NOTES[k]; if (!n) return;
+    note.innerHTML = '<p class="nt"></p><p class="gk"></p><p class="bd"></p>';
+    note.querySelector('.nt').textContent = n[0];
+    note.querySelector('.gk').textContent = n[1];
+    note.querySelector('.bd').textContent = n[2];
+    keys.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.k === k ? 'true' : 'false'); });
+  }
+  keys.forEach(function(b){ b.addEventListener('click', function(){ show(b.dataset.k); }); });
+  show('mac');
+
+  document.querySelectorAll('.card button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var a = b.nextElementSibling, open = a.hidden;
+      a.hidden = !open; b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      b.textContent = open ? 'Ẩn gợi ý' : 'Xem gợi ý từ phân đoạn';
+    });
+  });
+
+  // tủ áo tuần này: chỉ lưu trên máy người xem
+  var KEY = 'col3-tu-ao';
+  var form = document.getElementById('wardrobe'), saved = document.getElementById('saved');
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ return {}; } }
+  var st = load();
+  if (st.g) { var r = form.querySelector('input[value="' + st.g + '"]'); if (r) r.checked = true; }
+  if (st.who) document.getElementById('who').value = st.who;
+  if (st.step) document.getElementById('step').value = st.step;
+  var t;
+  form.addEventListener('input', function(){
+    clearTimeout(t);
+    t = setTimeout(function(){
+      var g = form.querySelector('input[name="g"]:checked');
+      try {
+        localStorage.setItem(KEY, JSON.stringify({ g: g ? g.value : '', who: document.getElementById('who').value, step: document.getElementById('step').value }));
+        saved.textContent = 'Đã lưu trên máy của bạn. Không ai khác thấy được.';
+      } catch(e) { saved.textContent = 'Trình duyệt này không lưu được. Hãy chép lại vào sổ tay.'; }
+    }, 400);
+  });
+  form.addEventListener('submit', function(e){ e.preventDefault(); });
+
+  // thuộc lòng
+  var MV = 'Anh em là những người được tuyển chọn của Đức Chúa Trời, là người thánh và rất yêu dấu. Vậy, hãy mặc lấy lòng thương xót, nhân từ, khiêm nhường, mềm mại, nhịn nhục. Nếu một người trong anh em có điều gì phàn nàn với người khác thì hãy nhường nhịn nhau và tha thứ nhau; như Chúa đã tha thứ anh em thể nào thì anh em cũng phải tha thứ thể ấy. Nhưng trên hết những điều nầy, phải mặc lấy tình yêu thương, vì là dây liên kết của sự toàn hảo. (Cô-lô-se 3:12–14)';
+  var mv = document.getElementById('mv'), lv = document.getElementById('lv'), level = 0;
+  var words = MV.split(' ');
+  mv.innerHTML = words.map(function(w, i){ return '<span class="w" data-i="' + i + '"></span>'; }).join(' ');
+  var spans = [].slice.call(mv.querySelectorAll('.w'));
+  spans.forEach(function(s, i){ s.textContent = words[i]; });
+  var ORDER = [[4, 1], [4, 3], [4, 0], [4, 2]]; // mỗi mức ẩn thêm 1/4 số chữ, mức 4 ẩn tất cả
+  function render(){
+    spans.forEach(function(s, i){
+      var hide = false;
+      for (var k = 0; k < level; k++) { if (i % ORDER[k][0] === ORDER[k][1]) hide = true; }
+      if (i === words.length - 1 || i === words.length - 2) hide = false;
+      s.classList.toggle('hide', hide);
+    });
+    lv.textContent = 'Mức ' + level + ' / 4';
+    document.getElementById('hideMore').disabled = level >= 4;
+  }
+  document.getElementById('hideMore').addEventListener('click', function(){ if (level < 4) { level++; render(); } });
+  document.getElementById('showAll').addEventListener('click', function(){ level = 0; render(); });
+  mv.addEventListener('click', function(e){ if (e.target.classList.contains('w')) e.target.classList.toggle('hide'); });
+  render();
+
+  // đánh dấu chặng đang đọc
+  var links = [].slice.call(document.querySelectorAll('#stepnav a'));
+  var secs = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  function spy(){
+    var y = window.scrollY + 120, cur = 0;
+    secs.forEach(function(s, i){ if (s && s.offsetTop <= y) cur = i; });
+    links.forEach(function(a, i){ a.classList.toggle('on', i === cur); });
+  }
+  window.addEventListener('scroll', spy, { passive: true }); spy();
+})();
+</script>
